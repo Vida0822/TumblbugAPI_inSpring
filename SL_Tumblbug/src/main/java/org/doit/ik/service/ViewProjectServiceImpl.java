@@ -29,7 +29,8 @@ public class ViewProjectServiceImpl implements ViewProjectService {
 	// 프로젝트 기본정보 
 	@Override
 	public ViewInfo getViewInfo(Project project) {
-		// TODO Auto-generated method stub
+		
+		
 		return null;
 	}
 
