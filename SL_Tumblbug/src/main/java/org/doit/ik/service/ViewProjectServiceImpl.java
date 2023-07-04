@@ -23,7 +23,7 @@ public class ViewProjectServiceImpl implements ViewProjectService {
 	@Override
 	public Project getProject(String pro_cd) {
 		log.info("> ViewProjectServiceImpl.getProject()...");
-		return this.projectMapper.getProject() ;
+		return this.projectMapper.getProject(pro_cd) ;
 	} // getProject
 
 	// 프로젝트 기본정보 

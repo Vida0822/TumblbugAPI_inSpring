@@ -40,9 +40,9 @@ public class ProjectController {
 		Project project = viewProjectService.getProject(pro_cd) ; 	
 		
 		// 2. viewInfo, ... 등등 얻어와서 model에 붙이기 
-		model.addAttribute("viewInfo",this.viewProjectService.getViewInfo(project)) ;
-  
-	
+		// model.addAttribute("viewInfo",viewProjectService.getViewInfo(project)) ;
+		// this: ProjectController.view() 
+		
 	
 	} // view
 	
