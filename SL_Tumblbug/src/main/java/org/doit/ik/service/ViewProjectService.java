@@ -3,10 +3,7 @@ package org.doit.ik.service;
 import java.util.ArrayList;
 
 import org.doit.ik.domain.File;
-import org.doit.ik.domain.Gift;
-import org.doit.ik.domain.GiftCard;
 import org.doit.ik.domain.Project;
-import org.doit.ik.domain.ViewCreator;
 import org.doit.ik.domain.ViewInfo;
 import org.doit.ik.domain.ViewPlan;
 
@@ -22,13 +19,7 @@ public interface ViewProjectService {
 	ArrayList<File> getImageFiles(Project project);
 
 	// 프로젝트 계획
-	ViewPlan getViewPlan(Project project);
-
-	// 창작자
-	ViewCreator getViewCreator(Project project);
-
-	// 선물 목록 
-	ArrayList<GiftCard> getGiftCard(Project project); 
+	ViewPlan getViewPlan(Project project); 
 	
 	
 } // ViewProjectService

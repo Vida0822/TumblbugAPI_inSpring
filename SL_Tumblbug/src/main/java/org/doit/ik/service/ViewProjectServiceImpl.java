@@ -2,18 +2,12 @@ package org.doit.ik.service;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 
 import org.doit.ik.domain.DetailCategory;
 import org.doit.ik.domain.File;
-import org.doit.ik.domain.Gift;
-import org.doit.ik.domain.GiftCard;
-import org.doit.ik.domain.ItemSet;
-import org.doit.ik.domain.Member;
 import org.doit.ik.domain.Plan;
 import org.doit.ik.domain.Policy;
 import org.doit.ik.domain.Project;
-import org.doit.ik.domain.ViewCreator;
 import org.doit.ik.domain.ViewInfo;
 import org.doit.ik.domain.ViewPlan;
 import org.doit.ik.mapper.MemberMapper;
@@ -114,76 +108,7 @@ public class ViewProjectServiceImpl implements ViewProjectService {
 	
 		return new ViewPlan(projectPlan,policy) ; 
 		
-	}
-
-	@Override
-	public ViewCreator getViewCreator(Project project) {
-		
-		log.info(">ViewProjectServiceImpl.getViewCreator()...");
-		
-		// 회원이름 (위한 멤버객체) 
-		Member member = projectMapper.getMember( project.getM_cd()) ; 
-		
-		// 회원사진 
-		File creatorPhoto = projectMapper.getCreatorPhoto( project.getM_cd()); 
-		
-		// 마지막 로그인 시간 
-		int lastSession = 3; 
-		
-		// 창작자 소개 
-		String pro_ct_intro = project.getPro_ct_intro(); 
-
-		return new ViewCreator(member, creatorPhoto, lastSession, pro_ct_intro); 
-	
-	}
-
-	@Override
-	public ArrayList<GiftCard> getGiftCard(Project project) {
-		
-		ArrayList<Gift> giftList = ProjectMapper.selectGiftList(project);
-		
-		ArrayList<GiftCard> giftCards = new ArrayList<GiftCard>() ;  // 결과값 List 
-		Iterator<Gift> ir = giftList.iterator(); 
-		
-		while(ir.hasNext()) {
-			
-			Gift gift = ir.next(); 
-			int buyAmount =0 ; 
-			int leftAmount =0; 
-			int gift_min =0 ;
-			String gift_desc = null ; 
-			ArrayList<ItemSet> items  = null; 
-			
-			try {
-			// 선물별 후원자수 
-			int buyAmount = payDAO.countByGiftCd(conn, gift.getGift_cd()) ; 
-			
-			// 남는 선물개수 
-			int leftAmount = gift.getGift_amount() - buyAmount ; 
-			
-			// 선물가격 
-			int gift_min = gift.getGift_min(); 
-			
-			// 선물 설명 
-			String gift_desc = gift.getGift_desc(); 
-			
-			// 아이템 목록 : 아이템 설정 테이블에서 '선물코드'로 조회 
-			ArrayList<ItemSet> items = itemSetDAO.selectByGiftCd(conn, gift.getGift_cd()); 
-			
-			}catch (Exception e) {
-				System.out.println("getGiftCard() 쿼리작업 진행 중 오류발생  ");
-			}
-			
-			try {
-			GiftCard giftCard = new GiftCard (gift,buyAmount,leftAmount,gift_min, gift_desc , items) ; 
-			giftCards.add(giftCard) ; 
-			}catch (Exception e) {
-				System.out.println("giftCard 객체가 만들어지지 않음");
-			}
-		} // while			
-		return giftCards ; 
-				
-	} // getGiftCard
+	} // getViewInfo
 	
 	
 

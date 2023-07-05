@@ -57,20 +57,4 @@
 		]]>
 	</select>
 	
-	<select id="getMember" resultType="org.doit.ik.domain.Member">
-		<![CDATA[
-			SELECT * 
-			FROM MEMBER 
-			WHERE m_cd = #{m_cd} 
-		]]>
-	</select>
-	
-	<select id="getCreatorPhoto" resultType="org.doit.ik.domain.File">
-		<![CDATA[
-			SELECT * 
-			FROM ATT_FILE 
-			WHERE m_cd = #{m_cd} 
-		]]>
-	</select>
-	
 </mapper>
