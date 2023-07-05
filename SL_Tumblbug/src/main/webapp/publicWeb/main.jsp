@@ -5365,7 +5365,7 @@ data-styled.g2825[id="ScrollTop__ScrollTopBtn-j9uqn7-2"] {
 							</div>
 						</div>
 						<!-- 주목할 만한 프로젝트 -->
-						<a href="/tumblbug/view.do?pro_cd=pro1">/tumblbug/view.do?pro_cd=pro1</a>
+						<a href="/tumblbug/view.do?pro_cd=PRO1">/tumblbug/view.do?pro_cd=pro1</a>
 						<div
 							class="FrontProjectsSection__Wrapper-sc-1na1z58-1 kLmlvM tbb FrontPage__SpotlightContainer-sc-1ev69zc-10 goYsGO">
 							<div class="FrontProjectsSection__ListTitle-sc-1na1z58-4 gRQZNs">주목할 만한 프로젝트</div>
