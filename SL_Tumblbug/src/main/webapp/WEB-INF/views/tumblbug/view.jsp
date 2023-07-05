@@ -2743,9 +2743,14 @@ $(".dtkXPY").on("click",function() {
 											<path fill-rule="evenodd" clip-rule="evenodd"	d="M13.9071 46C13.4118 46 12.9164 45.8001 12.6192 45.4003C11.9257 44.7007 11.9257 43.5014 12.6192 42.7019L30.8493 24.0125L12.5201 5.22317C11.8266 4.52357 11.8266 3.32425 12.5201 2.5247C13.2136 1.8251 14.3034 1.8251 15.096 2.5247L36 24.0125L15.195 45.4003C14.7988 45.8001 14.3034 46 13.9071 46Z"></path></svg>
 									</div>
 								</div>
-								<script>
-								var size = ${imageFiles}.size()
-								showSlides(0);
+								
+								<script>	
+								var size = <%= ( (ArrayList)request.getAttribute("imageFiles") ).size()%>
+								console.log(size); // 2 
+								
+								var slideIndex = 0 ; 
+								showSlides(slideIndex);
+								
 								function showSlides(slideIndex) { 
 									// 모두 초기화 하는 함수 
 									$(".swiper-wrapper .swiper-slide").css("display", "none");
@@ -2762,14 +2767,17 @@ $(".dtkXPY").on("click",function() {
 								} // showSlides
 								
 								// <> 
-								function changeSlide(value) { // prev를 누르면 -1이, next를 누르면 1이 넘어감 
-									slideIndex += value; 
-									var size = <%= ((ArrayList)request.getAttribute("imageFiles")).size()%>
-									if(slideIndex == size+1) slideIndex=0;
-									else if(slideIndex == -1) slideIndex=2;
-									
-									showSlides(slideIndex);
-								}
+								 function changeSlide(value) {
+								        slideIndex += value;
+
+								        if (slideIndex >= size) {
+								            slideIndex = 0;
+								        } else if (slideIndex < 0) {
+								            slideIndex = size - 1;
+								        }
+
+								        showSlides(slideIndex);
+								    }
 									
 								// ooo 
 								function dotSlide(value) {
@@ -2777,6 +2785,7 @@ $(".dtkXPY").on("click",function() {
 									showSlides(slideIndex);
 								}
 								
+							
 								</script>
 								
 							</div>
@@ -3105,29 +3114,27 @@ $(".dtkXPY").on("click",function() {
 									
 									      // 현재 엑티브 클래스를 가진 요소에 엑티브 클래스를 추가합니다.
 									      link.classList.add("isActive");
-									
-									      var linkText = link.textContent.trim(); // 클릭된 링크의 텍스트를 가져와 공백을 제거한 후 사용합니다.
-									      var targetDivId ; 
-										  	if (linkText === "소개") {
-										  		targetDivId = "purpose" ;
-											} else if (linkText === "예산") {
-												targetDivId = "budget";
-											} else if (linkText=== "일정") {
-												targetDivId = "schedule";
-											} else if (linkText=== "팀 소개") {
-												targetDivId = "introduction";
-											} else if (linkText=== "선물 설명") {
-												targetDivId = "rewardsDescription";
-											} else if (linkText=== "신뢰와 안전") {
-												targetDivId = "refundExchangePolicy";
-											} // if 
-									      
-									      var targetDiv = document.getElementById(targetDivId);
-									      // 스크롤 이동
-									      if (targetDiv) {
-									    	  var targetDivOffset = targetDiv.offsetTop;
-									          window.scrollTo({ top: targetDivOffset, behavior: "instant" });
+									      var linkText = link.textContent.trim();
+									      var targetDivId;
+									      if (linkText === "소개") {
+									        targetDivId = "purpose";
+									      } else if (linkText === "예산") {
+									        targetDivId = "budget";
+									      } else if (linkText === "일정") {
+									        targetDivId = "schedule";
+									      } else if (linkText === "팀 소개") {
+									        targetDivId = "introduction";
+									      } else if (linkText === "선물 설명") {
+									        targetDivId = "rewardsDescription";
+									      } else if (linkText === "신뢰와 안전") {
+									        targetDivId = "refundExchangePolicy";
 									      }
+
+									      var targetDiv = document.getElementById(targetDivId);
+									      if (targetDiv) {
+									        targetDiv.scrollIntoView({ behavior: "instant", block: "start" });
+									      }
+
 									    });
 									  });
 									});
@@ -3137,7 +3144,7 @@ $(".dtkXPY").on("click",function() {
 										<div id="purpose" class="style__StorySection-qkz7cf-7 eRgkPx">
 											<div class="style__StorySectionTitle-qkz7cf-6 indCjw">프로젝트 소개</div>
 												${viewPlan.projectPlan.pp_intro}
-											</div>
+										</div>
 										<div id="budget" class="style__StorySection-qkz7cf-7 eRgkPx">
 											<div class="style__StorySectionTitle-qkz7cf-6 indCjw">프로젝트 예산</div>
 												${viewPlan.projectPlan.pp_budget}
