@@ -4,23 +4,33 @@ import java.util.ArrayList;
 
 import org.doit.ik.domain.DetailCategory;
 import org.doit.ik.domain.File;
+import org.doit.ik.domain.Member;
 import org.doit.ik.domain.Plan;
 import org.doit.ik.domain.Policy;
 import org.doit.ik.domain.Project;
 
 public interface ProjectMapper {
 
-	// 프로젝트 얻어오기 
+	// view.do
 	Project getProject(String pro_cd);
 
+	//  view.do (viewInfo 객체)
 	DetailCategory getDetailCategory(String pro_cd);
 
+	//  view.do (이미지파일)
 	ArrayList<File> getImageFiles(String pro_cd);
 
 	int getPaySum(String pro_cd);
 
+	//  view.do (viewPlan 객체)
 	Plan getProjectPlan(String pro_cd);
 
 	Policy getPolicy(String pro_cd);
+
+	//  view.do (viewCreator 객체 
+	Member getMember(String m_cd);
+
+	File getCreatorPhoto(String m_cd);
+	
 
 } 

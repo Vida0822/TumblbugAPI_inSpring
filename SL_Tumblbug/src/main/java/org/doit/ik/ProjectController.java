@@ -3,7 +3,9 @@ package org.doit.ik;
 import java.util.ArrayList;
 
 import org.doit.ik.domain.File;
+import org.doit.ik.domain.Gift;
 import org.doit.ik.domain.Project;
+import org.doit.ik.mapper.ProjectMapper;
 import org.doit.ik.service.ViewProjectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,14 +42,21 @@ public class ProjectController {
 		// 1. 프로젝트 얻어와서 
 		Project project = viewProjectService.getProject(pro_cd) ; 	
 		
-		// 2. 대표이미지 
+		// 2. imageFiles -  ArrayList<File>
 		model.addAttribute("imageFiles",viewProjectService.getImageFiles(project)) ;
 		
 		// 3. viewInfo
 		model.addAttribute("viewInfo",viewProjectService.getViewInfo(project)) ;
 
+		// 4. viewCreator
+		model.addAttribute("viewCreator",viewProjectService.getViewCreator(project)) ;
+
 		// 5. viewPlan 
 		model.addAttribute("viewPlan",viewProjectService.getViewPlan(project)) ;
+		
+		// 6. giftCards - ArrayList<GiftCard>
+		ArrayList<Gift> giftList = ProjectMapper.selectGiftList(project); // 한 프로젝트에 대한 선물 목록을 뽑아와서 
+		model.addAttribute("giftCards",viewProjectService.getGiftCard(project)) ; // 해당 선물리스트를 필요한 정보를 뽑은 선물 카드 리스트로 반환
 		
 		
 	
