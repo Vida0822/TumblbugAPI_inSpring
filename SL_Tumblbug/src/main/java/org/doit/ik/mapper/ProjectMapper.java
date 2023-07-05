@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import org.doit.ik.domain.DetailCategory;
 import org.doit.ik.domain.File;
+import org.doit.ik.domain.Gift;
+import org.doit.ik.domain.GiftCard;
+import org.doit.ik.domain.ItemSet;
 import org.doit.ik.domain.Member;
 import org.doit.ik.domain.Plan;
 import org.doit.ik.domain.Policy;
@@ -27,10 +30,17 @@ public interface ProjectMapper {
 
 	Policy getPolicy(String pro_cd);
 
-	//  view.do (viewCreator 객체 
+	//  view.do (viewCreator 객체 ) 
 	Member getMember(String m_cd);
 
 	File getCreatorPhoto(String m_cd);
+
+	// view.do (ArrayList<GiftCard> ) 
+	ArrayList<Gift> selectGiftList(Project project);
+
+	int getBuyAmount(String gift_cd);
+
+	ArrayList<ItemSet> getItems(String gift_cd);
 	
 
 } 

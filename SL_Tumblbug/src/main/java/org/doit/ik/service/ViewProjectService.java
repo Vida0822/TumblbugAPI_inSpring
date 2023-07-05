@@ -28,7 +28,7 @@ public interface ViewProjectService {
 	ViewCreator getViewCreator(Project project);
 
 	// 선물 목록 
-	// ArrayList<GiftCard> getGiftCard(Project project); 
+	ArrayList<GiftCard> getGiftCard(Project project); 
 	
 	
 } // ViewProjectService

@@ -55,7 +55,7 @@ public class ProjectController {
 		model.addAttribute("viewPlan",viewProjectService.getViewPlan(project)) ;
 		
 		// 6. giftCards - ArrayList<GiftCard>
-		// model.addAttribute("giftCards",viewProjectService.getGiftCard(project)) ; // 해당 선물리스트를 필요한 정보를 뽑은 선물 카드 리스트로 반환
+		model.addAttribute("giftCards",viewProjectService.getGiftCard(project)) ; // 해당 선물리스트를 필요한 정보를 뽑은 선물 카드 리스트로 반환
 		
 		
 	

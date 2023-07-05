@@ -35,7 +35,7 @@
 	<!-- 달성금액 가져오기 -->
 	<select id="getPaySum" resultType="Integer">
 		<![CDATA[
-			SELECT SUM(sp_total) sum  
+			SELECT NVL(SUM(sp_total),0)
 			FROM SP_PAY 
 			WHERE pro_cd = #{pro_cd}
 		]]>
@@ -62,7 +62,7 @@
 		<![CDATA[
 			SELECT * 
 			FROM MEMBER 
-			WHERE m_cd = #{m_cd} 
+			WHERE m_cd = #{m_cd}
 		]]>
 	</select>
 	
@@ -72,6 +72,31 @@
 			SELECT * 
 			FROM ATT_FILE 
 			WHERE m_cd = #{m_cd} 
+		]]>
+	</select>
+	
+	<select id="selectGiftList" resultType="org.doit.ik.domain.Gift">
+		<![CDATA[
+			SELECT * 
+			FROM GIFT 
+			WHERE pro_cd = #{pro_cd}
+		]]>
+	</select>
+	
+	<select id="getBuyAmount" resultType="Integer">
+		<![CDATA[
+			SELECT NVL(Count(*),0)
+			FROM SP_PAY 
+			WHERE gift_cd = #{gift_cd} 
+		]]>
+	</select>
+	
+	<select id="getItems" resultType="org.doit.ik.domain.ItemSet">
+		<![CDATA[
+			SELECT item_set_cd, item_cnt, gift_cd, s.item_cd, item_name 
+			FROM item_set s 
+			LEFT JOIN item i ON s.item_cd = i.item_cd 
+			WHERE gift_cd = #{gift_cd} 
 		]]>
 	</select>
 	

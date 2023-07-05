@@ -136,27 +136,19 @@ public class ViewProjectServiceImpl implements ViewProjectService {
 		return new ViewCreator(member, creatorPhoto, lastSession, pro_ct_intro); 
 	
 	}
-/*
 	@Override
 	public ArrayList<GiftCard> getGiftCard(Project project) {
 		
-		ArrayList<Gift> giftList = ProjectMapper.selectGiftList(project);
+		ArrayList<Gift> giftList = projectMapper.selectGiftList(project);
 		
 		ArrayList<GiftCard> giftCards = new ArrayList<GiftCard>() ;  // 결과값 List 
-		Iterator<Gift> ir = giftList.iterator(); 
 		
+		Iterator<Gift> ir = giftList.iterator(); 
 		while(ir.hasNext()) {
 			
 			Gift gift = ir.next(); 
-			int buyAmount =0 ; 
-			int leftAmount =0; 
-			int gift_min =0 ;
-			String gift_desc = null ; 
-			ArrayList<ItemSet> items  = null; 
-			
-			try {
 			// 선물별 후원자수 
-			int buyAmount = payDAO.countByGiftCd(conn, gift.getGift_cd()) ; 
+			int buyAmount = projectMapper.getBuyAmount(gift.getGift_cd()) ; 
 			
 			// 남는 선물개수 
 			int leftAmount = gift.getGift_amount() - buyAmount ; 
@@ -168,23 +160,14 @@ public class ViewProjectServiceImpl implements ViewProjectService {
 			String gift_desc = gift.getGift_desc(); 
 			
 			// 아이템 목록 : 아이템 설정 테이블에서 '선물코드'로 조회 
-			ArrayList<ItemSet> items = itemSetDAO.selectByGiftCd(conn, gift.getGift_cd()); 
-			
-			}catch (Exception e) {
-				System.out.println("getGiftCard() 쿼리작업 진행 중 오류발생  ");
-			}
-			
-			try {
+			ArrayList<ItemSet> items = projectMapper.getItems(gift.getGift_cd()); 
+				
 			GiftCard giftCard = new GiftCard (gift,buyAmount,leftAmount,gift_min, gift_desc , items) ; 
 			giftCards.add(giftCard) ; 
-			}catch (Exception e) {
-				System.out.println("giftCard 객체가 만들어지지 않음");
-			}
-		} // while			
-		return giftCards ; 
-				
+		} // while		
+		
+		return giftCards ; 			
 	} // getGiftCard
 	
-	*/ 
 
 } // ViewProjectServiceImpl
