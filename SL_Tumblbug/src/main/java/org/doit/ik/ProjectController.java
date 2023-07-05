@@ -42,9 +42,12 @@ public class ProjectController {
 		
 		// 2. 대표이미지 
 		model.addAttribute("imageFiles",viewProjectService.getImageFiles(project)) ;
-		// 3. viewInfo, ... 등등 얻어와서 model에 붙이기 
+		
+		// 3. viewInfo
 		model.addAttribute("viewInfo",viewProjectService.getViewInfo(project)) ;
-		// this: ProjectController.view() 
+
+		// 5. viewPlan 
+		model.addAttribute("viewPlan",viewProjectService.getViewPlan(project)) ;
 		
 		
 	

@@ -1,13 +1,15 @@
 package org.doit.ik.service;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
 import org.doit.ik.domain.DetailCategory;
 import org.doit.ik.domain.File;
+import org.doit.ik.domain.Plan;
+import org.doit.ik.domain.Policy;
 import org.doit.ik.domain.Project;
 import org.doit.ik.domain.ViewInfo;
+import org.doit.ik.domain.ViewPlan;
 import org.doit.ik.mapper.MemberMapper;
 import org.doit.ik.mapper.ProjectMapper;
 import org.springframework.stereotype.Service;
@@ -75,7 +77,7 @@ public class ViewProjectServiceImpl implements ViewProjectService {
 		// System.out.println(pay_date.toString());
 		
 		
-			viewInfo = new ViewInfo(
+		return new ViewInfo(
 						detailCategory
 						, pro_long
 						, imageFiles
@@ -86,9 +88,7 @@ public class ViewProjectServiceImpl implements ViewProjectService {
 						, pro_price
 						, pro_start
 						, pro_end
-						, pay_date);
-		
-	return viewInfo ; 
+						, pay_date);		
 	}
 
 
@@ -96,6 +96,18 @@ public class ViewProjectServiceImpl implements ViewProjectService {
 	public ArrayList<File> getImageFiles(Project project) {
 		log.info("> ViewProjectServiceImpl.getImageFiles()...");
 		return  projectMapper.getImageFiles( project.getPro_cd()); 
+	}
+
+	@Override
+	public ViewPlan getViewPlan(Project project) {
+		
+		log.info("> ViewProjectServiceImpl.getViewPlan()...");
+		
+		Plan projectPlan = projectMapper.getProjectPlan(project.getPro_cd()); 
+		Policy policy = projectMapper.getPolicy( project.getPro_cd()); 
+	
+		return new ViewPlan(projectPlan,policy) ; 
+		
 	} // getViewInfo
 	
 	

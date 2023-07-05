@@ -32,6 +32,7 @@
 		]]>
 	</select>
 
+	<!-- 달성금액 가져오기 -->
 	<select id="getPaySum" resultType="Integer">
 		<![CDATA[
 			SELECT SUM(sp_total) sum  
@@ -39,6 +40,21 @@
 			WHERE pro_cd = #{pro_cd}
 		]]>
 	</select>
-		
+	
+	<select id="getProjectPlan" resultType="org.doit.ik.domain.Plan">
+		<![CDATA[
+			SELECT * 
+			FROM PROJECT_PLAN 
+			WHERE pro_cd = #{pro_cd} 
+		]]>
+	</select>
+	
+	<select id="getPolicy" resultType="org.doit.ik.domain.Policy">
+		<![CDATA[
+			SELECT * 
+			FROM TAS 
+			WHERE pro_cd = #{pro_cd}
+		]]>
+	</select>
 	
 </mapper>

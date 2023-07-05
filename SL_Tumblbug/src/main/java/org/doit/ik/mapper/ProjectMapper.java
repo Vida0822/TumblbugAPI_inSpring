@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.doit.ik.domain.DetailCategory;
 import org.doit.ik.domain.File;
+import org.doit.ik.domain.Plan;
+import org.doit.ik.domain.Policy;
 import org.doit.ik.domain.Project;
 
 public interface ProjectMapper {
@@ -16,5 +18,9 @@ public interface ProjectMapper {
 	ArrayList<File> getImageFiles(String pro_cd);
 
 	int getPaySum(String pro_cd);
+
+	Plan getProjectPlan(String pro_cd);
+
+	Policy getPolicy(String pro_cd);
 
 } 

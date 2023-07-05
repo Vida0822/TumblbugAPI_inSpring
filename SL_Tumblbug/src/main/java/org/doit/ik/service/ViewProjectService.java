@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.doit.ik.domain.File;
 import org.doit.ik.domain.Project;
 import org.doit.ik.domain.ViewInfo;
+import org.doit.ik.domain.ViewPlan;
 
 public interface ViewProjectService {
 	
@@ -15,7 +16,10 @@ public interface ViewProjectService {
 	ViewInfo getViewInfo(Project project);
 
 	// 프로젝트 대표이미지 
-	ArrayList<File> getImageFiles(Project project); 
+	ArrayList<File> getImageFiles(Project project);
+
+	// 프로젝트 계획
+	ViewPlan getViewPlan(Project project); 
 	
 	
 } // ViewProjectService

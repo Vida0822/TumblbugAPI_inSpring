@@ -226,5 +226,156 @@
 						</div>
 						
 
+
+<!-- 프로젝트 계획 -->
+<div class="style__MainColumnInner-ky14bp-12 jBRpgz">
+							<div class="style__StoryWrap-qkz7cf-0 dSnRrn">
+								<div class="style__SectionTabsWrap-qkz7cf-4 gTuCaB">
+								
+									<ul class="style__SectionTabs-qkz7cf-5 cgJIkg fixed">
+										<li><a class="isActive">소개</a></li>
+										<li><a class="">예산</a></li>
+										<li><a class="">일정</a></li>
+										<li><a class="">팀 소개</a></li>
+										<li><a class="">선물 설명</a></li>
+										<li><a class="">신뢰와 안전</a></li>
+									</ul>
+									
+								</div>
+								<script>
+									var caYfnf = $(".caYfnf").offset().top;
+									
+									$(window).scroll(function() {
+									 
+									  var window = $(this).scrollTop();
+									  
+									  if(caYfnf <= window) {
+									    $(".cgJIkg").addClass("fixed");
+									  }else{
+									    $(".cgJIkg").removeClass("fixed");
+									  }
+									})
+									
+									document.addEventListener("DOMContentLoaded", function() {
+									  var links = document.querySelectorAll(".style__SectionTabs-qkz7cf-5 a");
+									
+									  links.forEach(function(link) {
+									    link.addEventListener("click", function(event) {
+									      event.preventDefault(); // 링크 클릭 시 기본 동작을 막습니다.
+									
+									      // 현재 엑티브 클래스를 가진 요소가 있으면 제거합니다.
+									      var activeLink = document.querySelector(".style__SectionTabs-qkz7cf-5 a.isActive");
+									      if (activeLink) {
+									        activeLink.classList.remove("isActive");
+									      }
+									
+									      // 현재 엑티브 클래스를 가진 요소에 엑티브 클래스를 추가합니다.
+									      link.classList.add("isActive");
+									
+									      var linkText = link.textContent.trim(); // 클릭된 링크의 텍스트를 가져와 공백을 제거한 후 사용합니다.
+									      var targetDivId ; 
+										  	if (linkText === "소개") {
+										  		targetDivId = "purpose" ;
+											} else if (linkText === "예산") {
+												targetDivId = "budget";
+											} else if (linkText=== "일정") {
+												targetDivId = "schedule";
+											} else if (linkText=== "팀 소개") {
+												targetDivId = "introduction";
+											} else if (linkText=== "선물 설명") {
+												targetDivId = "rewardsDescription";
+											} else if (linkText=== "신뢰와 안전") {
+												targetDivId = "refundExchangePolicy";
+											} // if 
+									      
+									      var targetDiv = document.getElementById(targetDivId);
+									      // 스크롤 이동
+									      if (targetDiv) {
+									    	  var targetDivOffset = targetDiv.offsetTop;
+									          window.scrollTo({ top: targetDivOffset, behavior: "instant" });
+									      }
+									    });
+									  });
+									});
+								</script>
+								<div class="Card-sc-1sgtmvk-0 jEEjPy">
+									<div class="style__StoryCardInner-qkz7cf-1 RYxUo">
+										<div id="purpose" class="style__StorySection-qkz7cf-7 eRgkPx">
+											<div class="style__StorySectionTitle-qkz7cf-6 indCjw">프로젝트 소개</div>
+												${viewPlan.projectPlan.pp_intro}
+											</div>
+										<div id="budget" class="style__StorySection-qkz7cf-7 eRgkPx">
+											<div class="style__StorySectionTitle-qkz7cf-6 indCjw">프로젝트 예산</div>
+												${viewPlan.projectPlan.pp_budget}
+											</div>
+										<div id="schedule" class="style__StorySection-qkz7cf-7 eRgkPx">
+											<div class="style__StorySectionTitle-qkz7cf-6 indCjw">프로젝트 일정</div>
+												${viewPlan.projectPlan.pp_schd}
+										</div>
+										<div id="introduction"
+											class="style__StorySection-qkz7cf-7 eRgkPx">
+											<div class="style__StorySectionTitle-qkz7cf-6 indCjw">프로젝트 팀 소개</div>
+												${viewPlan.projectPlan.pp_tintro}
+											</div>
+										<div id="rewardsDescription"
+											class="style__StorySection-qkz7cf-7 eRgkPx">
+											<div class="style__StorySectionTitle-qkz7cf-6 indCjw">선물 설명</div>
+												${viewPlan.projectPlan.pp_gift}
+										</div>
+										<div id="refundExchangePolicy"
+											class="style__StorySection-qkz7cf-7 eRgkPx">
+											<div class="style__StorySectionTitle-qkz7cf-6 indCjw">신뢰와 안전</div>
+											<div class="style__FundingInfoWrap-qkz7cf-11 daBKDr">
+												<div class="style__SectionSubTitle-qkz7cf-9 kddiiI">크라우드 펀딩에 대한 안내</div>
+												<dl>
+													<dt>
+														<img src="/wpa/1f66831ec9af8b200c2861bccde76bd5.png"
+															alt="">후원은 구매가 아닌 창의적인 계획에 자금을 지원하는 일입니다.
+													</dt>
+													<dd>전자상거래법상 통신판매는 소비자의 청약 전 규격, 제조연월일 등 구체적인 상품정보가 제공
+														가능한 것을 대상으로 합니다. 따라서 텀블벅에서의 후원은 통신판매에 해당하지 않고, 전자상거래법 및
+														소비자보호규정(수령 후 7일 내 청약철회 등)이 적용되지 않습니다.</dd>
+												</dl>
+												<dl>
+													<dt>
+														<img src="/wpa/0a4ed12c1a38cc261a6ec633931e12b3.png"
+															alt="">프로젝트는 계획과 달리 진행될 수 있습니다.
+													</dt>
+													<dd>예상을 뛰어넘는 멋진 결과가 나올 수 있지만 진행 과정에서 계획이 지연, 변경되거나 무산될
+														수도 있습니다. 본 프로젝트를 완수할 책임과 권리는 창작자에게 있습니다.</dd>
+												</dl>
+											</div>
+											<div class="style__FundingUnderstand-qkz7cf-12 cIQwNC">
+												<a
+													href="https://help.tumblbug.com/hc/ko/articles/115010171368"
+													target="_blank" rel="noreferrer">크라우드펀딩·후원 이해하기
+													<div name="link2-line"
+														class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
+														<svg viewBox="0 0 48 48">
+															<path
+																d="M21 10.1C21 10.0448 20.9552 10 20.9 10L7.1 10C7.04477 10 7 10.0448 7 10.1V40.9C7 40.9552 7.04477 41 7.1 41H37.9C37.9552 41 38 40.9552 38 40.9V27.1C38 27.0448 37.9552 27 37.9 27H34.1C34.0448 27 34 27.0448 34 27.1V37H11V14H20.9C20.9552 14 21 13.9552 21 13.9V10.1Z"></path>
+															<path
+																d="M34.6602 10.5L25.5 10.5V6.5H41.5V22.4C41.5 22.4552 41.4552 22.5 41.4 22.5H37.6C37.5448 22.5 37.5 22.4552 37.5 22.4V13.317L23.3266 27.4904L20.4982 24.6619L34.6602 10.5Z"></path></svg>
+													</div>
+												</a>
+											</div>
+											<div class="style__PolicyWrap-qkz7cf-10 eMPiYz refundPolicy">
+												<div class="style__SectionSubTitle-qkz7cf-9 kddiiI">프로젝트 정책</div>
+												<div class="policyContents">
+													${viewPlan.policy.tas_policy} <!-- 엑셀 수정 필요  -->
+												</div>
+											</div>
+											<div class="style__PolicyWrap-qkz7cf-10 eMPiYz refundPolicy">
+												<div class="style__SectionSubTitle-qkz7cf-9 kddiiI">예상되는 어려움</div>
+												<div class="policyContents">
+													${viewPlan.policy.tas_exc} <!-- 엑셀 수정 필요  -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
 </body>
 </html>
