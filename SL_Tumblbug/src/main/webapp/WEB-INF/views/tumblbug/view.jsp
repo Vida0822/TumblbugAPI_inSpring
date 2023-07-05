@@ -376,6 +376,73 @@
 								</div>
 							</div>
 						</div>
+						<div
+							class="Card-sc-1sgtmvk-0 djWEMI ProjectIntroduction__StyledCreatorCard-sc-1o2ojgb-27 bWnIVD">
+							<div class="style__CreatorCardInner-zdrmr6-6 cHZFnT">
+								<div class="style__CreatorCardLabel-zdrmr6-7 dmVSrK">창작자 소개</div>
+								<div class="style__CreatorProfile-zdrmr6-8 bxlkbA">
+									<div class="style__CreatorWrapper-zdrmr6-9 bZvrJl">
+										<a target="_blank" href="창작자조회.do?m_cd=${viewCreator.member.m_cd}">
+										<span	class="ProfileImg__StyledProfileImg-sc-1vio56c-0 fJbnmF profileImage"></span></a>
+										<div class="style__CreatorInfo-zdrmr6-10 eKTmck">
+											<div class="style__TopWrap-zdrmr6-11 jzUMVs">
+												<a target="_blank" href="창작자조회.do?m_cd=${viewCreator.member.m_cd}">
+												<span	class="style__CreatorName-zdrmr6-12 fbGokX">${viewCreator.member.m_name}</span></a>
+											</div>
+											<div class="style__BottomWrap-zdrmr6-13 cJcdlm">
+												<div class="style__CreatorStats-zdrmr6-14 gbaRwX">
+													<span>마지막 로그인</span> <b> ${viewCreator.lastSession} 시간 전</b>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="style__CreatorBiography-zdrmr6-15 gCgNNm">${viewCreator.pro_ct_intro}</div>
+								<div class="style__ButtonsWrapper-zdrmr6-0 jxFIop">
+									<div class="style__FollowButtonWrapper-zdrmr6-5 ewEVkO">
+										<button
+											class="SolidButton__Button-sc-1gsinzz-0 kyyjVu style__FollowButton-sc-1y9b57e-0 dnLhtU fnt-p1"
+											color="grayEditor200">
+											<span><div name="plus"
+													class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs style__FollowButtonIcon-sc-1y9b57e-2 jAYmLp">
+													<svg viewBox="0 0 48 48">
+														<path fill-rule="evenodd" clip-rule="evenodd"
+															d="M43.7104 21.8549H25.99V4.09524C25.99 2.89796 24.9945 2 23.9005 2C22.8054 2 21.81 2.89796 21.81 4.09524V21.9546H4.0905C2.89593 21.8549 2 22.8526 2 23.9501C2 25.0476 2.89593 26.0454 4.0905 26.0454H21.9095V43.9048C21.9095 45.0023 22.8054 46 23.999 46C25.095 46 26.0905 45.102 26.0905 43.9048V26.0454H43.9085C45.0045 26.0454 46 25.1474 46 23.9501C45.8009 22.8526 44.904 21.8549 43.7104 21.8549C43.7104 21.8549 43.81 21.8549 43.7104 21.8549Z"></path></svg>
+												</div>
+												<div class="style__FollowButtonText-sc-1y9b57e-1 eHgFbc">팔로우</div></span>
+										</button>
+									</div>
+									<a class="style__AskCreatorButton-zdrmr6-1 gFndGt"><div
+											name="letter"
+											class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs style__AskCreatorButtonIcon-zdrmr6-2 gJmYWR">
+											<svg viewBox="0 0 48 48">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M41.9 37.8966H6.1C5.1 37.8966 4.2 37.0958 4.2 35.997V34.5964L15.7 26.3993L19 29.0977C21.9 31.4981 26.099 31.4981 29.099 29.0977L32.4 26.3993L43.9 34.5964V35.997C43.799 37.0958 43 37.8966 41.9 37.8966ZM13.9 24.9996L4.2 31.898V17.0015L13.9 24.9996ZM43.799 17.0015V31.898L34.099 24.9996L43.799 17.0015ZM6.1 9.20333H41.9C42.9 9.20333 43.799 10.0031 43.799 11.1029V14.2022L27.7 27.499C25.599 29.1986 22.5 29.1986 20.4 27.499L4.2 14.2022V11.0029C4.2 10.0031 5.1 9.10336 6.1 9.20333ZM41.9 7.00385H6.1C3.9 6.90287 2 8.80243 2 11.0029V35.997C2 38.2955 3.9 40.0951 6.1 39.9961H41.9C44.2 39.9961 46 38.1965 46 35.997V11.0029C46 8.80243 44.2 6.90287 41.9 7.00385Z"></path></svg>
+										</div>창작자 문의</a>
+								</div>
+								<div class="ReviewInfoWrap__Wrap-cu2qo7-0 BQDxE">
+									<div class="ReviewInfoWrap__ReviewInfoTitle-cu2qo7-1 dfSekZ">
+										<a target="blank" href="/u/rona/review"><div
+												class="ReviewInfoWrap__ReviewTitleTextWrap-cu2qo7-2 NitIh">
+												이전 프로젝트 후기 <span
+													class="ReviewInfoWrap__ReviewCnt-cu2qo7-3 kKBSMw">264</span>
+											</div>
+											<svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M11.3333 8.00002L6.33338 13.3334L5.33334 12.2666L9.33327 8.00002L5.33334 3.7334L6.33338 2.66669L11.3333 8.00002Z"
+													fill="#6D6D6D"></path></svg></a>
+									</div>
+									<div class="ReviewInfoWrap__ReviewKeywordWrap-cu2qo7-4 eAvHsL">
+										<span class="ReviewInfoWrap__ReviewKeyword-cu2qo7-5 gDntze">
+										<span>퀼리티가 좋아요</span><strong>187</strong></span><span
+											class="ReviewInfoWrap__ReviewKeyword-cu2qo7-5 gDntze"><span>창의적이에요</span><strong>156</strong></span><span
+											class="ReviewInfoWrap__ReviewKeyword-cu2qo7-5 gDntze"><span>유용해요</span><strong>146</strong></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						
 						
 </body>
 </html>
