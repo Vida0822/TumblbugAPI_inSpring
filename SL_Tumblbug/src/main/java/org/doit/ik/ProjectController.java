@@ -1,11 +1,6 @@
 package org.doit.ik;
 
-import java.util.ArrayList;
-
-import org.doit.ik.domain.File;
-import org.doit.ik.domain.Gift;
 import org.doit.ik.domain.Project;
-import org.doit.ik.mapper.ProjectMapper;
 import org.doit.ik.service.ViewProjectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,9 +51,6 @@ public class ProjectController {
 		
 		// 6. giftCards - ArrayList<GiftCard>
 		model.addAttribute("giftCards",viewProjectService.getGiftCard(project)) ; // 해당 선물리스트를 필요한 정보를 뽑은 선물 카드 리스트로 반환
-		
-		
-	
 	} // view
 	
 	// 후원요청 핸들러 

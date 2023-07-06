@@ -253,3 +253,9 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
 	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:213)
 	... 9 more
+
+!ENTRY org.eclipse.ui 4 4 2023-07-05 17:46:55.981
+!MESSAGE releaseContributions: Unhandled manager: null
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-07-05 17:46:57.540
+!MESSAGE The workspace will exit with unsaved changes in this session.

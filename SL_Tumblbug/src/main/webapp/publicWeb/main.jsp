@@ -4609,12 +4609,12 @@ data-styled.g2825[id="ScrollTop__ScrollTopBtn-j9uqn7-2"] {
 					</div>
 					<div class="style__StatusWrapper-zxsodr-4 bgpTeU">
 						<div class="style__ProjectEditorButton-zxsodr-5 cfcgIZ">프로젝트 올리기</div>
-<!-- 프로젝트 올리기 -->
-<script>
-	$(".cfcgIZ").on("click",function() {
-		location.href = "http://localhost/tumblbug/publicWeb/projectStart.jsp";
-	});
-</script>
+				<!-- 프로젝트 올리기 -->
+				<script>
+					$(".cfcgIZ").on("click",function() {
+						location.href = "http://localhost/SL_Tumblbug/publicWeb/projectStart.jsp";
+					});
+				</script>
 						<u:isLogin>
 							<!--  로그인이 되어있다면 아래 코딩 실행 -->
 							<div class="style__ButtonWrapper-zxsodr-6 hwZyFc">
