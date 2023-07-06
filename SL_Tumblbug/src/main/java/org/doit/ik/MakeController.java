@@ -1,5 +1,9 @@
 package org.doit.ik;
 
+import java.security.Principal;
+
+import org.doit.ik.domain.Member;
+import org.doit.ik.domain.Project;
 import org.doit.ik.service.MakeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -31,17 +36,47 @@ public class MakeController {
 	
 	@PostMapping("/makeProject")
 	public String make(
-			Model model, 
-			@RequestParam("summary") String summary, 
-			@RequestParam("category") String category			
+			@RequestParam("pro_sm") String pro_sm, 
+			@RequestParam("ctg_code") String ctg_code,
+			Principal principal
 			){
 		log.info("> /tumblbug/makeProject POST...");
-		// 선택한 카테고리, 멤버정보, 소개로 프로젝트 객체 만들어서 insert 
-		// -> project_planning.jsp로 redirect (프젝코드 붙여서) 
 		
+		// String m_cd = principal.getName(); 
+		String m_cd = "MEM1" ; 
 		
+		Project project= this.makeService.createProject(pro_sm,ctg_code, m_cd) ; 
 		
-		return null ; 
+		return "redirect:/tumblbug/payment.do?pro_cd="+project.getPro_cd() ; // response.sendRedirect 
+	
 	} // make (post) 
+	
+	@GetMapping("/payment")
+	public void payment(Model model) {
+		
+		log.info("> /tumblbug/payment GET...");
+		model.addAttribute("paymentList",makeService.getPaymentList()) ;
+		
+	} // payment
+	
+	@PostMapping("/payment")
+	public String payment(
+			@RequestParam("pro_cd") String pro_cd, 
+			@RequestParam("pay_cd") String pay_cd
+			) {
+		log.info("> /tumblbug/payment POST..."+pay_cd);
+		
+		this.makeService.choosePayment(pro_cd, pay_cd) ; 
+		return "redirect:/tumblbug/manage.do?"+pro_cd ; 
+		// return "/WEB-INF/view/managementForm.jsp";
+		
+	} // payment
+	
+	@GetMapping("/manage")
+	public void manage( 
+
+			) {
+		log.info("> /tumblbug/manage GET...");
+	} // manage
 
 } // MakeController

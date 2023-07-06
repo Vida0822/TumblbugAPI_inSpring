@@ -63,17 +63,17 @@ String contextPath = request.getContextPath();
 						<script>
 						var category ; 
 						$("button.category").on("click", function() {
-							category = $(this).val() ; 
+							ctg_code = $(this).val() ; 
 						})
 						
 						$("button.fnt-p1").on("click", function() {
-							var summary = $("textarea.hpsfWA").val() ; 
+							var pro_sm = $("textarea.hpsfWA").val() ; 
 							pageGoPost({
 								url : "/tumblbug/makeProject.do", //이동할 페이지
 								target : "_self",
 								vals : [ //전달할 인수들
-									[ "category", category ],
-									[ "summary", summary ] ]
+									[ "ctg_code", ctg_code ],
+									[ "pro_sm", pro_sm ] ]
 							}); // pageGoPost
 						})
 						

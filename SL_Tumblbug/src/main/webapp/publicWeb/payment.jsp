@@ -14,6 +14,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <style data-styled="true" data-styled-version="5.3.0">
+.btn{
+  opacity:0; 
+}
+
+
 .ccxeYs {
    display: -webkit-inline-box;
    display: -webkit-inline-flex;
@@ -1288,7 +1293,8 @@ input[type="radio"][name="pay_cd"] {
                계획하고 있는 프로젝트에 적합한 요금제를 고르세요.<br>요금제의 혜택으로 더 큰 성과를 만들 수 있습니다.
             </p>
          </div>
-      <form action="/tumblbug/payment.do?pro_cd=${param.pro_cd}" method="post">          
+      <form action="/tumblbug/payment.do" method="post" id="paymentPost">          
+      	<input type="hidden" name="pro_cd" value="${param.pro_cd}"/>
          <div class="style__ServicePlanCardWrapper-scsfrd-5 fspGWR">
             <div draggable="true"
                class="style__ServicePlanCardGroup-scsfrd-6 zMMZi">
@@ -1300,17 +1306,17 @@ input[type="radio"][name="pay_cd"] {
                      <span
                         class="service-plan__ServicePlanCardFooterHighlightText-sc-1u3rfb7-0 gUwUjf">기본 기능</span>으로&nbsp;<br>나만의 프로젝트를 실현하세요</div>
                   <div class="style__ServiceCardMain-sc-1fukyz9-1 czaIgH">
-                     <p class="style__PlanTitle-sc-1fukyz9-5 bqjIJW">Basic</p>
+                     <p class="style__PlanTitle-sc-1fukyz9-5 bqjIJW">${paymentList[0].pay_name} </p>
                      <div class="style__ServiceCommissionContainer-sc-1fukyz9-9 VjtTq">
                         <span class="style__ServiceCommissionText-sc-1fukyz9-11 jBkXKh">서비스
                            수수료</span> <span
-                           class="style__ServiceCommissionPercent-sc-1fukyz9-10 bIXaaa">5<!-- -->%
+                           class="style__ServiceCommissionPercent-sc-1fukyz9-10 bIXaaa">${paymentList[0].pay_fee*100-3.0}%
                         </span>
                      </div>
                      <p class="style__PaymentFeeText-sc-1fukyz9-4 fUHJbB">+ 결제 수수료
                         3%</p>
                      <button class="style__SelectButton-sc-1fukyz9-7 jMUIiJ">
-                     <input type="radio" name="pay_cd" value="RAT1"> 선택하기
+                     <input type="radio" name="pay_cd" value="${paymentList[0].pay_cd}">선택하기
                         <div class="style__ButtonTextContainer-sc-1fukyz9-2 iKIfHW">
                            <div name="slim-check"
                               class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
@@ -1392,17 +1398,17 @@ input[type="radio"][name="pay_cd"] {
                         SNS 광고, 응원권</span>을 통해&nbsp;<br>새로운 후원을 만들 수 있습니다
                   </div>
                   <div class="style__ServiceCardMain-sc-1fukyz9-1 czaIgH">
-                     <p class="style__PlanTitle-sc-1fukyz9-5 bqjIJW">Pro</p>
+                     <p class="style__PlanTitle-sc-1fukyz9-5 bqjIJW">${paymentList[1].pay_name}</p>
                      <div class="style__ServiceCommissionContainer-sc-1fukyz9-9 VjtTq">
                         <span class="style__ServiceCommissionText-sc-1fukyz9-11 jBkXKh">서비스
                            수수료</span> <span
-                           class="style__ServiceCommissionPercent-sc-1fukyz9-10 bIXaaa">9<!-- -->%
+                           class="style__ServiceCommissionPercent-sc-1fukyz9-10 bIXaaa">${paymentList[1].pay_fee*100-3.0}%
                         </span>
                      </div>
                      <p class="style__PaymentFeeText-sc-1fukyz9-4 fUHJbB">+ 결제 수수료
                         3%</p>
                      <button class="style__SelectButton-sc-1fukyz9-7 jMUIiJ">
-                     	 <input type="radio" name="pay_cd" value="RAT2">선택하기
+                     	<input type="radio" name="pay_cd" value="${paymentList[1].pay_cd}">선택하기
                         <div class="style__ButtonTextContainer-sc-1fukyz9-2 iKIfHW">
                            <div name=jMUIiJ
                               class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
@@ -1479,19 +1485,19 @@ input[type="radio"][name="pay_cd"] {
                   </div>
                   <div class="style__ServiceCardMain-sc-1fukyz9-1 czaIgH">
                      <p class="style__PlanTitle-sc-1fukyz9-5 bqjIJW">
-                        Premium<span class="style__PlanTitleBadge-sc-1fukyz9-6 tARRE">심사
+                        ${paymentList[2].pay_name}<span class="style__PlanTitleBadge-sc-1fukyz9-6 tARRE">심사
                            필요</span>
                      </p>
                      <div class="style__ServiceCommissionContainer-sc-1fukyz9-9 VjtTq">
                         <span class="style__ServiceCommissionText-sc-1fukyz9-11 jBkXKh">서비스
                            수수료</span> <span
-                           class="style__ServiceCommissionPercent-sc-1fukyz9-10 bIXaaa">15<!-- -->%
+                           class="style__ServiceCommissionPercent-sc-1fukyz9-10 bIXaaa">${paymentList[2].pay_fee*100-3.0}%
                         </span>
                      </div>
                      <p class="style__PaymentFeeText-sc-1fukyz9-4 fUHJbB">+ 결제 수수료
                         3%</p>
                      <button class="style__SelectButton-sc-1fukyz9-7 jMUIiJ">
-                     	<input type="radio" name="pay_cd" value="RAT3">선택하기
+                     	<input type="radio" name="pay_cd" value="${paymentList[2].pay_cd}">선택하기
 						  <div class="style__ButtonTextContainer-sc-1fukyz9-2 iKIfHW">
 						    <div name="slim-check" class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
 						      <svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1583,6 +1589,7 @@ input[type="radio"][name="pay_cd"] {
                </div>
             </div>
          </div>
+       	<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
         </form>
         
          <div class="style__BottomWrapper-scsfrd-7 eafszi">
@@ -1621,41 +1628,14 @@ input[type="radio"][name="pay_cd"] {
       </div>
       <div class="common-Layer tbb"></div>
    </div>
+   
  <script>
 $("button.jMUIiJ").on("click", function() {
-	var pay_cd ; 
- 	if($(this).index() === 0){
- 		pay_cd = 'RAT1'
- 	}else if($(this).index() === 1){
- 		pay_cd = 'RAT2'
- 	}else if($(this).index() === 2){
- 		$(".modal-footer button").on("click", function() {                     			
- 			pay_cd = 'RAT3'
- 		})
- 	}
-	pageGoPost({
-		url : "/tumblbug/payment.do", //이동할 페이지
-		target : "_self",
-		vals : [ //전달할 인수들
-			[ "pro_cd", <%=request.getParameter("pro_cd")%>],
-			[ "pay_cd", pay_cd ] ]
-	}); // pageGoPost
-
-	function pageGoPost(d) {
-			var insdoc = "";
-					
-			for (var i = 0; i < d.vals.length; i++) {
-					insdoc += "<input type='hidden' name='"+ d.vals[i][0] +"' value='"+ d.vals[i][1] +"'>";
-					}
-					
-			var goform = $("<form>", {
-						method : "post",
-						action : d.url,
-						target : d.target,
-						html : insdoc
-					}).appendTo("body");	
-				goform.submit();
-	} // pageGoPost
+	// 그 안의 자식 input에 checked 속성 부여 
+	$(this).find("input").prop("checked", true);
+	// form 태그 submit 
+	$("form").submit();
+	
 })	// onclick				
 </script>
 

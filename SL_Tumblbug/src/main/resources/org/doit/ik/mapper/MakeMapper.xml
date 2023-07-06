@@ -9,5 +9,35 @@
 		SELECT * 
 		FROM ctg 
 	</select>
+	
+	<select id="selectDefault" resultType="String">
+		SELECT dtl_ctg_code 
+		FROM DTL_CTG 
+		WHERE CTG_CODE = #{ctg_code} AND DTL_CTG_NAME='세부 카테고리를 선택해주세요' 
+	</select>
 
+	<insert id="createProject">
+		INSERT INTO project(PRO_CD, PRO_SM, DTL_CTG_CODE, M_CD ) 
+		VALUES( 'PRO'||SEQ_PROJECT.NEXTVAL ,#{pro_sm} ,#{dtl_ctg_code}, #{m_cd} )
+	</insert>
+	
+	<select id="getNewPro" resultType="org.doit.ik.domain.Project">
+ 			 SELECT *
+			  FROM project
+			  WHERE PRO_CD = (
+			    SELECT 'PRO'||MAX(TO_NUMBER(SUBSTR(pro_cd,4)))
+			    FROM project
+			  )
+	</select>
+
+	<select id="getPaymentList" resultType="org.doit.ik.domain.Payment">
+		SELECT * 
+		FROM PAYMENT_PLAN	
+	</select>
+	
+	<update id="choosePayment">
+		UPDATE project SET pay_cd = #{pay_cd}
+		WHERE pro_cd = #{pro_cd} 
+	</update>
+	
 </mapper>
