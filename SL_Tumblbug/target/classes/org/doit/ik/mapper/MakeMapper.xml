@@ -40,4 +40,10 @@
 		WHERE pro_cd = #{pro_cd} 
 	</update>
 	
+	<select id="getImage" resultType="org.doit.ik.domain.File">
+		SELECT * 
+		FROM ATT_FILE 
+		WHERE pro_cd = #{pro_cd} AND af_rep = 1 
+	</select>
+
 </mapper>

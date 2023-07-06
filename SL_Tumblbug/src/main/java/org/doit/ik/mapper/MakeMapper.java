@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 import org.doit.ik.domain.Category;
+import org.doit.ik.domain.DetailCategory;
+import org.doit.ik.domain.File;
 import org.doit.ik.domain.Payment;
 import org.doit.ik.domain.Project;
 
@@ -27,12 +29,18 @@ public interface MakeMapper {
 	// payment list 
 	ArrayList<Payment> getPaymentList();
 
+	// payment update 
 	void choosePayment(
 			@Param("pro_cd") String pro_cd
 			,@Param("pay_cd") String pay_cd);
 
+	// 프로젝트 코드로 프로젝트 객체 얻어오기
+	Project getProject(String pro_cd);
+
+	// 프로젝트 대표이미지 (나중에 projectMapper 걸로 수정 * ) 
+	File getImage(String pro_cd);
+
+	DetailCategory getCategory(String pro_cd);
 	
-
-
 
 }

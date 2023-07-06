@@ -4612,7 +4612,7 @@ data-styled.g2825[id="ScrollTop__ScrollTopBtn-j9uqn7-2"] {
 				<!-- 프로젝트 올리기 -->
 				<script>
 					$(".cfcgIZ").on("click",function() {
-						location.href = "http://localhost/SL_Tumblbug/publicWeb/projectStart.jsp";
+						location.href = "http://localhost/publicWeb/projectStart.jsp";
 					});
 				</script>
 						<u:isLogin>

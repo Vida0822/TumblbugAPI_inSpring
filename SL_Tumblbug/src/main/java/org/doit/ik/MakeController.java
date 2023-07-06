@@ -67,16 +67,19 @@ public class MakeController {
 		log.info("> /tumblbug/payment POST..."+pay_cd);
 		
 		this.makeService.choosePayment(pro_cd, pay_cd) ; 
-		return "redirect:/tumblbug/manage.do?"+pro_cd ; 
-		// return "/WEB-INF/view/managementForm.jsp";
+		
+		return "redirect:/tumblbug/manage.do?pro_cd="+pro_cd ; 
 		
 	} // payment
 	
 	@GetMapping("/manage")
 	public void manage( 
-
+			@RequestParam("pro_cd") String pro_cd
+			, Model model 
 			) {
 		log.info("> /tumblbug/manage GET...");
+		model.addAttribute("projectCard", this.makeService.manageForm(pro_cd)) ; 
+		
 	} // manage
 
 } // MakeController

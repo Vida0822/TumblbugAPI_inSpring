@@ -20,14 +20,6 @@ String contextPath = request.getContextPath();
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="<%=contextPath%>/static/css/style.css">
 <style>
-.iKCtLv {
-    background: url(https://tumblbug.com/wpa/b092e02bfb24cf713ec1d34b712d2528.png) center center / 50% no-repeat rgb(252, 252, 252);
-    border-radius: 8px;
-    width: 113px;
-    height: 80px;
-    margin: 0px 32px 20px 0px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 1px 0px;
-}
 .bUyjJv {
 	position: fixed;
 	width: 56px;
@@ -1007,9 +999,9 @@ img, svg {
 							<p class="style__ProjectTitle-sc-1y2waj3-21 daXtOQ">
 
 
-								<strong>${projectCard.member.m_name}의 프로젝트</strong> <!-- 회원이름 m_name 출력 -->
+								<strong>${member.m_name}홍성철의 프로젝트</strong> <!-- 회원이름 m_name 출력 -->
 							</p>
-							<p class="style__ProjectCategory-sc-1y2waj3-20 hIWJmR">${projectCard.detailCategory.ctg_name} · ${projectCard.member.m_name}</p>
+							<p class="style__ProjectCategory-sc-1y2waj3-20 hIWJmR">${category.ctg_code} · ${member.m_name}</p>
 						</div>
 					</div>
 
@@ -1023,7 +1015,7 @@ img, svg {
 					class="style__Plan1DepthWrap-sc-1y2waj3-6 style__Plan1DepthWrapMainTop-sc-1y2waj3-7 cWslIP eFhbFK">
 					<ul class="style__TabItems-sc-1y2waj3-8 cBbdAT">
 						<li class="TabItem__Tab-vjb6ta-0 krGOIO"><a class=""
-							href="">프로젝트 기획</a></li>
+							href="<%= contextPath %>/WEB-INF/view/prelaunch">프로젝트 기획</a></li>
 						<li class="TabItem__Tab-vjb6ta-0 cqTslV"><a class=""
 							href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/prelaunch">공개예정</a></li>
 						<li class="TabItem__Tab-vjb6ta-0 cqTslV"><a class=""

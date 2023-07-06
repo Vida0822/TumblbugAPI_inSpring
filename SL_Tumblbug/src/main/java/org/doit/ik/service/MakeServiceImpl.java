@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 import org.doit.ik.domain.Category;
 import org.doit.ik.domain.DetailCategory;
+import org.doit.ik.domain.File;
+import org.doit.ik.domain.Member;
 import org.doit.ik.domain.Payment;
 import org.doit.ik.domain.Project;
+import org.doit.ik.domain.ProjectCard;
 import org.doit.ik.mapper.MakeMapper;
 import org.doit.ik.mapper.MemberMapper;
 import org.doit.ik.mapper.ProjectMapper;
@@ -20,6 +23,7 @@ import lombok.extern.log4j.Log4j;
 public class MakeServiceImpl implements MakeService {
 
 	private MakeMapper makeMapper ; 
+	private ProjectMapper projectMapper ; 
 	
 	@Override
 	public ArrayList<Category> getCategoryList() {
@@ -57,6 +61,24 @@ public class MakeServiceImpl implements MakeService {
 		
 		makeMapper.choosePayment(pro_cd, pay_cd); 
 		
+	}
+
+	@Override
+	public ProjectCard manageForm(String pro_cd) {
+		
+		log.info("> MakeServiceImpl.manageForm()..."+pro_cd);
+		
+		ProjectCard projectCard = new ProjectCard() ; 
+		
+		Project project = projectMapper.getProject(pro_cd) ; 
+		
+		projectCard.setProject(project);
+		projectCard.setFile(makeMapper.getImage(pro_cd));
+		projectCard.setDetailCategory(projectMapper.getDetailCategory(pro_cd));
+		projectCard.setMember(projectMapper.getMember(project.getM_cd()));
+		
+		return projectCard ; 
+			
 	} // createProject
 
 	

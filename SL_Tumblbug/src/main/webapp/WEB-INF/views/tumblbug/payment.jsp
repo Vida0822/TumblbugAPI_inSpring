@@ -1230,8 +1230,8 @@ input[type="radio"][name="pay_cd"] {
                               둘러보기</span>
                         </button>
                         <span class="SiteHeader__ForMobile-q8dvod-11 fhMIkK"><a
-                           class="SiteHeader__LinkItem-q8dvod-9 ekCDOR" href="/start"><span
-                              class="SiteHeader__ItemLabel-q8dvod-10 jaKwWf">프로젝트 올리기</span></a></span>
+                           class="SiteHeader__LinkItem-q8dvod-9 ekCDOR" href="http://localhost/publicWeb/projectStart.jsp"><span
+                           class="SiteHeader__ItemLabel-q8dvod-10 jaKwWf">프로젝트 올리기</span></a></span>
                      </div>
                      <div class="SiteHeader__CenterMenu-q8dvod-4 kZyRnh">
                         <a href="/"><div class="TumblbugLogo-sc-5rx33z-0 hakSMQ">
@@ -1320,11 +1320,6 @@ input[type="radio"][name="pay_cd"] {
                         <div class="style__ButtonTextContainer-sc-1fukyz9-2 iKIfHW">
                            <div name="slim-check"
                               class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
-                              <svg viewBox="0 0 12 9" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M12 0.988498L4.94669 8.66667L0 3.21373L1.13951 2.23213L4.95382 6.43681L10.8668 0L12 0.988498Z"
-                                    fill="#3D3D3D"></path></svg>
                            </div>
                         </div>
                      </button>
@@ -1412,11 +1407,6 @@ input[type="radio"][name="pay_cd"] {
                         <div class="style__ButtonTextContainer-sc-1fukyz9-2 iKIfHW">
                            <div name=jMUIiJ
                               class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
-                              <svg viewBox="0 0 12 9" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M12 0.988498L4.94669 8.66667L0 3.21373L1.13951 2.23213L4.95382 6.43681L10.8668 0L12 0.988498Z"
-                                    fill="#3D3D3D"></path></svg>
                            </div>
                         </div>
                      </button>
@@ -1499,9 +1489,7 @@ input[type="radio"][name="pay_cd"] {
                      <button class="style__SelectButton-sc-1fukyz9-7 jMUIiJ">
                      	<input type="radio" name="pay_cd" value="${paymentList[2].pay_cd}">선택하기
 						  <div class="style__ButtonTextContainer-sc-1fukyz9-2 iKIfHW">
-						    <div name="slim-check" class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
-						      <svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-						        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0.988498L4.94669 8.66667L0 3.21373L1.13951 2.23213L4.95382 6.43681L10.8668 0L12 0.988498Z" fill="#3D3D3D"></path></svg>
+						    <div name="slim-check" class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">						 
 						    </div>
 						  </div>
 						</button>

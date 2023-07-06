@@ -1293,7 +1293,8 @@ input[type="radio"][name="pay_cd"] {
                계획하고 있는 프로젝트에 적합한 요금제를 고르세요.<br>요금제의 혜택으로 더 큰 성과를 만들 수 있습니다.
             </p>
          </div>
-      <form action="/tumblbug/payment.do" method="post" id="paymentPost">          
+      <form action="/tumblbug/payment.do" method="post" id="paymentPost">    
+            
       	<input type="hidden" name="pro_cd" value="${param.pro_cd}"/>
          <div class="style__ServicePlanCardWrapper-scsfrd-5 fspGWR">
             <div draggable="true"

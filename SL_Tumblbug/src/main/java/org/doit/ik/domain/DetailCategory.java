@@ -13,6 +13,7 @@ public class DetailCategory {
 	private String dtl_ctg_code; 
 	private String dtl_ctg_name; 
 	private String ctg_code;
+	private String ctg_name ; 
 	
 	
 	
