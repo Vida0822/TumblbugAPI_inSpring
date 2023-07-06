@@ -1583,14 +1583,8 @@ input[type="radio"][name="pay_cd"] {
          <div class="style__BottomWrapper-scsfrd-7 eafszi">
             <div class="style__BottomContainer-scsfrd-8 gzHtQV">
                <div class="style__PrecautionsWrapper-scsfrd-9 fcwegQ">
-                  <p class="style__Precautions-scsfrd-10 bgDXxT">
-                     * 플랫폼 수수료와 결제 수수료는 모두
-                     <!-- -->
-                     <span class="style__PrecautionsHighlightText-scsfrd-11 fQTidj">VAT
-                        별도</span>입니다.
-                  </p>
-                  <p class="style__Precautions-scsfrd-10 bgDXxT">* 프로젝트가 승인된 후에는
-                     요금제를 변경하실 수 없습니다.</p>
+                  <p class="style__Precautions-scsfrd-10 bgDXxT">* 플랫폼 수수료와 결제 수수료는 모두 VAT 별도입니다. </p>
+                  <p class="style__Precautions-scsfrd-10 bgDXxT">* 프로젝트가 승인된 후에는 요금제를 변경하실 수 없습니다.</p>
                </div>
                <div class="style__LinkBannerWrap-scsfrd-12 gNlVwS">
                   <a class="style__LinkBanner-uqzes0-0 oPGEG" href="/plans"><img
@@ -1609,7 +1603,7 @@ input[type="radio"][name="pay_cd"] {
                </div>
                <div class="style__Line-scsfrd-13 iIwyct"></div>
                <div class="style__ButtonWrapper-scsfrd-14 kVrWeN">
-                  <button disabled="" class="style__SaveButton-scsfrd-15 dPAiwm">저장</button>
+                  <button disabled="true" class="style__SaveButton-scsfrd-15 dPAiwm">저장</button>
                </div>
             </div>
          </div>
@@ -1617,15 +1611,27 @@ input[type="radio"][name="pay_cd"] {
       <div class="common-Layer tbb"></div>
    </div>
    
- <script>
-$("button.jMUIiJ").on("click", function() {
+<script>
+$("button.jMUIiJ").on("click", function(event) {
 	// 그 안의 자식 input에 checked 속성 부여 
-	$(this).find("input").prop("checked", true);
-	// form 태그 submit 
-	$("form").submit();
+	event.preventDefault(); 
 	
-})	// onclick				
+	$(this).find("input").prop("checked", true);
+	
+	$("button.dPAiwm")
+		.prop("disabled", false);
+		
+	$(this).css("background-color", "rgb(248, 100, 83)");
+	$("button.jMUIiJ").not(this).css("background-color", "#FFFFFF");
+	// form 태그 submit 
+	// $("form").submit();
+});	// onclick		
+
+$("button.dPAiwm").on("click", function(event) {	
+	 $("form").submit();
+});
 </script>
+
 
 </body>
 </html>
