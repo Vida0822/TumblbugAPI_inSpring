@@ -57,9 +57,9 @@ public class ManageController {
 	} // managerPage
 
 	
-	
+	/*
 	// 상세보기 승인, 반려 선택시 '프로젝트 상태' 승인됨으로 변경 
-	@PostMapping("/managerPage")
+	@GetMapping("/examine")
 	public ResponseEntity<String> managerPage(
 			@RequestParam("pro_cd") String pro_cd, 
 			@RequestParam("approved") boolean approved			
@@ -74,7 +74,7 @@ public class ManageController {
 				:   new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	} // managerPage
-	
+	*/ 
 /*
 	@GetMapping(value = "/idcheck" )
 	public EmpVO idCheck( String empno ) {

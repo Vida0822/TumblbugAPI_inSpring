@@ -2836,9 +2836,34 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 													class="style__ProjectButtonSection-sc-16sdzr6-25 kgHjVE">
 													<a
 														href="/project-editor/0090bd30-4eaf-4f80-8b1f-d1836adeaac9"
-														class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ">승인</a><a
-														class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ remove">반려</a>
+														class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ">승인
+													</a>
+													<a
+														class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ">반려
+													</a>									
 												</div>
+												<script>
+													// ajax 스크립트 추가 													
+													$(function (){
+														  $(".itmomZ").on("click", function (){
+															  var approved = $(this).val();
+													   	      console.log( "> approved = "+approved );
+													   	      $.ajax({
+													   	    	  url:"/idcheck" ,         // HomeAjaxController.java
+													   	    	  method : "GET" , 
+													   	    	  data : { empno : empno  } ,     // js Object,   json Data
+													   	          dataType : "json" , 
+													   	          // new EmpVO() ->  json 변환 응답 ->  js Object 변환 
+													   	          success: function ( data, callback, xhr ){
+													   	        	  alert( data.idCheckResult );
+													   	          } , 
+													   	          error: function ( xhr, errorType){
+													   	        	  alert( errorType );
+													   	          }
+													   	      });
+														  });
+													  });										
+												</script>	
 											</div>
 											<div class="style__ProjectNotifyDesktop-sc-16sdzr6-8 humYWR"></div>
 										</div>
