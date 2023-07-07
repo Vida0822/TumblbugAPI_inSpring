@@ -2764,26 +2764,34 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 				class="Page__PageComponent-sc-1l7nky8-0 jPogNc Projects__StyledPage-sc-1xyzvmf-0 kPKRPl tbb">
 				<div
 					class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ SubHeader-sc-1refh74-0 gEYrbQ">
-					<span>내가 만든 프로젝트</span>
+					<span> tumblbug admin - running project   </span>
 				</div>
-				<div
-					class="style__Tabs-sc-3a505r-0 kTjmVr style__StyledTabs-sc-168arlx-12 kuVrMn"
-					style="margin: 20px auto 0px;">
-					<div class="style__Tab-sc-3a505r-1 blqBuO">전체</div>
-					<div class="style__Tab-sc-3a505r-1 gygqOn">작성 중</div>
-					<div class="style__Tab-sc-3a505r-1 gygqOn">심사 중</div>
-					<div class="style__Tab-sc-3a505r-1 gygqOn">승인됨</div>
-					<div class="style__Tab-sc-3a505r-1 gygqOn">반려됨</div>
-					<div class="style__Tab-sc-3a505r-1 gygqOn">공개예정</div>
-					<div class="style__Tab-sc-3a505r-1 gygqOn">진행 중</div>
-					<div class="style__Tab-sc-3a505r-1 gygqOn">종료</div>
-				</div>
+					<div
+						class="style__Tabs-sc-3a505r-0 kTjmVr style__StyledTabs-sc-168arlx-12 kuVrMn"
+						style="margin: 20px auto 0px;">
+						<div class="style__Tab-sc-3a505r-1 blqBuO"><input type="hidden" name="pro_status" value="all"/>전체</div>
+						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="writing"/>작성 중</div>
+						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="test"/>심사 중</div>
+						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="approved"/>승인됨</div>
+						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="rejected"/>반려됨</div>
+						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="soon"/>공개예정</div>
+						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="running"/>진행 중</div>
+						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="closed"/>종료</div>
+					</div>
+				<script>
+					$(document).ready(function() {
+					  $('.gygqOn').click(function() {
+					    var value = $(this).find('input').val(); // 클릭한 div의 자식 input의 값 가져오기
+						location.href="/tumblbug/managerPage.do?pro_status="+value ; 
+					  });
+					});
+				</script>
 				<div
 					class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ style__PageContainer-sc-168arlx-0 dthqdP">
 					<div class="style__MyProjectListWrapper-sc-168arlx-7 dZobUE">
 						<div class="style__MyProjectListCard-sc-168arlx-9 duagxd">
-							<div class="style__MyProjectListTitle-sc-168arlx-10 hQaYyd">작성	중 ${fn:length(cardList)}</div>
-<c:forEach var="projectCard" items="${cardList}">
+							<div class="style__MyProjectListTitle-sc-168arlx-10 hQaYyd">${cardList[0].project.pro_status} ${fn:length(cardList)}</div>
+							<c:forEach var="projectCard" items="${cardList}">
 							<div	class="style__MyProjectListProjectCardWrapper-sc-168arlx-8 lmEbUa">
 								<div class="style__ProjectCardWrapper-sc-16sdzr6-0 bEpoZz">
 									<div class="style__ProjectCard-sc-16sdzr6-1 kGFohB">

@@ -23,16 +23,29 @@ public class ManagerServiceImpl implements ManagerService{
 	private ProjectMapper projectMapper;
 	
 	@Override
-	public List<ProjectCard> getCardList_manager(String pro_status) {
+	public List<ProjectCard> getCardList_manager(String searchCondition) {
 		
-		log.info("> ManagerServiceImpl.getCardList()..."+pro_status);
-		
+		log.info("> ManagerServiceImpl.getCardList()..."+searchCondition);
+		/*
 		// 1. pro_status 조건주기 
 		String searchCondition = null ; 
 		
 		if(pro_status.equals("writing")) {
 			searchCondition ="작성 중" ; 
+		}else if(pro_status.equals("test")) {
+			searchCondition ="심사 중" ; 
+		} else if(pro_status.equals("approved")) {
+			searchCondition ="승인됨" ; 
+		} else if(pro_status.equals("rejected")) {
+		searchCondition ="반려됨" ; 
+		} else if(pro_status.equals("soon")) {
+			searchCondition ="공개예정" ; 
+		} else if(pro_status.equals("running")) {
+			searchCondition ="진행 중" ; 
+		} else if(pro_status.equals("closed")) {
+			searchCondition ="종료" ; 
 		}
+		*/
 		log.info("> ManagerServiceImpl.getCardList()..."+searchCondition);
 		
 		// 2. 조건에 맞는 프로젝트 얻어오기 

@@ -22,12 +22,34 @@ public class ManageController {
 	
 	// '작성 중' 상태인 프로젝트 목록 띄우기 
 	@GetMapping("/managerPage")
+//	@RequestParam(value="pro_status", required = false,defaultValue = "writing") String pro_status
 	public void managerPage(
-			@RequestParam(value="pro_status", required = false,defaultValue = "writing") String pro_status
+			@RequestParam(value="pro_status") String pro_status
 			,Model model			
 			) {
-		log.info("> /tumblbug/managerPage GET..."+pro_status);		
-		model.addAttribute("cardList", this.managerService.getCardList_manager(pro_status));
+		log.info("> /tumblbug/managerPage GET..."+pro_status);	
+		
+		String searchCondition = null ; 
+		
+		if(pro_status.equals("writing")) {
+			searchCondition ="작성 중" ; 
+		}else if(pro_status.equals("test")) {
+			searchCondition ="심사 중" ; 
+		} else if(pro_status.equals("approved")) {
+			searchCondition ="승인됨" ; 
+		} else if(pro_status.equals("rejected")) {
+		searchCondition ="반려됨" ; 
+		} else if(pro_status.equals("soon")) {
+			searchCondition ="공개예정" ; 
+		} else if(pro_status.equals("running")) {
+			searchCondition ="진행 중" ; 
+		} else if(pro_status.equals("closed")) {
+			searchCondition ="종료" ; 
+		}
+		
+		
+		model.addAttribute("searchCondition", searchCondition);
+		model.addAttribute("cardList", this.managerService.getCardList_manager(searchCondition));
 		
 	} // managerPage
 
