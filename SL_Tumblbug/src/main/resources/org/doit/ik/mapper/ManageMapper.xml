@@ -5,5 +5,20 @@
 
 <mapper namespace="org.doit.ik.mapper.ManageMapper">
 
-
+	<select id="getProjects" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT *
+			FROM project
+            WHERE PRO_STATUS = #{searchWord}
+		]]>
+	</select>
+	
+	<select id="getImage" resultType="org.doit.ik.domain.File">
+		<![CDATA[
+			SELECT *
+			FROM att_file
+			WHERE pro_cd = #{pro_cd} AND af_rep = 1
+		]]>
+	</select>
+	
 </mapper>

@@ -32,9 +32,12 @@ public class ProjectServiceImpl implements ProjectService {
 
 	@Override
 	public List<ProjectCard> getCardList() {
+		
 		log.info("> ProjectServiceImpl.getCardList()...");
+		
 		List<Project> projectList = this.projectMapper.selProject();
 		List<ProjectCard> projectCardList =  new ArrayList<ProjectCard>(); 		
+		
 		Iterator<Project> ir = projectList.iterator();
 		while (ir.hasNext()) {
 			Project project = ir.next(); 
