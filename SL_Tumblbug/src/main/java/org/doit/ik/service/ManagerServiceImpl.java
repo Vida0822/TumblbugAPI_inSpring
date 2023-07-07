@@ -25,33 +25,12 @@ public class ManagerServiceImpl implements ManagerService{
 	@Override
 	public List<ProjectCard> getCardList_manager(String searchCondition) {
 		
-		log.info("> ManagerServiceImpl.getCardList()..."+searchCondition);
-		/*
-		// 1. pro_status 조건주기 
-		String searchCondition = null ; 
+		log.info("> ManagerServiceImpl.getCardList_manager()..."+searchCondition);
 		
-		if(pro_status.equals("writing")) {
-			searchCondition ="작성 중" ; 
-		}else if(pro_status.equals("test")) {
-			searchCondition ="심사 중" ; 
-		} else if(pro_status.equals("approved")) {
-			searchCondition ="승인됨" ; 
-		} else if(pro_status.equals("rejected")) {
-		searchCondition ="반려됨" ; 
-		} else if(pro_status.equals("soon")) {
-			searchCondition ="공개예정" ; 
-		} else if(pro_status.equals("running")) {
-			searchCondition ="진행 중" ; 
-		} else if(pro_status.equals("closed")) {
-			searchCondition ="종료" ; 
-		}
-		*/
-		log.info("> ManagerServiceImpl.getCardList()..."+searchCondition);
-		
-		// 2. 조건에 맞는 프로젝트 얻어오기 
+		// 1. 조건에 맞는 프로젝트 얻어오기 
 		List<Project> projectList = this.manageMapper.getProjects(searchCondition);
 		
-		// 3. 카드리스트 얻어오기 
+		// 2. 카드리스트 얻어오기 
 		List<ProjectCard> projectCardList =  new ArrayList<ProjectCard>(); 		
 		Iterator<Project> ir = projectList.iterator();
 		
@@ -71,6 +50,24 @@ public class ManagerServiceImpl implements ManagerService{
 		} 
 
 		return projectCardList;
+	}
+
+	@Override
+	public int examine(String pro_cd, boolean approved) {
+		
+		log.info("> ManagerServiceImpl.getCardList_manager()...pro_cd"+pro_cd);
+//		log.info("> ManagerServiceImpl.getCardList_manager()...approved"+approved);
+		
+		String searchCondition ; 
+		
+		if(approved) {
+			searchCondition = "승인됨"; 
+		}else {
+			searchCondition = "반려됨"; 
+		}
+		
+		return this.manageMapper.examine(pro_cd, searchCondition) ; 
+		
 	} // getCardList_manager
 	
 	

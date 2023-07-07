@@ -21,4 +21,11 @@
 		]]>
 	</select>
 	
+	<update id="examine">
+		<![CDATA[
+			UPDATE project SET pro_status = #{searchCondition}
+			WHERE pro_cd = #{pro_cd}  
+		]]>
+	</update>
+	
 </mapper>

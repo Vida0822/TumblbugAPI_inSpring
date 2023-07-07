@@ -1,9 +1,12 @@
 package org.doit.ik;
 
 import org.doit.ik.service.ManagerService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -54,21 +57,24 @@ public class ManageController {
 	} // managerPage
 
 	
-	/*
+	
 	// 상세보기 승인, 반려 선택시 '프로젝트 상태' 승인됨으로 변경 
 	@PostMapping("/managerPage")
-	public void managerPage(
+	public ResponseEntity<String> managerPage(
 			@RequestParam("pro_cd") String pro_cd, 
-			@RequestParam("pro_status") String pro_status			
+			@RequestParam("approved") boolean approved			
 	) {
 		// ajax 처리 필요 
 		log.info("> /managerPage POST - Ajax ...");
 		
-		int result =  this.memberMapper.changeStatus(pro_cd, pro_status);
+		int examineResult =  this.managerService.examine(pro_cd ,approved);
 		
+		return examineResult==1 ?  
+				new ResponseEntity<>("SUCCESS", HttpStatus.OK) 
+				:   new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	} // managerPage
-	*/ 
+	
 /*
 	@GetMapping(value = "/idcheck" )
 	public EmpVO idCheck( String empno ) {
@@ -78,6 +84,18 @@ public class ManageController {
 		// JSP : JsonObject , JsonArray  JSON라이브러리 사용해서 가공
 		return new EmpVO(empno, "홍길동", idCheckResult);
 	}
+	
+	@PostMapping("/scott/dept/new")
+	public ResponseEntity<String> insertDept( @RequestBody DeptDTO dto){
+
+		log.info("> /scott/dept/now POST ...");
+		int insertResult =  this.memberMapper.insertDept(dto); // 1 , 0
+		return insertResult==1 ?  
+				new ResponseEntity<>("SUCCESS", HttpStatus.OK) 
+				:   new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+	}
+				
 */ 
 		
 	

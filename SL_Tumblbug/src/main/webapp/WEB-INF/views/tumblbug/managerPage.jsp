@@ -2846,50 +2846,6 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 								</div>
 							</div>
 							</c:forEach>
-							<div
-								class="style__MyProjectListProjectCardWrapper-sc-168arlx-8 lmEbUa">
-								<div class="style__ProjectCardWrapper-sc-16sdzr6-0 bEpoZz">
-									<div class="style__ProjectCard-sc-16sdzr6-1 kGFohB">
-										<div class="style__ProjectImageWrapper-sc-16sdzr6-2 bdHaeu">
-											<svg class="style__ProjectDefaultImage-sc-16sdzr6-3 kcoQXj"
-												width="34" height="30" viewBox="0 0 34 30" fill="none"
-												xmlns="http://www.w3.org/2000/svg">
-												<path
-													d="M10.9581 4.6448C10.9581 7.21002 8.90441 9.28954 6.37101 9.28954C3.83761 9.28954 1.78388 7.21002 1.78388 4.6448C1.78388 2.07958 3.83761 6.10352e-05 6.37101 6.10352e-05C8.90441 6.10352e-05 10.9581 2.07958 10.9581 4.6448Z"
-													fill="white"></path>
-												<path
-													d="M33.9149 30.0001C33.9805 30.0001 34.0213 29.928 33.9883 29.8707L21.7443 8.62478C21.7114 8.56771 21.6299 8.56795 21.5973 8.62522L13.6619 22.5815C13.6324 22.6335 13.5606 22.6397 13.5229 22.5934L8.57785 16.5436C8.54116 16.4988 8.47194 16.503 8.44089 16.5521L0.0135644 29.8676C-0.0226682 29.9249 0.0179337 30.0001 0.0850861 30.0001H33.9149Z"
-													fill="white"></path></svg>
-										</div>
-										<div class="style__ProjectContainer-sc-16sdzr6-6 irkrrp">
-											<div class="style__ProjectContentWrapper-sc-16sdzr6-7 jetDjR">
-												<div class="style__ProjectContent-sc-16sdzr6-12 fieliy">
-													<div class="style__ProjectStatus-sc-16sdzr6-13 cDUzJO">
-														<div class="style__ProjectStatusTag-sc-16sdzr6-14 PtGHT">작성
-															중</div>
-													</div>
-													<div class="style__ProjectTitle-sc-16sdzr6-15 ePnlIO">
-														<span>제목없음</span>
-													</div>
-													<div class="style__ProjectDescription-sc-16sdzr6-17 ePLpkk">
-														<span>아주아주아주 재밌는 게임</span>
-													</div>
-												</div>
-												<div
-													class="style__ProjectNotifyDesktop-sc-16sdzr6-8 style__ProjectNotifyMobile-sc-16sdzr6-9 humYWR iGiiYq"></div>
-												<div
-													class="style__ProjectButtonSection-sc-16sdzr6-25 kgHjVE">
-													<a
-														href="/project-editor/e26c1cb6-2661-4eda-9047-a7496060d31c"
-														class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ">관리</a><a
-														class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ remove">삭제</a>
-												</div>
-											</div>
-											<div class="style__ProjectNotifyDesktop-sc-16sdzr6-8 humYWR"></div>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
