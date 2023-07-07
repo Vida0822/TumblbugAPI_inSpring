@@ -14,9 +14,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <style data-styled="true" data-styled-version="5.3.0">
-.btn{
-  opacity:0; 
-}
+
 
 
 .ccxeYs {

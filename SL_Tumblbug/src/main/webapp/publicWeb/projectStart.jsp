@@ -1364,7 +1364,7 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 						<div class="style__ProjectEditorButton-zxsodr-5 cfcgIZ">프로젝트 올리기</div>
 <script>
 	$(".cfcgIZ").on("click",function() {
-		location.href = "http://localhost/tumblbug/publicWeb/projectStart.jsp";
+		location.href = "http://localhost/publicWeb/projectStart.jsp";
 	});
 </script>
 						<u:isLogin>
