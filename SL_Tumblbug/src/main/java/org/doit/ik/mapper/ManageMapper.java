@@ -6,7 +6,7 @@ import org.doit.ik.domain.Project;
 
 public interface ManageMapper {
 
-	List<Project> getProjects(String searchWord);
+	List<Project> getProjects(String searchCondition);
 	
 	
 

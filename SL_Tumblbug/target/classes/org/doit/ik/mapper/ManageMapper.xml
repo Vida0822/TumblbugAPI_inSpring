@@ -9,7 +9,7 @@
 		<![CDATA[
 			SELECT *
 			FROM project
-            WHERE PRO_STATUS = #{searchWord}
+            WHERE PRO_STATUS = #{searchCondition}
 		]]>
 	</select>
 	

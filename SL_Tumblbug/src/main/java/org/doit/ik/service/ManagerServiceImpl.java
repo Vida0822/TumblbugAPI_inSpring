@@ -19,19 +19,26 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class ManagerServiceImpl implements ManagerService{
 	
-	private MemberMapper memberMapper;
 	private ManageMapper manageMapper;
 	private ProjectMapper projectMapper;
 	
 	@Override
-	public List<ProjectCard> getCardList_manager(String searchWord) {
+	public List<ProjectCard> getCardList_manager(String pro_status) {
 		
-		log.info("> ManagerServiceImpl.getCardList()...");
+		log.info("> ManagerServiceImpl.getCardList()..."+pro_status);
 		
-		// 1. 조건에 맞는 프로젝트 얻어오기 
-		List<Project> projectList = this.manageMapper.getProjects(searchWord);
+		// 1. pro_status 조건주기 
+		String searchCondition = null ; 
 		
-		// 2. 카드리스트 얻어오기 
+		if(pro_status.equals("writing")) {
+			searchCondition ="작성 중" ; 
+		}
+		log.info("> ManagerServiceImpl.getCardList()..."+searchCondition);
+		
+		// 2. 조건에 맞는 프로젝트 얻어오기 
+		List<Project> projectList = this.manageMapper.getProjects(searchCondition);
+		
+		// 3. 카드리스트 얻어오기 
 		List<ProjectCard> projectCardList =  new ArrayList<ProjectCard>(); 		
 		Iterator<Project> ir = projectList.iterator();
 		
