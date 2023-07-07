@@ -2809,7 +2809,14 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 														<div class="style__ProjectStatusTag-sc-16sdzr6-14 PtGHT">${projectCard.project.pro_status}</div>
 													</div>
 													<div class="style__ProjectTitle-sc-16sdzr6-15 ePnlIO">
-														<span>${projectCard.project.pro_long}</span>
+														<c:choose>
+															<c:when test="${not empty projectCard.project.pro_long}"> 
+																<span>${projectCard.project.pro_long}</span>
+															</c:when>
+															<c:otherwise>
+																<span><b>제목없음</b></span> 
+															</c:otherwise>
+														</c:choose>
 													</div>
 													<div class="style__ProjectDescription-sc-16sdzr6-17 ePLpkk">
 														<span>${projectCard.project.pro_sm}</span>
