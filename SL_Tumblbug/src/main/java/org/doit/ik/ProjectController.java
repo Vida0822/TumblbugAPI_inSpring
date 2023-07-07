@@ -1,10 +1,15 @@
 package org.doit.ik;
 
+import java.util.List;
+
 import org.doit.ik.domain.Project;
+import org.doit.ik.domain.ProjectCard;
+import org.doit.ik.service.ProjectService;
 import org.doit.ik.service.ViewProjectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,15 +22,34 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class ProjectController {
 	
+	private ProjectService projectService;
 	private ViewProjectService viewProjectService ; 
 	
 	/* 핸들러 함수들 구현하세요 ~ */
 
 	
 	// 목록보기 핸들러 
+	// 메인화면
+		@GetMapping("/main")
+		public void main(Model model) {
+			log.info("> /main GET");
+			List<ProjectCard> CardList = this.projectService.getCardList();
+			List<ProjectCard> popCardList = this.projectService.getPopCardList();
+			model.addAttribute("CardList", CardList);
+			model.addAttribute("popCardList", popCardList);
+		}
+		
+		// 검색하기 핸들러
+		@PostMapping("/search")
+		public void search(@RequestParam("searchCondition") int searchCondition, @RequestParam("searchWord") String searchWord, Model model) {
+			log.info("> /search POST");
+			List<ProjectCard> searchCardList = this.projectService.getSearchCardList(searchCondition, searchWord);
+			int projectCount = searchCardList.size();
+			model.addAttribute("searchCardList", searchCardList);
+			model.addAttribute("projectCount", projectCount);
+			model.addAttribute("searchCondition", searchCondition);
+		}
 	
-	
-	// 검색하기 핸들러 
 	
 	
 	// 상세보기 핸들러 

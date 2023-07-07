@@ -1,11 +1,11 @@
 package org.doit.ik.mapper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.doit.ik.domain.DetailCategory;
 import org.doit.ik.domain.File;
 import org.doit.ik.domain.Gift;
-import org.doit.ik.domain.GiftCard;
 import org.doit.ik.domain.ItemSet;
 import org.doit.ik.domain.Member;
 import org.doit.ik.domain.Plan;
@@ -42,5 +42,29 @@ public interface ProjectMapper {
 
 	ArrayList<ItemSet> getItems(String gift_cd);
 	
+	
+	
+	
+	
+	// 목록보기 
+	List<Project> selProject();
+
+	List<Project> selPopProject();
+	
+	List<Project> selNewProject();
+	
+	List<Project> selEndProject();
+	
+	List<Project> selSoonProject();
+	
+	List<Project> selCtgProject(String searchWord);
+
+	List<Project> selDtlCtgProject(String searchWord);
+
+	File selectByProCd(String pro_cd);
+	
+	DetailCategory selectByCd(String dtl_ctg_code);
+	
+	int SumByProCd(String pro_cd);
 
 } 

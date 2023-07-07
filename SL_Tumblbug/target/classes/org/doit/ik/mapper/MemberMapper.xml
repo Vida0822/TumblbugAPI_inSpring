@@ -5,5 +5,12 @@
 
 <mapper namespace="org.doit.ik.mapper.MemberMapper">
 
-
+	<select id="selectByCd" resultType="org.doit.ik.domain.Member">
+		<![CDATA[
+			SELECT *
+			FROM member
+			WHERE m_cd = #{m_cd}
+		]]>
+	</select>
+	
 </mapper>

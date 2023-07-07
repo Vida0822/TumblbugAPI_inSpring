@@ -1,5 +1,6 @@
 package org.doit.ik;
 
+import org.doit.ik.domain.Member;
 import org.springframework.stereotype.Controller;
 
 @Controller

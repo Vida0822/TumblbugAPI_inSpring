@@ -104,4 +104,93 @@
 	
 	
 	
+	
+	<!-- 목록보기  -->
+	<select id="selProject" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT *
+			FROM project
+			ORDER BY TO_NUMBER(SUBSTR(pro_cd,4)) ASC
+		]]>
+	</select>
+
+	<select id="selPopProject" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT *
+			FROM project
+			WHERE PRO_STATUS = '진행중'
+			ORDER BY pro_sup DESC NULLS LAST
+		]]>
+	</select>
+	
+	<select id="selNewProject" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT *
+			FROM project
+			WHERE PRO_STATUS = '진행중'
+			ORDER BY pro_start DESC
+		]]>
+	</select>
+	
+	<select id="selEndProject" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT *
+			FROM project
+			WHERE PRO_STATUS = '진행중'
+			ORDER BY pro_end ASC
+		]]>
+	</select>
+	
+	<select id="selSoonProject" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT *
+			FROM project
+            WHERE PRO_STATUS = '공개예정'
+			ORDER BY pro_start ASC
+		]]>
+	</select>
+	
+	<select id="selCtgProject" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT p.*
+			FROM project p
+			LEFT JOIN dtl_ctg d on p.dtl_ctg_code = d.dtl_ctg_code
+			LEFT JOIN ctg c on d.ctg_code = c.ctg_code
+			WHERE REGEXP_LIKE( ctg_name, #{searchWord}, 'i' )
+		]]>
+	</select>
+	
+	<select id="selDtlCtgProject" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT p.*
+			FROM project p
+			LEFT JOIN dtl_ctg d on p.dtl_ctg_code = d.dtl_ctg_code
+			WHERE REGEXP_LIKE( dtl_ctg_name, #{searchWord}, 'i' )
+		]]>
+	</select>
+	
+	<select id="selectByProCd" resultType="org.doit.ik.domain.File">
+		<![CDATA[
+			SELECT *
+			FROM att_file
+			WHERE pro_cd = #{pro_cd} AND af_rep = 1
+		]]>
+	</select>
+	
+	<select id="selectByCd" resultType="org.doit.ik.domain.DetailCategory">
+		<![CDATA[
+			SELECT *
+			FROM DTL_CTG
+			WHERE DTL_CTG_CODE = #{dtl_ctg_code}
+		]]>
+	</select>
+	
+	<select id="SumByProCd" resultType="int">
+		<![CDATA[
+			SELECT NVL(SUM(sp_total),0) sum
+			FROM sp_pay
+			WHERE pro_cd = #{pro_cd}
+		]]>
+	</select>
+	
 </mapper>
