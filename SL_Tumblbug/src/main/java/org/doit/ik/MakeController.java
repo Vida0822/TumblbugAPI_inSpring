@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.doit.ik.domain.DetailCategory;
 import org.doit.ik.domain.Project;
+import org.doit.ik.domain.ProjectCard;
 import org.doit.ik.service.MakeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -93,8 +94,12 @@ public class MakeController {
 			) {
 		log.info("> /tumblbug/editProject/default GET...");
 		
+		ProjectCard projectCard = this.makeService.manageForm(pro_cd) ; 
+		Project project = projectCard.getProject(); 		
 		
+		model.addAttribute("projectCard", this.makeService.manageForm(pro_cd)) ; 
 		model.addAttribute("categoryList", this.makeService.getCategoryList()) ; 
+		model.addAttribute("detailCategoryList", this.makeService.getCategoryList(projectCard.getDetailCategory().getCtg_code()));  
 		
 	} // basic
 	

@@ -29,6 +29,7 @@ public class Project {
 	private Date pro_end ; /* 종료일 */
 	private int pro_sup ; 
 	
+	
 	public Project( String pro_sm, String dtl_ctg_code, String m_cd) {
 		super();
 		this.pro_sm = pro_sm;

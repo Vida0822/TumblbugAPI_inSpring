@@ -11,9 +11,12 @@
 	</select>
 	
 	<select id="getDetailCategoryList" resultType="org.doit.ik.domain.DetailCategory">
-		SELECT * 
-		FROM dtl_ctg
-		WHERE ctg_code = #{ctg_code}  AND dtl_ctg_name != '세부 카테고리를 선택해주세요'
+		<![CDATA[ 
+			SELECT dtl_ctg_code, dtl_ctg_name, d.ctg_code, ctg_name 
+			FROM DTL_CTG d 
+				JOIN CTG c ON d.ctg_code = c.ctg_code
+				WHERE d.ctg_code = #{ctg_code} AND d.dtl_ctg_name != '세부 카테고리를 선택해주세요'
+		]]>
 	</select>
 	
 	

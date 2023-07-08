@@ -63,7 +63,7 @@
 					class="Input__InputWrapper-j7moqy-0 bXlLWE SelectWithSingle__Selected-sc-1eotg4s-3 eGAzEd"
 					readonly=""><input readonly="" type="text" inputmode="text"
 					autocomplete="off" autocapitalize="off"
-					class="Input__InnerInput-j7moqy-1 bfmNPl" value="${projectCard.detailCategory.dtl_ctg_name}"
+					class="Input__InnerInput-j7moqy-1 bfmNPl" value="베이킹 · 디저트"
 					placeholder="">
 				<div name="arrow2-down" class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
 						<svg viewBox="0 0 48 48">
@@ -73,13 +73,40 @@
 				<div>
 					<div class="SelectWithSingle__Options-sc-1eotg4s-4 bPMnIA">
 						<ul id="detailCategoryList">
-							<c:forEach items="${ detailCategoryList }" var="dto">
-								<li label="${dto.ctg_name}" value="${dto.ctg_code}"
-											class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI">
-											<button type="button" value="${dto.ctg_code}"
-												data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;parentCategory&quot;,&quot;disabled&quot;:false}">${dto.ctg_name}</button>
-										</li>
-								</c:forEach>
+							<li label="베이킹 · 디저트" value="baking-and-desserts"
+								class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kGQNec"><button
+									type="button" value="baking-and-desserts"
+									data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;category&quot;,&quot;disabled&quot;:false}">베이킹
+									· 디저트</button></li>
+							<li label="음료" value="drinks"
+								class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI"><button
+									type="button" value="drinks"
+									data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;category&quot;,&quot;disabled&quot;:false}">음료</button></li>
+							<li label="간편식" value="home-meal-replacement"
+								class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI"><button
+									type="button" value="home-meal-replacement"
+									data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;category&quot;,&quot;disabled&quot;:false}">간편식</button></li>
+							<li label="밀키트" value="meal-kit"
+								class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI"><button
+									type="button" value="meal-kit"
+									data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;category&quot;,&quot;disabled&quot;:false}">밀키트</button></li>
+							<li label="비건" value="vegan"
+								class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI"><button
+									type="button" value="vegan"
+									data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;category&quot;,&quot;disabled&quot;:false}">비건</button></li>
+							<li label="건강식품" value="health-food"
+								class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI"><button
+									type="button" value="health-food"
+									data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;category&quot;,&quot;disabled&quot;:false}">건강식품</button></li>
+							<li label="요리책" value="cookbooks"
+								class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI"><button
+									type="button" value="cookbooks"
+									data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;category&quot;,&quot;disabled&quot;:false}">요리책</button></li>
+							<li label="푸드 페스티벌 · 행사" value="food-festivals-and-events"
+								class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI"><button
+									type="button" value="food-festivals-and-events"
+									data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;category&quot;,&quot;disabled&quot;:false}">푸드
+									페스티벌 · 행사</button></li>
 						</ul>
 					</div>
 				</div>
