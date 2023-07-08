@@ -2769,20 +2769,20 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 					<div
 						class="style__Tabs-sc-3a505r-0 kTjmVr style__StyledTabs-sc-168arlx-12 kuVrMn"
 						style="margin: 20px auto 0px;">
-						<div class="style__Tab-sc-3a505r-1 blqBuO"><input type="hidden" name="pro_status" value="all"/>전체</div>
-						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="writing"/>작성 중</div>
-						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="test"/>심사 중</div>
+						<!-- <div class="style__Tab-sc-3a505r-1 blqBuO"><input type="hidden" name="pro_status" value="all"/>전체</div> -->
+						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="writing"/>작성중</div>
+						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="test"/>심사요청</div>
 						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="approved"/>승인됨</div>
 						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="rejected"/>반려됨</div>
-						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="soon"/>공개예정</div>
-						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="running"/>진행 중</div>
-						<div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="closed"/>종료</div>
+						<!-- <div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="soon"/>공개예정</div> -->
+						<!-- <div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="running"/>진행 중</div> -->
+						<!-- <div class="style__Tab-sc-3a505r-1 gygqOn"><input type="hidden" name="pro_status" value="closed"/>종료</div> -->
 					</div>
 				<script>
 					$(document).ready(function() {
 					  $('.gygqOn').click(function() {
 					    var value = $(this).find('input').val(); // 클릭한 div의 자식 input의 값 가져오기
-						location.href="/tumblbug/managerPage.do?pro_status="+value ; 
+						location.href="/tumblbug/manager.do?pro_status="+value ; 
 					  });
 					});
 				</script>
@@ -2889,9 +2889,6 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 														  }); // ajax
 													});
 												</script>	
-												
-												
-												
 											</div>
 											<div class="style__ProjectNotifyDesktop-sc-16sdzr6-8 humYWR"></div>
 										</div>

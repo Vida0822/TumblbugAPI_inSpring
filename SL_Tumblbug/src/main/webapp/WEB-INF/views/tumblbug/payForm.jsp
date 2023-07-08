@@ -1219,7 +1219,7 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 	<div id="react-view" class="tbb-only-ff">
 		<div class="Header-ou4e17-0 gdGoWS">
 			<div class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ LogoHeader__StyledContainer-sc-11h9w3h-0 gmJKbC">
-				<a href="/">
+				<a href="/tumblbug/main.do">
 					<div class="TumblbugLogo-sc-5rx33z-0 hakSMQ LogoHeader__StyledTumblbugLogo-sc-11h9w3h-1 dzHnZY">
 						<svg id="tumblbug_logo" viewBox="0 0 107.89 28.39">
 							<title>TumblbugLogo</title>
@@ -1264,7 +1264,7 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 					<div class="styled__Inner-sc-1aoa70r-1 kieNyP">
 						<div class="styled__ImgArea-sc-1aoa70r-2 dKhOG">
 							<a href="/rona03">
-								<img src="https://tumblbug-pci.imgix.net/bb77656dabaaa9b34666c6a8917ee2ac7464a964/00f6c2f6932a09b609640b4268957dd67854ff09/35dc0dd1451e782d85f6077b0b3f5e33fbd64a7e/5fcb4b43-9706-4a28-97a8-b72895e26758.jpeg?auto=format%2Ccompress&amp;fit=crop&amp;h=465&amp;lossless=true&amp;w=620&amp;s=d7a93a9d397a03ad361015d1e5c57780"
+								<img src="${ list.af_path }"
 									alt="사건과 캐릭터와의 연관성을 다룬 <사건 설정집> 프로젝트 이미지">
 							</a>
 						</div>
@@ -1300,7 +1300,7 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 													<th>선물 구성</th>
 													<td>${ list.gift_desc }
 														<ul class="style__RewardList-sc-1b41ica-1 dTTXrC">
-															<c:forEach items="${ item }" var="item">
+															<c:forEach items="${ list.item }" var="item">
 																<li>
 																	${ item.item_name } (x${ item.item_cnt })
 																</li>															
@@ -1313,13 +1313,15 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 													<td><fmt:formatNumber value="${ list.gift_min }" pattern="#,###" />원</td>
 												</tr>
 												
+												<%-- 
 												<c:if test="${ list.sp_add != 0 }">
 													<tr>
 														<th>추가 후원금</th>
 														<td><fmt:formatNumber value="${ list.sp_add }" pattern="#,###" />원</td>
 													</tr>												
 												</c:if>
-												
+												--%>
+												 
 												<tr>
 													<th>예상 전달일</th>
 													<td>
@@ -1368,7 +1370,7 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 						</div>
 					</div>
 					
-					<c:if test="${ not empty supporter.addr_cd }">
+					<c:if test="${ not empty list.supporter.addr_cd }">
 					<div class="style__CardWrapper-sc-1kgy22t-4 bzUAHM">
 						<div class="SettingForm__Wrapper-sc-169upu5-0 jKMMYF">
 							<div class="SettingForm__FormHeader-sc-169upu5-1 jzTvBl fnt-p1">
@@ -1378,11 +1380,11 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 								<div class="ListElementComponent__Wrapper-sc-1wy7ql5-0 gxVril" type="address">
 									<div class="content">
 										<div class="fnt-p1 fnt-bd">
-											${ supporter.addr_rec }
+											${ list.supporter.addr_rec }
 											<span type="isDefault" class="Label__Wrapper-ac7bbp-0 gWxYCF CommonStyled__DefaultLabel-bpcmiq-12 hSXOrt">기본</span>											
 										</div>
 										<div class="fnt-p3 tbb-clr-gray-80">
-											${ supporter.addr_postal } ${ supporter.addr_detail }<br>${ supporter.addr_tel }
+											${ list.supporter.addr_postal } ${ list.supporter.addr_detail }<br>${ list.supporter.addr_tel }
 										</div>
 									</div>
 									<div class="func">
@@ -1441,7 +1443,7 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 									</div>
 								</div>
 								
-									<c:if test="${ supporter.card_number != 0 }">
+									<c:if test="${ list.supporter.card_number != 0 }">
 										<div class="style__CardListElementWrapper-sc-1393oxn-4 eSPORy" id="cardtab">
 											<div class="PaymentListElementComponent__Wrapper-sc-1n2zzl-0 dvqgZP PaymentListElementItem">
 												<div class="ListElementComponent__Wrapper-sc-1wy7ql5-0 fHveqP PaymentListElementComponent__StyledListElement-sc-1n2zzl-1 gcxzQG PaymentsCard__CardListElementComponent-o8d1oc-0 iFZquN"
@@ -1457,7 +1459,7 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 																<span type="isDefault" class="Label__Wrapper-ac7bbp-0 gWxYCF CommonStyled__DefaultLabel-bpcmiq-12 hSXOrt">기본</span>
 															</div>
 															 
-															<c:set var="cardNum" value="${ supporter.card_number }"/>
+															<c:set var="cardNum" value="${ list.supporter.card_number }"/>
 															<c:set var="chCardNum" value="${fn:substring('************', 0, 12)} ${fn:substring(cardNum, 12, 16)}"/>
 															
 															<div class="fnt-p3 tbb-clr-gray-80">${ chCardNum }</div>
@@ -1587,7 +1589,7 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 																				
 									</c:if>
 									
-									<c:if test="${ supporter.acnt_number != 0 }">
+									<c:if test="${ list.supporter.acnt_number != 0 }">
 										<div class="style__CardListElementWrapper-sc-1393oxn-4 eSPORy" id="accounttab">
 											<div class="PaymentListElementComponent__Wrapper-sc-1n2zzl-0 dvqgZP PaymentListElementItem">
 												<div class="ListElementComponent__Wrapper-sc-1wy7ql5-0 fHveqP PaymentListElementComponent__StyledListElement-sc-1n2zzl-1 gcxzQG PaymentsCard__CardListElementComponent-o8d1oc-0 iFZquN"
@@ -1598,10 +1600,10 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 													<div class="content">
 														<div class="PaymentsCard__CardWrapper-o8d1oc-3 fVBUFi">
 															<div class="fnt-p1 fnt-bd">
-																${ supporter.acnt_bank }
+																${ list.supporter.acnt_bank }
 																<span type="isDefault" class="Label__Wrapper-ac7bbp-0 gWxYCF CommonStyled__DefaultLabel-bpcmiq-12 hSXOrt">기본</span>
 															</div>
-															<div class="fnt-p3 tbb-clr-gray-80">${ acnt_sec }</div>
+															<div class="fnt-p3 tbb-clr-gray-80">계좌번호</div>
 															<button type="button" class="style__ModifyButton-sc-1393oxn-5 EKrGR">변경</button>
 														</div>
 													</div>
@@ -1626,18 +1628,18 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 									</c:if>
 									
 									<c:choose>
-										<c:when test="${ supporter.card_number == 0 && supporter.acnt_number == 0 }">
+										<c:when test="${ list.supporter.card_number == 0 && list.supporter.acnt_number == 0 }">
 											<div class="style__AddButton-sc-1393oxn-3 fIAWNG"><span>+ 카드 등록</span></div>
 										</c:when>
-										<c:when test="${ supporter.card_number == 0 }">
+										<c:when test="${ list.supporter.card_number == 0 }">
 											<div class="style__AddButton-sc-1393oxn-3 fIAWNG"><span>+ 카드 등록</span></div>
 										</c:when>
-										<c:when test="${ supporter.acnt_number == 0 }">
+										<c:when test="${ list.supporter.acnt_number == 0 }">
 											<div class="style__AddButton-sc-1393oxn-3 fIAWNG"><span>+ 계좌 등록</span></div>
 										</c:when>
 									</c:choose>
 									
-								<c:if test="${ supporter.pm_default != 1 && supporter.acnt_number != 0 && supporter.card_number != 0 }">
+								<c:if test="${ list.supporter.pm_default != 1 && list.supporter.acnt_number != 0 && list.supporter.card_number != 0 }">
 									<div class="PaymentSection__StyledDefaultPaymentCheckboxWrapper-kg8ju0-2 ekxHEd" id="basicsetting">
 									<div class="style__PledgeDescCheckBoxRow-sc-1393oxn-8 PaymentSection__StyledDefaultPaymentCheckbox-kg8ju0-3 ckpTYV jTpfvf">
 										<div class="style__PledgeDescCheckBoxRow-sc-1393oxn-8 ckpTYV">
@@ -1671,11 +1673,11 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 
 								<form method="post" id="lastPay">
 									<div class="style__PledgeAmountDesc-tb12hu-6 cLhcWy">
-										<span><fmt:formatNumber value="${ list.total }" pattern="#,###" /></span> 원
+										<span><fmt:formatNumber value="${ list.gift_min }" pattern="#,###" /></span> 원
 									</div>
-									<input type="hidden" name="total" value="${ list.total }">
-									<input type="hidden" name="addr_cd" value="${ supporter.addr_cd }">
-									<input type="hidden" name="pm_cd" value="${ supporter.pm_cd }">
+									<input type="hidden" name="gift_min" value="${ list.gift_min }">
+									<input type="hidden" name="addr_cd" value="${ list.supporter.addr_cd }">
+									<input type="hidden" name="pm_cd" value="${ list.supporter.pm_cd }">
 									<input type="hidden" name="pro_sup" value="${ list.pro_sup }">
 								</form>
 								
@@ -1755,6 +1757,7 @@ data-styled.g2830[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 	</div>
 	
 	<script type="text/javascript">
+	
 		$(function() {
 			$("#checkmark").hide();
 			$("#checkmark2").hide();

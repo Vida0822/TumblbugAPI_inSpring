@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Member {
 	
-	
 	// 필드 
 	private String m_cd; 
     private String m_email; 
@@ -28,6 +27,4 @@ public class Member {
     private String m_follow; 
     private String m_mail;
     
-	
-	
 }

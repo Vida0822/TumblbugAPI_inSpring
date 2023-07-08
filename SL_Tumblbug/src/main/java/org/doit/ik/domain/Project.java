@@ -35,4 +35,5 @@ public class Project {
 		this.dtl_ctg_code = dtl_ctg_code;
 		this.m_cd = m_cd;
 	}
+	
 }// Project

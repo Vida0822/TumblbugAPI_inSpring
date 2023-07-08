@@ -1325,11 +1325,6 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 				<div class="style__HeaderUpperLayout-zxsodr-2 jxLqaO">
 					<div class="style__LogoWrapper-zxsodr-3 dtkXPY">
 						<!-- 텀블벅 -->
-<script>
-	$(".dtkXPY").on("click",function() {
-    	location.href = "http://localhost/tumblbug/publicWeb/tumblbug_main_test.jsp";
-    });
-</script>
 						<svg width="140" height="36" viewBox="0 0 140 36" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" clip-rule="evenodd"
@@ -1538,7 +1533,7 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 
 	// tumblbug 누르면 홈으로
 	$(".dtkXPY").on("click",function() {
-		location.href="/tumblbug/listProject.do";
+		location.href="/tumblbug/main.do";
 	});	
 	
 	$(".ehJwom.effect_hover").on("click",function(event) {
@@ -1547,7 +1542,7 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 
 		// 클릭한 요소에 따라 searchCondition과 searchWord 설정
 		if ($(this).text() === "홈") {
-			location.href="/tumblbug/listProject.do";
+			location.href="/tumblbug/main.do";
 		} else {
 			
 			if ($(this).text() === "인기") {
@@ -1572,7 +1567,7 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 						+ "&searchWord="
 						+ searchWord;*/
 			pageGoPost({
-				url : "/tumblbug/listProject.do", //이동할 페이지
+				url : "/tumblbug/main.do", //이동할 페이지
 				target : "_self",
 				vals : [ //전달할 인수들
 				[ "searchCondition", searchCondition ],
@@ -1621,7 +1616,7 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 	$("input.jPMsmJ").on("keydown",function() {
 		if (event.which == 13) {
 			pageGoPost({
-				url : "/tumblbug/listProject.do", //이동할 페이지
+				url : "/tumblbug/main.do", //이동할 페이지
 				target : "_self",
 				vals : [ //전달할 인수들
 				[ "searchCondition", 6 ],
@@ -1632,7 +1627,7 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 	
 	$("svg.dtngnQ").on("click",function() {
 		pageGoPost({
-			url : "/tumblbug/listProject.do", //이동할 페이지
+			url : "/tumblbug/main.do", //이동할 페이지
 			target : "_self",
 			vals : [ //전달할 인수들
 			[ "searchCondition", 6 ],
@@ -1871,7 +1866,7 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 	$(".Idjxi").on("click",function(event) {
 		//      location.href = "/tumblbug/listProject.do?searchCondition=1&searchWord="+ $(this).text();
 		pageGoPost({
-			url : "/tumblbug/listProject.do", //이동할 페이지
+			url : "/tumblbug/main.do", //이동할 페이지
 			target : "_self",
 			vals : [ //전달할 인수들
 			[ "searchCondition", 1 ],

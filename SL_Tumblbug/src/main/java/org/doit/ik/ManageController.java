@@ -23,7 +23,7 @@ public class ManageController {
 	
 	
 	// '작성 중' 상태인 프로젝트 목록 띄우기 
-	@GetMapping("/managerPage")
+	@GetMapping("/manager")
 //	@RequestParam(value="pro_status", required = false,defaultValue = "writing") String pro_status
 	public void managerPage(
 			@RequestParam(value="pro_status") String pro_status

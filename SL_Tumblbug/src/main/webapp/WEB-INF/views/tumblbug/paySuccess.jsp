@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
-<% 
-	int sup = Integer.parseInt( request.getParameter("sup") );
-%>
 <!DOCTYPE html>
   <html>
     <head>
@@ -336,7 +333,7 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 						class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ styled__StyledContainer-z4so9e-5 dCBDHl">
 						<div class="styled__ContentInner-z4so9e-3 fVVNLw">
 							<p class="title">
-								<strong>축하합니다. <span><%= sup + 1 %></span> 번째
+								<strong>축하합니다. <span>${ param.sup + 1 }</span> 번째
 								</strong>공식 후원자가 되셨습니다!
 							</p>
 							<span>* 후원 내역 변경은 <a href="/pledges/6841254">후원 상세</a>에서 하실 수 있습니다.
