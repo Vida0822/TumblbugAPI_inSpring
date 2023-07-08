@@ -1,6 +1,7 @@
 package org.doit.ik.mapper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.doit.ik.domain.Category;
@@ -14,6 +15,9 @@ public interface MakeMapper {
 	// 카테고리 리스트 
 	ArrayList<Category> getCategoryList();
 
+	// 세부 카테고리 리스트 
+	List<DetailCategory> getDetailCategoryList(String ctg_code);
+	
 	// 카테고리 기본 메세지 코드 
 	String selectDefault(String category);
 
@@ -41,6 +45,7 @@ public interface MakeMapper {
 	File getImage(String pro_cd);
 
 	DetailCategory getCategory(String pro_cd);
+
 	
 
 }

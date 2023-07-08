@@ -1,6 +1,7 @@
 package org.doit.ik.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.doit.ik.domain.Category;
 import org.doit.ik.domain.DetailCategory;
@@ -25,12 +26,22 @@ public class MakeServiceImpl implements MakeService {
 	private MakeMapper makeMapper ; 
 	private ProjectMapper projectMapper ; 
 	
+	
 	@Override
 	public ArrayList<Category> getCategoryList() {
 		
 		log.info("> MakeServiceImpl.getCategoryList()...");
 		return makeMapper.getCategoryList(); // 카테고리 리스트 	
 	}
+	
+	@Override
+	public List<DetailCategory> getCategoryList(String ctg_code) {
+		
+		log.info("> MakeServiceImpl.getCategoryList()..."+ctg_code);
+		return makeMapper.getDetailCategoryList(ctg_code); 
+	} // createProject
+	
+	
 
 	@Override
 	public Project createProject(String pro_sm, String ctg_code, String m_cd) {
@@ -79,7 +90,8 @@ public class MakeServiceImpl implements MakeService {
 		
 		return projectCard ; 
 			
-	} // createProject
+	}
+
 
 	
 	

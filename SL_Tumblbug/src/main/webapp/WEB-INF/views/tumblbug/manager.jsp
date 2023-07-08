@@ -2868,6 +2868,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 														      approved: approved,
 														      pro_cd: pro_cd
 														    },
+														    cache:false,
 														    success: function(examineResult, status, xhr) {
 														      //alert("성공적으로 처리되었습니다");
 													          button.text("처리중...")

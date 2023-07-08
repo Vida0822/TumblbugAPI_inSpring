@@ -1,8 +1,10 @@
 package org.doit.ik.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.doit.ik.domain.Category;
+import org.doit.ik.domain.DetailCategory;
 import org.doit.ik.domain.Payment;
 import org.doit.ik.domain.Project;
 import org.doit.ik.domain.ProjectCard;
@@ -23,5 +25,8 @@ public interface MakeService {
 
 	// 관리 페이지 띄우기 
 	ProjectCard manageForm(String pro_cd);
+
+	// 카테고리 별 세부카테고리 목록 가져오기 
+	List<DetailCategory> getCategoryList(String ctg_code);
 
 } // MakeService

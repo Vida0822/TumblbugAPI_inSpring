@@ -1,9 +1,13 @@
 package org.doit.ik;
 
 import java.security.Principal;
+import java.util.List;
 
+import org.doit.ik.domain.DetailCategory;
 import org.doit.ik.domain.Project;
 import org.doit.ik.service.MakeService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -87,12 +91,53 @@ public class MakeController {
 			@RequestParam("pro_cd") String pro_cd
 			, Model model 
 			) {
+		log.info("> /tumblbug/editProject/default GET...");
+		
+		
+		model.addAttribute("categoryList", this.makeService.getCategoryList()) ; 
 		
 	} // basic
 	
+	@GetMapping("editProject/showDCG")
+	public ResponseEntity<List<DetailCategory>> showDCG(
+			@RequestParam("ctg_code") String ctg_code
+	) {
+		// ajax 처리 필요 
+		log.info("> /examine GET - Ajax ...ctg_code="+ctg_code);
+		return new ResponseEntity<>( this.makeService.getCategoryList(ctg_code), HttpStatus.OK);		
+		
+	} // managerPage
+	
+	/*
+		@GetMapping(value = "/deptEmp/{deptno}"
+			, produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public ResponseEntity<List<EmpDTO>> getEmpList(
+			@PathVariable("deptno") int deptno){
+		log.info("> getEmpList... " );
+		return new ResponseEntity<>( this.deptEmpMapper.selectEmp(deptno), HttpStatus.OK);		
+	}
+	
+	@PostMapping("/scott/dept/new")
+	public ResponseEntity<String> insertDept( @RequestBody DeptDTO dto){
+
+		log.info("> /scott/dept/now POST ...");
+		int insertResult =  this.memberMapper.insertDept(dto); // 1 , 0
+		return insertResult==1 ?  
+				new ResponseEntity<>("SUCCESS", HttpStatus.OK) 
+				:   new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+	}
+				
+*/ 
+	
+	
 	@PostMapping("editProject/default")
 	public void basic(
+			
+		
 			) {
+		
+		
 		
 	} // basic
 	
