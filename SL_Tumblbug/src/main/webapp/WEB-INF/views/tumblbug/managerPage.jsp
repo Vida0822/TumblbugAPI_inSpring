@@ -2843,49 +2843,51 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 														<input type="hidden" name="pro_cd" value="${projectCard.project.pro_cd}" />		
 													</a>
 												</div>
+												
 												<script>
-													// ajax 스크립트 추가 													
-													 $(".itmomZ").one("click", function(event) {
-  event.preventDefault();
+													// ajax 스크립트 추가 		
+													 $(".itmomZ").on("click", function(event) {
+														  event.preventDefault();
+														  														
+														  var button = $(this);
+														  var buttonText = button.text().trim();
+		  
+													//	  if(confirm("정말"+buttonText+"하시겠습니까?")){ }
+														  
+														  if (buttonText === "승인") {
+															var approved = true;
+														  } else {
+															var approved = false;
+														  }
+														  var pro_cd = button.find('input').val();
 
-  var button = $(this);
-  var buttonText = button.text().trim();
-  
-  var approved;
-  if (buttonText === "승인") {
-    approved = true;
-  } else {
-    approved = false;
-  }
-  
-  var pro_cd = button.find('input').val();
-  console.log("> approved = " + approved);
-  console.log("> pro_cd = " + pro_cd);
-
-  $.ajax({
-    url: "/tumblbug/examine.do",
-    method: "GET",
-    data: {
-      approved: approved,
-      pro_cd: pro_cd
-    },
-    dataType: "json",
-    success: function(data, xhr) {
-      // alert( data.idCheckResult );
-      alert("성공적으로 처리되었습니다");
-      if (approved) {
-        button.css("background-color", "green"); // 버튼 요소에 접근하여 배경색 변경
-      } else {
-        button.css("background-color", "red"); // 버튼 요소에 접근하여 배경색 변경
-      }
-    },
-    error: function(xhr, error) {
-      // alert( errorType );
-      alert("서버가 불안정하니 잠시 후 다시 시도해주세요");
-    }
-  });
-});
-
+														  $.ajax({
+														    url: "/tumblbug/examine.do",
+														    method: "GET",
+														    data: {
+														      approved: approved,
+														      pro_cd: pro_cd
+														    },
+														    success: function(examineResult, status, xhr) {
+														      //alert("성공적으로 처리되었습니다");
+													          button.text("처리중...")
+														      if (approved) {
+														    	  setTimeout(function() {
+																        button.css("background-color", "green"); // 버튼 요소에 접근하여 배경색 변경
+																        button.text("승인됨")
+														    	  }, 2000) ; 
+														      } else {
+														    	  setTimeout(function() {
+														        		button.css("background-color", "red"); // 버튼 요소에 접근하여 배경색 변경
+														        		button.text("반려됨")
+														    	  }, 2000) ; 
+														   	 }
+														    }, //success 										   
+														    error: function(xhr, status, error) {
+														      alert("서버가 불안정하니 잠시 후 다시 시도해주세요");
+														    } // error
+														  }); // ajax
+													});
 												</script>	
 												
 												

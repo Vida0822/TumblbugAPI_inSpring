@@ -67,6 +67,7 @@ public class ManageController {
 		log.info("> /examine GET - Ajax ...pro_cd="+pro_cd+"approved"+approved);
 		
 		int examineResult =  this.managerService.examine(pro_cd ,approved);
+		log.info("examine 함수 실행후 examineResult"+examineResult) ; 
 		
 		return examineResult==1 ?  
 				new ResponseEntity<>("SUCCESS", HttpStatus.OK) 
