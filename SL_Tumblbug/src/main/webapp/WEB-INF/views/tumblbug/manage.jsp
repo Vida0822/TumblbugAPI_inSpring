@@ -20,8 +20,8 @@ String contextPath = request.getContextPath();
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="<%=contextPath%>/static/css/style.css">
 <style>
-.iKCtLv {
-    background: url(https://tumblbug.com/wpa/b092e02bfb24cf713ec1d34b712d2528.png) center center / 50% no-repeat rgb(252, 252, 252);
+.iKCtLv { 
+    background: url('${projectCard.file.af_path}') center center / 50% no-repeat rgb(252, 252, 252);
     border-radius: 8px;
     width: 113px;
     height: 80px;
@@ -1002,14 +1002,24 @@ img, svg {
 					</div>
 					<div class="style__ProjectContents-sc-1y2waj3-17 bPmWWL">
 
-						<div class="style__ProjectThumbnail-sc-1y2waj3-18 iKCtLv"></div>
+						<div class="style__ProjectThumbnail-sc-1y2waj3-18 iKCtLv"
+								style="background: url('${projectCard.file.af_path}') center center / 100% no-repeat rgb(252, 252, 252)"
+						>
+						</div>
 						<div>
 							<p class="style__ProjectTitle-sc-1y2waj3-21 daXtOQ">
-
-
-								<strong>${projectCard.member.m_name}의 프로젝트</strong> <!-- 회원이름 m_name 출력 -->
+								<c:choose>
+								<c:when test="${not empty projectCard.project.pro_long}">
+									<strong>${projectCard.project.pro_long}</strong>
+								</c:when>
+								<c:otherwise>
+									<strong>${projectCard.member.m_name}의 프로젝트</strong> <!-- 회원이름 m_name 출력 -->
+								</c:otherwise>
+								</c:choose>
 							</p>
-							<p class="style__ProjectCategory-sc-1y2waj3-20 hIWJmR">${projectCard.detailCategory.ctg_name} · ${projectCard.member.m_name}</p>
+							<p class="style__ProjectCategory-sc-1y2waj3-20 hIWJmR">
+								${projectCard.detailCategory.ctg_name} · ${projectCard.member.m_name}
+							</p>
 						</div>
 					</div>
 
@@ -1226,7 +1236,7 @@ img, svg {
 
 
 					<div class="style__ProjectConfigWrap-sc-1mawbc1-37 hCGFPO">
-						<a href=""><div class="iconImage">
+						<a href="/tumblbug/editProject/payment.do?pro_cd=${projectCard.project.pro_cd}"><div class="iconImage">
 								<div name="percent-solid"
 									class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
 									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -1240,8 +1250,10 @@ img, svg {
 							</div>
 							<p>
 								<strong>요금제 선택</strong><span>Basic 선택</span>
-							</p></a><a
-							href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/management/default"><div
+							</p>
+							</a>
+							<a href="/tumblbug/editProject/default.do?pro_cd=${projectCard.project.pro_cd}">
+							<div
 								class="iconImage">
 								<div name="write-solid"
 									class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
@@ -1254,9 +1266,11 @@ img, svg {
 							</div>
 							<p>
 								<strong>기본 정보</strong><span>37% 작성완료</span>
-							</p></a><a
-							href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/management/funding"><div
-								class="iconImage">
+							</p>
+							</a>
+
+							<a href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/management/funding">
+							<div class="iconImage">
 								<div name="funding-solid"
 									class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
 									<svg viewBox="0 0 48 48">

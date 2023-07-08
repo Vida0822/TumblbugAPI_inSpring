@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+
 			<div class="FrontPage__HomeWrapper-sc-1ev69zc-11 bIWUDq">
 				<div class="FrontPage__StyledMainTopSection-sc-1ev69zc-8 dBLJpo">
 					<div
@@ -201,6 +202,7 @@
 							</div>
 						</div>
 						<!-- 주목할 만한 프로젝트 -->
+						<a href="/tumblbug/manage.do?pro_cd=PRO1">/tumblbug/manage.do?pro_cd=pro1</a><br>
 						<a href="/tumblbug/view.do?pro_cd=PRO1">/tumblbug/view.do?pro_cd=pro1</a><br>
 						<a href="/tumblbug/manager.do?pro_status=writing">/tumblbug/manager?pro_status=writing</a> <br>
 						<div

@@ -49,7 +49,7 @@ public class MakeController {
 	
 	} // make (post) 
 	
-	@GetMapping("/payment")
+	@GetMapping(value= {"/payment", "editProject/payment"})
 	public void payment(Model model) {
 		
 		log.info("> /tumblbug/payment GET...");
@@ -57,7 +57,7 @@ public class MakeController {
 		
 	} // payment
 	
-	@PostMapping("/payment")
+	@PostMapping( "/payment" )
 	public String payment(
 			@RequestParam("pro_cd") String pro_cd, 
 			@RequestParam("pay_cd") String pay_cd
@@ -76,8 +76,19 @@ public class MakeController {
 			, Model model 
 			) {
 		log.info("> /tumblbug/manage GET...");
+		
 		model.addAttribute("projectCard", this.makeService.manageForm(pro_cd)) ; 
 		
 	} // manage
+	
+	
+	@GetMapping("editProject/default")
+	public void basic(
+			@RequestParam("pro_cd") String pro_cd
+			, Model model 
+			) {
+		
+	}
+	
 
 } // MakeController
