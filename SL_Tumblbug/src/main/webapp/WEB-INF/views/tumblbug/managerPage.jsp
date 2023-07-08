@@ -2845,44 +2845,47 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 												</div>
 												<script>
 													// ajax 스크립트 추가 													
-													$(function (){
-														$(".itmomZ").on("click", function(event) {
-															  event.preventDefault();
+													 $(".itmomZ").one("click", function(event) {
+  event.preventDefault();
 
-															  var approved = $(this).val();
-															  var pro_cd = $(this).find('input').val();
-															  console.log("> approved = " + approved);
-															  console.log("> pro_cd = " + pro_cd);
+  var button = $(this);
+  var buttonText = button.text().trim();
+  
+  var approved;
+  if (buttonText === "승인") {
+    approved = true;
+  } else {
+    approved = false;
+  }
+  
+  var pro_cd = button.find('input').val();
+  console.log("> approved = " + approved);
+  console.log("> pro_cd = " + pro_cd);
 
-															  if (approved == "승인") {
-															    approved = true;
-															    $(this).css("background-color", "green");
-															  } else {
-															    approved = false;
-															    $(this).css("background-color", "red");
-															  }
-															  console.log("> convertApproved = " + approved);
+  $.ajax({
+    url: "/tumblbug/examine.do",
+    method: "GET",
+    data: {
+      approved: approved,
+      pro_cd: pro_cd
+    },
+    dataType: "json",
+    success: function(data, xhr) {
+      // alert( data.idCheckResult );
+      alert("성공적으로 처리되었습니다");
+      if (approved) {
+        button.css("background-color", "green"); // 버튼 요소에 접근하여 배경색 변경
+      } else {
+        button.css("background-color", "red"); // 버튼 요소에 접근하여 배경색 변경
+      }
+    },
+    error: function(xhr, error) {
+      // alert( errorType );
+      alert("서버가 불안정하니 잠시 후 다시 시도해주세요");
+    }
+  });
+});
 
-													   	      /*
-													   	      $.ajax({
-													   	    	  url:"/tumblbug/examine.do" ,        
-													   	    	  method : "GET" , 
-													   	    	  data : { approved : approved  
-													   	    					pro_cd : pro_cd} ,     // js Object,   json Data
-													   	          dataType : "json" , 
-													   	          // new EmpVO() ->  json 변환 응답 ->  js Object 변환 
-													   	          success: function ( data, callback, xhr ){
-													   	        	 //  alert( data.idCheckResult );
-													   	        		alert("성공적으로 처리되었습니다") ; 
-													   	          } , 
-													   	          error: function ( xhr, errorType){
-													   	        	 //  alert( errorType );
-													   	        		alert("서버가 불안정하니 잠시 후 다시 시도해주세요") ; 
-													   	          }
-													   	      });
-													   	      */
-														  });
-													  });										
 												</script>	
 												
 												

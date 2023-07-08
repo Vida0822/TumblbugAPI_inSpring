@@ -64,14 +64,13 @@ public class ManageController {
 			@RequestParam("approved") boolean approved			
 	) {
 		// ajax 처리 필요 
-		log.info("> /managerPage POST - Ajax ...");
+		log.info("> /examine GET - Ajax ...pro_cd="+pro_cd+"approved"+approved);
 		
 		int examineResult =  this.managerService.examine(pro_cd ,approved);
 		
 		return examineResult==1 ?  
 				new ResponseEntity<>("SUCCESS", HttpStatus.OK) 
 				:   new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		
 	} // managerPage
 	
 /*

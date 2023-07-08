@@ -77,8 +77,8 @@ public class ManagerServiceImpl implements ManagerService{
 	@Override
 	public int examine(String pro_cd, boolean approved) {
 		
-		log.info("> ManagerServiceImpl.getCardList_manager()...pro_cd"+pro_cd);
-//		log.info("> ManagerServiceImpl.getCardList_manager()...approved"+approved);
+		log.info("> ManagerServiceImpl.examine()...pro_cd"+pro_cd);
+		log.info("> ManagerServiceImpl.examine()...approved"+approved);
 		
 		String searchCondition ; 
 		
