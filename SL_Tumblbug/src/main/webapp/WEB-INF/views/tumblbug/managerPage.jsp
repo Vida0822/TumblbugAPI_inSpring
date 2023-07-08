@@ -2790,7 +2790,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 					class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ style__PageContainer-sc-168arlx-0 dthqdP">
 					<div class="style__MyProjectListWrapper-sc-168arlx-7 dZobUE">
 						<div class="style__MyProjectListCard-sc-168arlx-9 duagxd">
-							<div class="style__MyProjectListTitle-sc-168arlx-10 hQaYyd">${cardList[0].project.pro_status} ${fn:length(cardList)}</div>
+							<div class="style__MyProjectListTitle-sc-168arlx-10 hQaYyd">${searchCondition} ${fn:length(cardList)}</div>
 							<c:forEach var="projectCard" items="${cardList}">
 							<div	class="style__MyProjectListProjectCardWrapper-sc-168arlx-8 lmEbUa">
 								<div class="style__ProjectCardWrapper-sc-16sdzr6-0 bEpoZz">
@@ -2819,7 +2819,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 													<div class="style__ProjectTitle-sc-16sdzr6-15 ePnlIO">
 														<c:choose>
 															<c:when test="${not empty projectCard.project.pro_long}"> 
-																<span>${projectCard.project.pro_long}</span>
+																<span>${projectCard.project.pro_long}</span>															
 															</c:when>
 															<c:otherwise>
 																<span><b>제목없음</b></span> 
@@ -2834,36 +2834,59 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 													class="style__ProjectNotifyDesktop-sc-16sdzr6-8 style__ProjectNotifyMobile-sc-16sdzr6-9 humYWR iGiiYq"></div>
 												<div
 													class="style__ProjectButtonSection-sc-16sdzr6-25 kgHjVE">
-													<a
-														href="/project-editor/0090bd30-4eaf-4f80-8b1f-d1836adeaac9"
-														class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ">승인
+													<a href="" class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ">
+														승인
+														<input type="hidden" name="pro_cd" value="${projectCard.project.pro_cd}" />	
 													</a>
-													<a
-														class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ">반려
-													</a>									
+													<a class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ remove">
+														반려
+														<input type="hidden" name="pro_cd" value="${projectCard.project.pro_cd}" />		
+													</a>
 												</div>
 												<script>
 													// ajax 스크립트 추가 													
 													$(function (){
-														  $(".itmomZ").on("click", function (){
+														$(".itmomZ").on("click", function(event) {
+															  event.preventDefault();
+
 															  var approved = $(this).val();
-													   	      console.log( "> approved = "+approved );
+															  var pro_cd = $(this).find('input').val();
+															  console.log("> approved = " + approved);
+															  console.log("> pro_cd = " + pro_cd);
+
+															  if (approved == "승인") {
+															    approved = true;
+															    $(this).css("background-color", "green");
+															  } else {
+															    approved = false;
+															    $(this).css("background-color", "red");
+															  }
+															  console.log("> convertApproved = " + approved);
+
+													   	      /*
 													   	      $.ajax({
-													   	    	  url:"/idcheck" ,         // HomeAjaxController.java
+													   	    	  url:"/tumblbug/examine.do" ,        
 													   	    	  method : "GET" , 
-													   	    	  data : { empno : empno  } ,     // js Object,   json Data
+													   	    	  data : { approved : approved  
+													   	    					pro_cd : pro_cd} ,     // js Object,   json Data
 													   	          dataType : "json" , 
 													   	          // new EmpVO() ->  json 변환 응답 ->  js Object 변환 
 													   	          success: function ( data, callback, xhr ){
-													   	        	  alert( data.idCheckResult );
+													   	        	 //  alert( data.idCheckResult );
+													   	        		alert("성공적으로 처리되었습니다") ; 
 													   	          } , 
 													   	          error: function ( xhr, errorType){
-													   	        	  alert( errorType );
+													   	        	 //  alert( errorType );
+													   	        		alert("서버가 불안정하니 잠시 후 다시 시도해주세요") ; 
 													   	          }
 													   	      });
+													   	      */
 														  });
 													  });										
 												</script>	
+												
+												
+												
 											</div>
 											<div class="style__ProjectNotifyDesktop-sc-16sdzr6-8 humYWR"></div>
 										</div>

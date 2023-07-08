@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -45,7 +44,7 @@ public class ManageController {
 		} else if(pro_status.equals("soon")) {
 			searchCondition ="공개예정" ; 
 		} else if(pro_status.equals("running")) {
-			searchCondition ="진행 중" ; 
+			searchCondition ="진행중" ; 
 		} else if(pro_status.equals("closed")) {
 			searchCondition ="종료" ; 
 		}
@@ -57,7 +56,7 @@ public class ManageController {
 	} // managerPage
 
 	
-	/*
+	
 	// 상세보기 승인, 반려 선택시 '프로젝트 상태' 승인됨으로 변경 
 	@GetMapping("/examine")
 	public ResponseEntity<String> managerPage(
@@ -74,7 +73,7 @@ public class ManageController {
 				:   new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	} // managerPage
-	*/ 
+	
 /*
 	@GetMapping(value = "/idcheck" )
 	public EmpVO idCheck( String empno ) {
@@ -98,18 +97,5 @@ public class ManageController {
 				
 */ 
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
