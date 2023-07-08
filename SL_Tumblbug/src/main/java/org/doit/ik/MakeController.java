@@ -88,7 +88,87 @@ public class MakeController {
 			, Model model 
 			) {
 		
-	}
+	} // basic
+	
+	@PostMapping("editProject/default")
+	public void basic(
+			) {
+		
+	} // basic
+	
+	@GetMapping("/editProject/funding")
+	public void funding(
+			@RequestParam("pro_cd") String pro_cd
+			) {
+		
+	} // funding
+	
+	@PostMapping("/editProject/funding")
+	public void funding(
+			) {
+		
+	} // funding
+	
+	
+	@GetMapping("/editProject/gift")
+	public void gift(
+			@RequestParam("pro_cd") String pro_cd
+			) {
+		
+	} // gift
+	
+	@PostMapping("/editProject/gift")
+	public void gift(
+			
+			) {
+		
+	} // gift
+	
+	@GetMapping("/editProject/plan")
+	public void plan(
+			@RequestParam("pro_cd") String pro_cd
+			) {
+		
+	} // plan
+	
+
+	@PostMapping("/editProject/plan")
+	public void plan(
+			
+			) {
+		
+	} // plan
+	
+	@GetMapping("/editProject/creator")
+	public void creator(
+			@RequestParam("pro_cd") String pro_cd
+			) {
+		
+	} // plan
+	
+	
+	@PostMapping("/editProject/creator")
+	public void creator(
+			
+			) {
+		
+	} // plan
+	
+	@GetMapping("/editProject/policy")
+	public void policy(
+			@RequestParam("pro_cd") String pro_cd
+			) {
+		
+	} // plan
+	
+	
+	@PostMapping("/editProject/policy")
+	public void policy(
+			
+			) {
+	} // plan
+	
+	
 	
 
 } // MakeController

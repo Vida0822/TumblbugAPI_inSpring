@@ -1269,7 +1269,7 @@ img, svg {
 							</p>
 							</a>
 
-							<a href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/management/funding">
+							<a href="/tumblbug/editProject/funding.do?pro_cd=${projectCard.project.pro_cd}">
 							<div class="iconImage">
 								<div name="funding-solid"
 									class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
@@ -1286,8 +1286,9 @@ img, svg {
 							</div>
 							<p>
 								<strong>펀딩 계획</strong><span>0% 작성완료</span>
-							</p></a><a
-							href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/management/reward"><div
+							</p></a>
+							
+							<a href="/tumblbug/editProject/gift.do?pro_cd=${projectCard.project.pro_cd}"><div
 								class="iconImage">
 								<div name="reward-solid"
 									class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
@@ -1302,8 +1303,9 @@ img, svg {
 							</div>
 							<p>
 								<strong>선물 구성</strong><span>0% 작성완료</span>
-							</p></a><a
-							href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/management/story"><div
+							</p></a>
+							
+							<a href="/tumblbug/editProject/plan.do?pro_cd=${projectCard.project.pro_cd}"><div
 								class="iconImage">
 								<div name="story-solid"
 									class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
@@ -1316,8 +1318,9 @@ img, svg {
 							</div>
 							<p>
 								<strong>프로젝트 계획</strong><span>0% 작성완료</span>
-							</p></a><a
-							href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/management/creator"><div
+							</p></a>
+							
+							<a href="/tumblbug/editProject/creator.do?pro_cd=${projectCard.project.pro_cd}"><div
 								class="iconImage">
 								<div name="creator-solid"
 									class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
@@ -1328,8 +1331,10 @@ img, svg {
 							</div>
 							<p>
 								<strong>창작자 정보</strong><span>33% 작성완료</span>
-							</p></a><a
-							href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/management/policy"><div
+							</p></a>
+							
+							
+							<a href="/tumblbug/editProject/policy.do?pro_cd=${projectCard.project.pro_cd}"><div
 								class="iconImage">
 								<div name="safty-solid"
 									class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
