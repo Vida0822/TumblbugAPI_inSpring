@@ -202,9 +202,6 @@
 							</div>
 						</div>
 						<!-- 주목할 만한 프로젝트 -->
-						<a href="/tumblbug/manage.do?pro_cd=PRO1">/tumblbug/manage.do?pro_cd=pro1</a><br>
-						<a href="/tumblbug/view.do?pro_cd=PRO1">/tumblbug/view.do?pro_cd=pro1</a><br>
-						<a href="/tumblbug/manager.do?pro_status=writing">/tumblbug/manager?pro_status=writing</a> <br>
 						<div
 							class="FrontProjectsSection__Wrapper-sc-1na1z58-1 kLmlvM tbb FrontPage__SpotlightContainer-sc-1ev69zc-10 goYsGO">
 							<div class="FrontProjectsSection__ListTitle-sc-1na1z58-4 gRQZNs">주목할 만한 프로젝트</div>
@@ -212,7 +209,6 @@
 								class="ProjectListWithCard__ListWrapper-sc-80ruv-3 izZdZi FrontProjectsSection__StyledProjectListWithCard-sc-1na1z58-5 cbDFbB">
 								<div
 									class="FrontProjectsSection__WrapperComponent-sc-1na1z58-0 gArLlO ProjectListWithCard__StyledWrapperComponent-sc-80ruv-0 hpdqas">
-									<!-- --------------------------------------------------------------- -->
 									<c:if test="${!errors.noCardList}">
 										<c:forEach var="projectCard" items="${CardList}" end="7">
 											<div class="card-wrapper">
@@ -239,7 +235,7 @@
 															<dl>
 																<dd class="project-sub-info">
 																	<!--  세부 카테고리 링크 -->
-																	<span> <a>${projectCard.detailCategory.dtl_ctg_name}</a></span>
+																	<span> <a class="DtLcTg">${projectCard.detailCategory.dtl_ctg_name}</a></span>
 																	<!-- 창작자 이름  -->
 																	<span> <a>${projectCard.member.m_name}</a></span>
 																</dd>
@@ -275,9 +271,6 @@
 							</div>
 						</div>
 					</div>
-					<!-- --------------------------------------------------------------- -->
-
-					<!-- --------------------------------------------------------------- -->
 					<div
 						class="FrontPage__StyledPopularProjectsSection-sc-1ev69zc-1 ccGCBK">
 						<div class="FrontPage__IconWithTitle-sc-1ev69zc-0 cVoHRL">
@@ -287,13 +280,10 @@
 									class="FrontPage__ViewTotalProjectsTopLink-sc-1ev69zc-2 bVJxne">전체보기</a>
 							</div>
 						</div>
-
 						<div
 							class="ProjectListWithCard__ListWrapper-sc-80ruv-3 izZdZi FrontPage__StyledProjectListWithCard-sc-1ev69zc-6 cdPnXO">
 							<div
 								class="FrontPage__WrapperComponent-sc-1ev69zc-5 dBqxoz ProjectListWithCard__StyledWrapperComponent-sc-80ruv-0 UspVI">
-					<!-- --------------------------------------------------------------- -->
-						<!-- --------------------------------------------------------------- -->
 						<c:if test="${!errors.nopopCardList}">
 							<c:forEach var="projectCard" items="${popCardList}" end="7" varStatus="status">
 								<div class="card-wrapper">
@@ -356,14 +346,12 @@
 						<c:if test="${errors.nopopCardList}">
 							<h3>해당 조건으로 존재하는 프로젝트가 없습니다</h3>
 						</c:if>
-		<!-- --------------------------------------------------------------- -->
 							</div>
 						</div>
 						<a title="인기 프로젝트 전체보기"
 							class="FrontPage__ViewTotalProjectsBottomLink-sc-1ev69zc-3 kKJqST">인기 프로젝트 전체보기</a>
 					</div>
 				</div>
-
 				<div class="FrontPage__FrontPageContentsWrap-sc-1ev69zc-14 cAEUsP">
 					<div class="FrontPage__StyledBannerWrap-sc-1ev69zc-15 kZQhvl">
 						<div data-title="예술가 및 단체에 최대 150만 원을 지원합니다"
@@ -382,13 +370,14 @@
 					
 				</div>
 			</div>
-
+			<!-- --------------------------------------------------------------- -->
+			
 <script>
-// 프로젝트 카드 > 세부 카테고리 이동
-$(".bCKnUo .info-wrapper dl dd span:eq(0) a").on("click", function(event) {
+//프로젝트 카드 > 세부 카테고리 이동
+$(".DtLcTg").on("click", function(event) {
 	//      location.href = "/tumblbug/listProject.do?searchCondition=1&searchWord="+ $(this).text();
 	pageGoPost({
-		url : "/tumblbug/listProject.do", //이동할 페이지
+		url : "/tumblbug/search.do", //이동할 페이지
 		target : "_self",
 		vals : [ //전달할 인수들
 		[ "searchCondition", 2 ], [ "searchWord", $(this).text() ] ]
@@ -397,7 +386,7 @@ $(".bCKnUo .info-wrapper dl dd span:eq(0) a").on("click", function(event) {
 
 $(".bVJxne").on("click", function(event) {
 	pageGoPost({
-		url : "/tumblbug/listProject.do", //이동할 페이지
+		url : "/tumblbug/search.do", //이동할 페이지
 		target : "_self",
 		vals : [ //전달할 인수들
 		[ "searchCondition", 3 ],
@@ -407,7 +396,7 @@ $(".bVJxne").on("click", function(event) {
 
 $(".kKJqST").on("click", function(event) {
 	pageGoPost({
-		url : "/tumblbug/listProject.do", //이동할 페이지
+		url : "/tumblbug/search.do", //이동할 페이지
 		target : "_self",
 		vals : [ //전달할 인수들
 		[ "searchCondition", 3 ],
@@ -421,5 +410,6 @@ $(".gylNpn").on("click", function(event) {
 	}else{
 		$(this).removeClass("isLiked");
 	}	
+});
 });
 </script>

@@ -4353,7 +4353,7 @@ data-styled.g2829[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 	})
 
 	$(".dtkXPY").on("click",function() {
-		location.href="/tumblbug/listProject.do";
+		location.href="/tumblbug/main.do";
 	});
 	
 	$(".ehJwom.effect_hover").on("click",function(event) {
@@ -4362,7 +4362,7 @@ data-styled.g2829[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 
 		// 클릭한 요소에 따라 searchCondition과 searchWord 설정
 		if ($(this).text() === "홈") {
-			location.href="/tumblbug/listProject.do";
+			location.href="/tumblbug/main.do";
 		} else {
 			
 			if ($(this).text() === "인기") {
@@ -4387,7 +4387,7 @@ data-styled.g2829[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 						+ "&searchWord="
 						+ searchWord;*/
 			pageGoPost({
-				url : "/tumblbug/listProject.do", //이동할 페이지
+				url : "/tumblbug/search.do", //이동할 페이지
 				target : "_self",
 				vals : [ //전달할 인수들
 				[ "searchCondition", searchCondition ],
@@ -4684,7 +4684,7 @@ data-styled.g2829[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 	$(".Idjxi").on("click",function(event) {
 		//      location.href = "/tumblbug/listProject.do?searchCondition=1&searchWord="+ $(this).text();
 		pageGoPost({
-			url : "/tumblbug/listProject.do", //이동할 페이지
+			url : "/tumblbug/search.do", //이동할 페이지
 			target : "_self",
 			vals : [ //전달할 인수들
 			[ "searchCondition", 1 ],
@@ -4946,7 +4946,7 @@ data-styled.g2829[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 	$(".iBuAt").on("click", function(event) {
 		//      location.href = "/tumblbug/listProject.do?searchCondition=1&searchWord="+ $(this).text();
 		pageGoPost({
-			url : "/tumblbug/listProject.do", //이동할 페이지
+			url : "/tumblbug/search.do", //이동할 페이지
 			target : "_self",
 			vals : [ //전달할 인수들
 			[ "searchCondition", 1 ],
@@ -4972,7 +4972,7 @@ data-styled.g2829[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 </script>
 			<div class="Discover__DiscoverWrapper-sc-16itaa3-0 djIxnq tbb">
 				<c:choose>
-				<c:when test="${not empty projectCardList}">
+				<c:when test="${not empty searchCardList}">
 				<div
 					class="Container-gci8y7-0 InfinityList__InfinityContainer-sc-19jay7c-0 cXaiVs dykamL">
 					<div class="InfinityList__ResultWrapper-sc-19jay7c-1 ffcngd">
@@ -4980,7 +4980,7 @@ data-styled.g2829[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 							<span>${projectCount}</span>개의 프로젝트가 있습니다.
 						</div>
 						<div class="InfinityList__ListWrapper-sc-19jay7c-3 fZWVhg">
-							<c:forEach var="projectCard" items="${projectCardList}" varStatus="status">
+							<c:forEach var="projectCard" items="${searchCardList}" varStatus="status">
 							<div class="InfinityList__ProjectCardWrapper-sc-19jay7c-4 jfWeNA">
 								<div></div>
 								<div class="ProjectCard__Wrapper-opxl0a-13 klQtEn project-card">
@@ -5005,7 +5005,7 @@ data-styled.g2829[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 										<div class="ProjectCard__StyledInfoBox-opxl0a-3 kfeTrp">
 											<dl>
 												<dd class="project-sub-info">
-													<span><a>${projectCard.detailCategory.dtl_ctg_name}</a></span>
+													<span><a class="DtLcTg">${projectCard.detailCategory.dtl_ctg_name}</a></span>
 													<span><a>${projectCard.member.m_name}</a></span>
 												</dd>
 												<dt>
@@ -5112,9 +5112,9 @@ data-styled.g2829[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 		goform.submit();
 	} // pageGoPost
 
-	$(".project-sub-info span a").on("click", function(event) {
+	$(".DtLcTg").on("click", function(event) {
 		pageGoPost({
-			url : "/tumblbug/listProject.do", //이동할 페이지
+			url : "/tumblbug/search.do", //이동할 페이지
 			target : "_self",
 			vals : [ //전달할 인수들
 			[ "searchCondition", 2 ], [ "searchWord", $(this).text() ] ]

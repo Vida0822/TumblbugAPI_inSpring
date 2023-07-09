@@ -64,24 +64,23 @@ public interface ProjectMapper {
 	void increasedSup(String procd);
 
 	// 목록보기 
-		List<Project> selProject();
+	List<Project> selProject();
 
-		List<Project> selPopProject();
-		
-		List<Project> selNewProject();
-		
-		List<Project> selEndProject();
-		
-		List<Project> selSoonProject();
-		
-		List<Project> selCtgProject(String searchWord);
+	List<Project> selPopProject();
+	
+	List<Project> selNewProject();
+	
+	List<Project> selEndProject();
+	
+	List<Project> selSoonProject();
+	
+	List<Project> selCtgProject(String searchWord);
 
-		List<Project> selDtlCtgProject(String searchWord);
+	List<Project> selDtlCtgProject(String searchWord);
 
-		File selectByProCd(String pro_cd);
-		
-		DetailCategory selectByCd(String dtl_ctg_code);
-		
-		int SumByProCd(String pro_cd);
-		
+	File selectByProCd(String pro_cd);
+	
+	DetailCategory selectByCd(String dtl_ctg_code);
+	
+	int SumByProCd(String pro_cd);
 } 

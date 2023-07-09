@@ -8,10 +8,10 @@ import org.doit.ik.domain.Item;
 import org.doit.ik.domain.Member;
 import org.doit.ik.domain.PayList;
 import org.doit.ik.domain.Project;
+import org.doit.ik.domain.ProjectCard;
 import org.doit.ik.domain.Supporter;
-import org.doit.ik.domain.ViewInfo;
-import org.doit.ik.mapper.BoardMapper;
 import org.doit.ik.service.PayProjectService;
+import org.doit.ik.service.ProjectService;
 import org.doit.ik.service.ViewProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +31,9 @@ import lombok.extern.log4j.Log4j;
 public class ProjectController {
 	
 	@Autowired
+	private ProjectService mainProjectService;
+	
+	@Autowired
 	private ViewProjectService viewProjectService ;
 	
 	@Autowired
@@ -40,12 +43,36 @@ public class ProjectController {
 
 	
 	// 목록보기 핸들러 
+	/*
 	@GetMapping("/main.do")
 	public String main() {
+		
+		
+		return "main.do";
+	}
+	*/
+	@GetMapping("/main")
+	public String main(Model model) {
+		log.info("> /main GET");
+		List<ProjectCard> CardList = this.mainProjectService.getCardList();
+		List<ProjectCard> popCardList = this.mainProjectService.getPopCardList();
+		model.addAttribute("CardList", CardList);
+		model.addAttribute("popCardList", popCardList);
+		
 		return "main.do";
 	}
 	
+	
 	// 검색하기 핸들러 
+	@PostMapping("/search")
+	public void search(@RequestParam("searchCondition") int searchCondition, @RequestParam("searchWord") String searchWord, Model model) {
+		log.info("> /search POST");
+		List<ProjectCard> searchCardList = this.mainProjectService.getSearchCardList(searchCondition, searchWord);
+		int projectCount = searchCardList.size();
+		model.addAttribute("searchCardList", searchCardList);
+		model.addAttribute("projectCount", projectCount);
+		model.addAttribute("searchCondition", searchCondition);
+	}
 	
 	
 	// 상세보기 핸들러 

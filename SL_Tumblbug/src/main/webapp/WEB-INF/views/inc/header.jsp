@@ -411,6 +411,14 @@
 		}
 	});
 	
+	// 프로필바 메뉴 이동
+	$("#settinggo").on("click", function() {
+		location.href = "http://localhost/tumblbug/settings/profile.do";
+	});
+	$("#logoutgo").on("click", function() {
+		location.href = "http://localhost/tumblbug/logout.do";
+	});
+	
 	// 클릭 이벤트 핸들러
 	// a태그 시 양식이 다 깨져서 js.
 	// 비로그인 상태 : 로그인
@@ -446,8 +454,8 @@
 
 	// tumblbug 누르면 홈으로
 	$(".dtkXPY").on("click",function() {
-		location.href="/tumblbug/listProject.do";
-	});	
+		location.href="/tumblbug/main.do";
+	});
 	
 	// 상단바 메뉴 클릭
 	$(".ehJwom.effect_hover").on("click",function(event) {
@@ -456,7 +464,7 @@
 
 		// 클릭한 요소에 따라 searchCondition과 searchWord 설정
 		if ($(this).text() === "홈") {
-			location.href="/tumblbug/listProject.do";
+			location.href="/tumblbug/main.do";
 		} else {
 			
 			if ($(this).text() === "인기") {
@@ -471,27 +479,17 @@
 				searchCondition = 5;
 				searchWord = "공개예정";
 			}
-		// 스테디오인 경우 외부 링크로 이동
-		//		if ($(this).hasClass("steadio_hover")) {
-		//			location.href = "https://steadio.co/?utm_source=tumblbug&utm_medium=gnb&utm_campaign=ver1";
-		//		} else {
-		// 다른 요소들은 내부 페이지로 이동
-		/*	location.href = "/tumblbug/listProject.do?searchCondition="
-						+ searchCondition
-						+ "&searchWord="
-						+ searchWord;
-		*/
+			
 			pageGoPost({
-				url : "/tumblbug/listProject.do", //이동할 페이지
+				url : "/tumblbug/search.do", //이동할 페이지
 				target : "_self",
 				vals : [ //전달할 인수들
 				[ "searchCondition", searchCondition ],
-				[ "searchWord", searchWord ] ]
+						[ "searchWord", searchWord ] ]
 			}); // pageGoPost
-//		} // else
-	}
-
+		} // else
 	}); // click
+	
 	
 	// 스테디오인 경우 외부 링크로 이동
 	$(".ehJwom.steadio_hover").on("click",function(event) {
@@ -516,8 +514,9 @@
 	} // pageGoPost
 	
 	// 검색창 입력 후 엔터
-	$("input.jPMsmJ").on("keydown",function() {
+	$("input.jPMsmJ").on("keydown",function(event) {
 		if (event.which == 13) {
+			/* 
 			pageGoPost({
 				url : "/tumblbug/listProject.do", //이동할 페이지
 				target : "_self",
@@ -525,11 +524,14 @@
 				[ "searchCondition", 6 ],
 						[ "searchWord", $(this).text() ] ]
 			}); // pageGoPost
+			 */
+			 event.preventDefault();
 		} //if
 	}); // keydown
 	
 	// 검색창 입력 후 돋보기 클릭
-	$("svg.dtngnQ").on("click",function() {
+	$("svg.dtngnQ").on("click",function(event) {
+		/* 
 		pageGoPost({
 			url : "/tumblbug/listProject.do", //이동할 페이지
 			target : "_self",
@@ -537,8 +539,10 @@
 			[ "searchCondition", 6 ],
 					[ "searchWord", $("input.jPMsmJ").text() ] ]
 		}); // pageGoPost
+		 */
+		event.preventDefault();
 	}); // click
-	
+	/*
 	// 프로필바 메뉴 이동
 	$("#settinggo").on("click", function() {
 		location.href = "http://localhost/tumblbug/settings/profile.do";
@@ -546,7 +550,7 @@
 	$("#logoutgo").on("click", function() {
 		location.href = "http://localhost/tumblbug/logout.do";
 	});
-
+	*/
 	/* 카테고리 메뉴 펼치기 */
 	// HTML 요소 가져오기
 	const dropdownTrigger = document.querySelector('.ehJwom');
@@ -569,11 +573,13 @@
 	$(".Idjxi").on("click",function(event) {
 		//      location.href = "/tumblbug/listProject.do?searchCondition=1&searchWord="+ $(this).text();
 		pageGoPost({
-			url : "/tumblbug/listProject.do", //이동할 페이지
+			url : "/tumblbug/search.do", //이동할 페이지
 			target : "_self",
 			vals : [ //전달할 인수들
 			[ "searchCondition", 1 ],
 					[ "searchWord", $(this).find(".dQhnSR").text() ] ]
 		}); // pageGoPost
-	}); // click   
+	}); // click
+	
+	
 	</script>

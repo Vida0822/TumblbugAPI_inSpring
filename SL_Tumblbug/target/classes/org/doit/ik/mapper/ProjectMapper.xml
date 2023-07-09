@@ -113,10 +113,11 @@
 	
 	
 	<!-- 목록보기  -->
-	<select id="selProject" resultType="org.doit.ik.domain.Project">
+		<select id="selProject" resultType="org.doit.ik.domain.Project">
 		<![CDATA[
 			SELECT *
 			FROM project
+			WHERE PRO_STATUS = '진행중'
 			ORDER BY TO_NUMBER(SUBSTR(pro_cd,4)) ASC
 		]]>
 	</select>
