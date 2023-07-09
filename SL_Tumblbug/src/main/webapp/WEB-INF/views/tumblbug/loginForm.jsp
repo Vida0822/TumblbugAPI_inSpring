@@ -381,7 +381,7 @@ data-styled.g2827[id="ScrollTop__ScrollTopBtn-j9uqn7-2"]{content:"ioLFRP,"}/*!sc
 			<div class="style__NewMemberShipContainer-mir8lt-13 dDuKZD">
 				<div class="style__LoginHeader-sc-1x9qmx0-0 gdIFyH">
 					<div class="style__LoginHeaderInner-sc-1x9qmx0-1 gZRxzQ">
-						<a href="/"><div
+						<a href="/tumblbug/main.do"><div
 								class="style__LogoWrapper-sc-1x9qmx0-2 dlmvXt">
 								<svg width="140" height="36" viewBox="0 0 140 36" fill="none"
 									xmlns="http://www.w3.org/2000/svg">

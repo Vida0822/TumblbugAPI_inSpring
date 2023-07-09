@@ -1618,6 +1618,7 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 								<span class="previewText">미리 보기</span>
 							</button>
 							<button
+								id="saveButton"
 								class="SolidButton__Button-sc-1gsinzz-0 iyLRbq ProjectSubmitButton__ProjectButton-m5pw9c-2 hQPdvE fnt-p1"
 								color="mainEditorP80">
 								<span>저장</span>
@@ -1669,7 +1670,8 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 			<!-- </header> -->
 			
 			<!-- <content> -->
-			<div class="style__Contents-sc-1y2waj3-14 CqQKt" size="228">
+			<form action="tumblbug/editProject/default.do">
+				<div class="style__Contents-sc-1y2waj3-14 CqQKt" size="228">
 				<div class="style__PlanContents-sc-1mawbc1-6 ghVmvY">
 					<div class="ProjectItem__ProjectItemWrap-sc-1vwy8z0-0 fGfROL">
 						<dl class="ProjectItem__ProjectInfo-sc-1vwy8z0-1 kwDByH">
@@ -1903,7 +1905,7 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 											name="pro_long"
 											value="${projectCard.project.pro_long}"></span>
 									</div>
-									<div id="minLengthMessage" 
+									<div id="charCount_pro_long" 
 										class="InputWithGuideAndLengthCheck__NoticeArea-sc-9nmfrw-4 ciHGYP">
 										<p
 											class="InputWithGuideAndLengthCheck__GuideMessage-sc-9nmfrw-5 fduvas"></p>
@@ -2062,7 +2064,7 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
     var pro_short = $("input[name=pro_short]").val();
     var pro_sm = $("textarea[name=pro_sm]").val();
     
-    $("#charCount_pro_long").text(pro_long.length + "/32");
+    $("#charCount_pro_long").find("span").text(pro_long.length + "/32");
     $("#charCount_pro_short").text(pro_short.length + "/7");
     $("#charCount_pro_sm").text(pro_sm.length + "/50");
     
@@ -2073,14 +2075,12 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 	    var minLength = 1;
 	    
 	    if (pro_long.length > minLength) {
-	        $(".jcLEQH").removeClass("jcLEQH").addClass("kufojA");
 	        $("#minLengthMessage").hide();
 	    } else {
 	        $(".style__StartButton-yj7pk1-13").prop("disabled", true);
-	        $(".kufojA").removeClass("kufojA").addClass("jcLEQH");
 	        $(".minLengthMessage").show();
 	    }
-	    $("#charCount_pro_long").text(pro_long.length + "/32");
+	    $("#charCount_pro_long").find("span").text(pro_long.length + "/32");
 		});
 	
 	$("input[name=pro_short]").on("input", function() {
@@ -2088,11 +2088,11 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 	    var minLength = 1;
 	    
 	    if (pro_short.length > minLength) {
-	        $(".jcLEQH").removeClass("jcLEQH").addClass("kufojA");
+	       // $(".jcLEQH").removeClass("jcLEQH").addClass("kufojA");
 	        $("#minLengthMessage").hide();
 	    } else {
 	        $(".style__StartButton-yj7pk1-13").prop("disabled", true);
-	        $(".kufojA").removeClass("kufojA").addClass("jcLEQH");
+	      //  $(".kufojA").removeClass("kufojA").addClass("jcLEQH");
 	        $(".minLengthMessage").show();
 	    }
 	    $("#charCount_pro_short").text(pro_short.length + "/7");
@@ -2103,11 +2103,11 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 	    var minLength = 1;
 	    
 	    if (pro_short.length > minLength) {
-	        $(".jcLEQH").removeClass("jcLEQH").addClass("kufojA");
+	     //   $(".jcLEQH").removeClass("jcLEQH").addClass("kufojA");
 	        $("#minLengthMessage").hide();
 	    } else {
 	        $(".style__StartButton-yj7pk1-13").prop("disabled", true);
-	        $(".kufojA").removeClass("kufojA").addClass("jcLEQH");
+	     //   $(".kufojA").removeClass("kufojA").addClass("jcLEQH");
 	        $(".minLengthMessage").show();
 	    }
 	    $("#charCount_pro_sm").text(pro_short.length + "/50");
@@ -2488,6 +2488,19 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 			</div>
 		</div>
 	</div>
+	</form>
+	
+	<script>
+	$(document).ready(function() {
+		$("#saveButton").on("click", function() {
+			// $("form")
+		})  ; //click		
+	})
+	
+	
+	</script>
+	
+	
 	<script type="application/javascript"
 		src="https://d2om2e6rfn032x.cloudfront.net/wpa/bundle.app.8e33e3e4124179fe8907.js"></script>
 	<script>
@@ -2557,5 +2570,6 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 		style="display: none;"></iframe>
 	<iframe height="0" width="0" title="Criteo DIS iframe"
 		style="display: none;"></iframe>
+
 </body>
 </html>
