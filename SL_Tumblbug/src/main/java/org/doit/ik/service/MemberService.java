@@ -9,6 +9,8 @@ public interface MemberService {
 	
 	// 이메일 중복 처리
 	public int emailCheck(Member memberVO) throws Exception;
+
+	Member getSessionMember(String m_email);
 	
 	
 	

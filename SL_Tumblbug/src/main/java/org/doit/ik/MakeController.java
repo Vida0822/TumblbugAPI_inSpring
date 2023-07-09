@@ -4,9 +4,13 @@ import java.security.Principal;
 import java.util.List;
 
 import org.doit.ik.domain.DetailCategory;
+import org.doit.ik.domain.Member;
 import org.doit.ik.domain.Project;
 import org.doit.ik.domain.ProjectCard;
 import org.doit.ik.service.MakeService;
+import org.doit.ik.service.MemberService;
+import org.doit.ik.service.ProjectService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -27,7 +31,13 @@ public class MakeController {
 	
 	private MakeService makeService ; 
 	
+	@Autowired
+	private ProjectService projectService;
 	
+	@Autowired
+	private MemberService memberService;
+	
+
 	@GetMapping("/makeProject")
 	public void make(Model model) {
 		log.info("> /tumblbug/makeProject GET...");
@@ -45,10 +55,11 @@ public class MakeController {
 			){
 		log.info("> /tumblbug/makeProject POST...");
 		
-		// String m_cd = principal.getName(); 
-		String m_cd = "MEM1" ; 
 		
-		Project project= this.makeService.createProject(pro_sm,ctg_code, m_cd) ; 
+		String m_email= principal.getName() ;
+		Member member = this.memberService.getSessionMember(m_email) ; 
+		
+		Project project= this.makeService.createProject(pro_sm,ctg_code, member.getM_cd()) ; 
 		
 		return "redirect:/tumblbug/payment.do?pro_cd="+project.getPro_cd() ; // response.sendRedirect 
 	

@@ -1,5 +1,6 @@
 package org.doit.ik;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.doit.ik.domain.PayList;
 import org.doit.ik.domain.Project;
 import org.doit.ik.domain.ProjectCard;
 import org.doit.ik.domain.Supporter;
+import org.doit.ik.service.MemberService;
 import org.doit.ik.service.PayProjectService;
 import org.doit.ik.service.ProjectService;
 import org.doit.ik.service.ViewProjectService;
@@ -29,6 +31,9 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @AllArgsConstructor
 public class ProjectController {
+	
+	@Autowired
+	private MemberService memberService;
 	
 	@Autowired
 	private ProjectService mainProjectService;
@@ -142,10 +147,16 @@ public class ProjectController {
 	@PostMapping("/pay.do")
 	public String paySubmit( @RequestParam("pro_cd") String procd, @RequestParam("gift_cd") String giftcd, 
 			@RequestParam("gift_min") int giftmin, @RequestParam("addr_cd") String addrcd, 
-			@RequestParam("pm_cd") String pmcd, @RequestParam("pro_sup") int prosup, HttpServletRequest request ) {
-		Member member = new Member();
-		member.setM_cd("MEM90");
+			@RequestParam("pm_cd") String pmcd, @RequestParam("pro_sup") int prosup, HttpServletRequest request 
+			, Principal principal
+			) {
+
+		// member.setM_cd("MEM90");
 		//Member member = (Member)request.getSession().getAttribute("authUser");
+		
+		String m_email= principal.getName() ;
+		Member member = this.memberService.getSessionMember(m_email) ; 
+		
 		String mcd = member.getM_cd();
 		
 		this.projectService.insSupport(mcd, procd, giftcd, giftmin, addrcd, pmcd, prosup);

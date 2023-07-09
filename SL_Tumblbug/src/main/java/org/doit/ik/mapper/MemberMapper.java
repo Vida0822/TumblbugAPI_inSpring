@@ -25,6 +25,9 @@ public interface MemberMapper {
 
 	// 로그인
 	void login(Member memberVO) throws Exception;
+
+	// 로그인한 멤버객체 가져오기 
+	Member getSessionMember(String m_email);
 		
 	
 }

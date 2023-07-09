@@ -27,7 +27,7 @@
 	   </resultMap>
       
        <select id="read"  resultMap="memberMap">
-	        SELECT m_email, m_password, m_name, enabled,authority
+	        SELECT m_cd, m_email, m_password, m_name, enabled,authority
 		    FROM member  m LEFT JOIN member_authorities auth ON m.m_email = auth.username
 	        WHERE email = #{m_email};
       </select>
@@ -70,6 +70,13 @@
 		FROM member
 		WHERE m_email = #{ email } 
 	</select>
+	
+	 <select id="getSessionMember"  resultType="org.doit.ik.domain.Member">
+       SELECT *  
+	   FROM MEMBER 
+       WHERE m_email = #{ email }
+     </select>
+     
 	
 
 </mapper>

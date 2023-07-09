@@ -32,5 +32,13 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 
+	@Override
+	public Member getSessionMember(String m_email) {
+		
+		log.info("MemberServiceImpl > getSessionMember");
+		return memberMapper.getSessionMember(m_email) ; 
+			
+	}
+
 
 }
