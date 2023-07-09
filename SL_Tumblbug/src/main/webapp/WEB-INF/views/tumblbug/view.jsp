@@ -688,7 +688,7 @@ function pageGoPost(d) {
 $("div.hklIjO div a span").on("click", function(event) {
 	//      location.href = "/tumblbug/listProject.do?searchCondition=1&searchWord="+ $(this).text();
 	pageGoPost({
-		url : "/tumblbug/listProject.do", //이동할 페이지
+		url : "/tumblbug/search.do", //이동할 페이지
 		target : "_self",
 		vals : [ //전달할 인수들
 		[ "searchCondition", 2 ], [ "searchWord", $(this).text() ] ]

@@ -2367,6 +2367,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 </head>
 <body>
 	<div id="react-view" class="tbb-only-ff">
+	<!--
 		<div class="style__HeaderLayout-zxsodr-0 DcWJD">
 			<div class="style__HeaderWrapper-zxsodr-1 kQkrtf">
 				<div class="style__HeaderUpperLayout-zxsodr-2 jxLqaO">
@@ -2404,7 +2405,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 					<div class="style__StatusWrapper-zxsodr-4 bgpTeU">
 						<div class="style__ProjectEditorButton-zxsodr-5 cfcgIZ">프로젝트 올리기</div>
 						<u:isLogin>
-							<!--  로그인이 되어있다면 아래 코딩 실행 -->
+							<!--  로그인이 되어있다면 아래 코딩 실행 
 							<div class="style__ButtonWrapper-zxsodr-6 hwZyFc">
 								<div class="style__IconWrapper-zxsodr-28 kuGxgw">
 									<svg class="style__LikeIcon-zxsodr-31 fwjlUM" width="48"
@@ -2437,7 +2438,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 									</div>
 									<div class="style__UserText-zxsodr-11 fXtfpK">탁인혁</div>
 								</div>
-								<!-- 회원메뉴 -->
+								<!-- 회원메뉴 
 								<div class="SNB__Wrapper-wpjnaw-1 VIJCO">
 									<div class="SNB__MenuList-wpjnaw-2 dBwYuQ">
 										<div class="SNB__MenuItem-wpjnaw-3 fBfUv">프로필</div>
@@ -2493,7 +2494,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 							</div>
 						</u:isLogin>
 						<u:notLogin>
-							<!--  로그인이 안되어있다면 아래 코딩 실행 -->
+							<!--  로그인이 안되어있다면 아래 코딩 실행
 							<div class="style__UserButtonWrapper-zxsodr-9 idLbRv">
 								<div class="style__UserButton-zxsodr-10 csOHNF" id="loginButton">
 									<div class="style__UserAvatar-zxsodr-8 bKpcjX" id="loginButton">
@@ -2758,13 +2759,18 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 				</div>
 			</div>
 		</div>
+		 -->
 		<!-- --------------------------------------------------------------- -->
 		<div class="style__Container-sc-7of8vt-0 gmYOwM">
 			<div
 				class="Page__PageComponent-sc-1l7nky8-0 jPogNc Projects__StyledPage-sc-1xyzvmf-0 kPKRPl tbb">
 				<div
 					class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ SubHeader-sc-1refh74-0 gEYrbQ">
-					<span> tumblbug admin - running project   </span>
+					<span> Manager  </span>
+					
+						<a href="/tumblbug/main.do" style="color:black"	><h6 style="text-align: right;  ">  user page </h6></a>						
+						<a href="/tumblbug/logout.do"> <h6 style="text-align: right; color:red" > session 종료 </h6> </a>
+									
 				</div>
 					<div
 						class="style__Tabs-sc-3a505r-0 kTjmVr style__StyledTabs-sc-168arlx-12 kuVrMn"

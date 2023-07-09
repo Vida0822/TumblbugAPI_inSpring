@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+
 			<div class="FrontPage__HomeWrapper-sc-1ev69zc-11 bIWUDq">
 				<div class="FrontPage__StyledMainTopSection-sc-1ev69zc-8 dBLJpo">
 					<div
@@ -201,7 +202,9 @@
 							</div>
 						</div>
 						<!-- 주목할 만한 프로젝트 -->
-						<a href="/tumblbug/view.do?pro_cd=pro1">/tumblbug/view.do?pro_cd=pro1</a>
+						<a href="/tumblbug/manage.do?pro_cd=PRO1">/tumblbug/manage.do?pro_cd=pro1</a><br>
+						<a href="/tumblbug/view.do?pro_cd=PRO1">/tumblbug/view.do?pro_cd=pro1</a><br>
+						<a href="/tumblbug/manager.do?pro_status=writing">/tumblbug/manager?pro_status=writing</a> <br>
 						<div
 							class="FrontProjectsSection__Wrapper-sc-1na1z58-1 kLmlvM tbb FrontPage__SpotlightContainer-sc-1ev69zc-10 goYsGO">
 							<div class="FrontProjectsSection__ListTitle-sc-1na1z58-4 gRQZNs">주목할 만한 프로젝트</div>
@@ -379,3 +382,44 @@
 					
 				</div>
 			</div>
+
+<script>
+// 프로젝트 카드 > 세부 카테고리 이동
+$(".bCKnUo .info-wrapper dl dd span:eq(0) a").on("click", function(event) {
+	//      location.href = "/tumblbug/listProject.do?searchCondition=1&searchWord="+ $(this).text();
+	pageGoPost({
+		url : "/tumblbug/listProject.do", //이동할 페이지
+		target : "_self",
+		vals : [ //전달할 인수들
+		[ "searchCondition", 2 ], [ "searchWord", $(this).text() ] ]
+	}); // pageGoPost
+}); // click
+
+$(".bVJxne").on("click", function(event) {
+	pageGoPost({
+		url : "/tumblbug/listProject.do", //이동할 페이지
+		target : "_self",
+		vals : [ //전달할 인수들
+		[ "searchCondition", 3 ],
+				[ "searchWord", "" ] ]
+	}); // pageGoPost
+});
+
+$(".kKJqST").on("click", function(event) {
+	pageGoPost({
+		url : "/tumblbug/listProject.do", //이동할 페이지
+		target : "_self",
+		vals : [ //전달할 인수들
+		[ "searchCondition", 3 ],
+				[ "searchWord", "" ] ]
+	}); // pageGoPost
+});
+
+$(".gylNpn").on("click", function(event) {
+	if(!$(this).hasClass("isLiked")) {
+		$(this).addClass("isLiked");
+	}else{
+		$(this).removeClass("isLiked");
+	}	
+});
+</script>

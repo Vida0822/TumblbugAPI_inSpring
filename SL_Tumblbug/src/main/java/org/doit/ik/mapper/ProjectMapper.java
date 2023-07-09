@@ -63,6 +63,9 @@ public interface ProjectMapper {
 	// 후원시 후원자 추가
 	void increasedSup(String procd);
 
+	
+	
+	
 	// 목록보기 
 	List<Project> selProject();
 

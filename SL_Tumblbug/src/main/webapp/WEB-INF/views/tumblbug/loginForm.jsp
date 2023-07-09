@@ -344,7 +344,7 @@ data-styled.g2827[id="ScrollTop__ScrollTopBtn-j9uqn7-2"]{content:"ioLFRP,"}/*!sc
 		<div class="Header-ou4e17-0 dFOHba">
 			<div
 				class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ LogoHeader__StyledContainer-sc-11h9w3h-0 jahVuh">
-				<a href="/"><div
+				<a href="/tumblbug/main.do"><div
 						class="TumblbugLogo-sc-5rx33z-0 hakSMQ LogoHeader__StyledTumblbugLogo-sc-11h9w3h-1 cdxLmC">
 						<svg id="tumblbug_logo" viewBox="0 0 107.89 28.39">
 							<title>TumblbugLogo</title><path
@@ -419,7 +419,7 @@ data-styled.g2827[id="ScrollTop__ScrollTopBtn-j9uqn7-2"]{content:"ioLFRP,"}/*!sc
 					<div class="style__LoginWrap-mir8lt-15 gUmeOb">
 						<div class="style__LoginWrapInner-mir8lt-16 hYbgAu">
 							<h3 class="style__EmailTitle-mir8lt-24 iWruWy">이메일로 로그인</h3>
-							<form autocomplete="on" class="style__Form-mir8lt-4 cFNky" name="form" method="post">
+							<form action="/login" autocomplete="on" class="style__Form-mir8lt-4 cFNky" name="form" method="post">
 								<div
 									class="StyledTBB__FormWrapper-trchgn-6 hCtMzp style__FormComponent-mir8lt-5 jDGVtY">
 									<div
@@ -431,7 +431,7 @@ data-styled.g2827[id="ScrollTop__ScrollTopBtn-j9uqn7-2"]{content:"ioLFRP,"}/*!sc
 											class="Input__InputWrapper-j7moqy-0 dXKaPI style__MembershipInput-mir8lt-3 klRmKv"><input
 											type="text" inputmode="email" placeholder="이메일 주소를 입력해주세요"
 											autocomplete="email" autocapitalize="off"
-											class="Input__InnerInput-j7moqy-1 bfmNPl" name="email" id="email" value="">
+											class="Input__InnerInput-j7moqy-1 bfmNPl" name="username" id="m_email" value="">
 										</span>
 									</div>
 									<div class="StyledTBB__FormIsWrong-trchgn-8 cDbIV form-wranning-wrapper" id="email2"></div>
@@ -446,7 +446,7 @@ data-styled.g2827[id="ScrollTop__ScrollTopBtn-j9uqn7-2"]{content:"ioLFRP,"}/*!sc
 											class="Input__InputWrapper-j7moqy-0 dXKaPI style__MembershipInput-mir8lt-3 klRmKv"><input
 											type="password" inputmode="password"
 											placeholder="비밀번호를 입력해주세요" autocomplete="current-password"
-											autocapitalize="off" name="password" id="passwd"
+											autocapitalize="off" name="password" id="m_password"
 											class="Input__InnerInput-j7moqy-1 jGEGrw" value="">
 										</span>
 									</div>
@@ -457,6 +457,9 @@ data-styled.g2827[id="ScrollTop__ScrollTopBtn-j9uqn7-2"]{content:"ioLFRP,"}/*!sc
 									color="mainEditorP80" type="submit" name="loginBtn" id="loginBtn">
 									<span>로그인</span>
 								</button>
+								
+								<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+								
 							</form>
 							<div class="IsSignInOrSignUp__Wrapper-sc-12js6np-1 bQAztb">
 								아직 텀블벅 계정이 없으신가요?<span color="sub0180" font-weight="500"
@@ -478,7 +481,7 @@ data-styled.g2827[id="ScrollTop__ScrollTopBtn-j9uqn7-2"]{content:"ioLFRP,"}/*!sc
 		<div class="common-Layer tbb"></div>
 	</div>
 <script>
-	function Id() {
+	function Id(m_email) {
 		
 		var email = document.getElementById("email");
 		 var valid_txt = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/; 

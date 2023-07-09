@@ -105,10 +105,15 @@ public class ProjectController {
 	
 	// 후원요청 핸들러 
 	@GetMapping("/pay.do")
-	public String payForm( @RequestParam("pro_cd") String procd, @RequestParam("gift_cd") String giftcd, HttpServletRequest request ) {
+	public String payForm( 
+			@RequestParam("pro_cd") String procd
+			, @RequestParam("gift_cd") String giftcd
+			, HttpServletRequest request ) {
 		// session 생성
 		Member member = new Member();
 		member.setM_cd("MEM90");
+		
+		log.info("> /tumblbug/payForm GET...pro_cd="+procd+"gift_cd="+giftcd);
 		
 		// member = (Member)request.getSession().getAttribute("authUser");
 		String mcd = member.getM_cd();

@@ -12,5 +12,64 @@
 			WHERE m_cd = #{m_cd}
 		]]>
 	</select>
+	
+		<resultMap type="org.doit.ik.domain.Member" id="memberMap">
+	      <id property="m_email" column="m_email" />
+	     <result property="m_email" column="m_email" />
+	     <result property="m_password" column="m_password" />
+	     <result property="m_name" column="m_name" />	     
+	     <collection property="authList" resultMap="authMap">
+	     </collection>	     
+	   </resultMap>	   
+	   <resultMap type="org.doit.ik.domain.AuthVO" id="authMap"> 
+	     <result property="username" column="username" />
+	     <result property="authority" column="authority" /> 
+	   </resultMap>
+      
+       <select id="read"  resultMap="memberMap">
+	        SELECT m_email, m_password, m_name, enabled,authority
+		    FROM member  m LEFT JOIN member_authorities auth ON m.m_email = auth.username
+	        WHERE email = #{m_email};
+      </select>
+      
+      <select id="getMember"  resultType="org.doit.ik.domain.Member">
+       SELECT *  
+	   FROM MEMBER 
+       WHERE id = #{ id } 
+     </select>
+	
+	<!-- 회원가입 -->
+	<insert id="memberInsert" parameterType="map">
+	{CALL
+        DECLARE
+        BEGIN
+            INSERT into member(m_cd, m_email, m_password, m_name, M_url, M_privacy, m_message, m_up, m_pro, m_liked, m_follow, m_mk)
+			VALUES ('MEM'||SEQ_MEMBER.NEXTVAL, #{email}, #{password}, #{name}, DBMS_RANDOM.STRING('L', 16), '1', '1', '1', '1', '1', '1', '0');
+			INSERT INTO member_authorities VALUES ( #{email} , 'ROLE_USER' );
+        END
+    }
+		
+	</insert>
+	<!-- INSERT INTO member( m_cd, m_name, m_email, m_password )
+			VALUE ( #{m_cd}, #{name}, #{email}, #{password} )	 -->
+	<!-- <insert id="memberInsert" >
+		INSERT INTO member_authorities VALUES ( #{email} , 'ROLE_USER' )
+	</insert> -->
+	
+	<!-- 패스워드 체크 -->
+	<select id="passwordCheck" resultType="int">
+		SELECT COUNT(*)
+		FROM member
+		WHERE m_email = #{ email } 
+			AND m_password = #{ password } 
+	</select>
+	
+	<!-- 이메일 중복 체크 -->
+	<select id="emailCheck" resultType="int">
+		SELECT COUNT(*)
+		FROM member
+		WHERE m_email = #{ email } 
+	</select>
+	
 
 </mapper>

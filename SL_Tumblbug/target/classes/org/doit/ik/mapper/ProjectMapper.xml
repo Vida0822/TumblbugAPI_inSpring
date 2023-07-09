@@ -73,7 +73,7 @@
 						JOIN item f ON f.item_cd = e.item_cd
 						JOIN sp_pay h ON h.pro_cd = a.pro_cd
 						JOIN dtl_ctg i ON i.dtl_ctg_code = a.dtl_ctg_code
-					WHERE a.pro_cd = #{ procd } AND d.gift_cd = #{ giftcd }
+					WHERE a.pro_cd = #{ procd } AND d.gift_cd = #{ giftcd } AND b.af_rep = 1
 					GROUP BY af_path, dtl_ctg_name, m_name, pro_long, pro_price, CEIL(TO_DATE(pro_end, 'RR/MM/DD') - SYSDATE), gift_desc, gift_min, gift_dlv, pro_end, pro_sup
 		) t
 	</select>
@@ -96,7 +96,7 @@
 			JOIN item f ON f.item_cd = e.item_cd
 			JOIN sp_pay h ON h.pro_cd = a.pro_cd
 			JOIN dtl_ctg i ON i.dtl_ctg_code = a.dtl_ctg_code
-		WHERE a.pro_cd = #{ procd } AND d.gift_cd = #{ giftcd }
+		WHERE a.pro_cd = #{ procd } AND d.gift_cd = #{ giftcd } 
 		GROUP BY dtl_ctg_name, m_name, pro_long, pro_price, CEIL(TO_DATE(pro_end, 'RR/MM/DD') - SYSDATE), gift_desc, item_name, item_cnt, gift_min, gift_dlv, pro_end
 	</select>
 	
@@ -164,7 +164,7 @@
 			FROM project p
 			LEFT JOIN dtl_ctg d on p.dtl_ctg_code = d.dtl_ctg_code
 			LEFT JOIN ctg c on d.ctg_code = c.ctg_code
-			WHERE REGEXP_LIKE( ctg_name, #{searchWord}, 'i' )
+			WHERE REGEXP_LIKE( ctg_name, #{searchWord}, 'i' ) AND p.PRO_STATUS = '진행중'
 		]]>
 	</select>
 	
@@ -173,7 +173,7 @@
 			SELECT p.*
 			FROM project p
 			LEFT JOIN dtl_ctg d on p.dtl_ctg_code = d.dtl_ctg_code
-			WHERE REGEXP_LIKE( dtl_ctg_name, #{searchWord}, 'i' )
+			WHERE REGEXP_LIKE( dtl_ctg_name, #{searchWord}, 'i' ) AND p.PRO_STATUS = '진행중'
 		]]>
 	</select>
 	

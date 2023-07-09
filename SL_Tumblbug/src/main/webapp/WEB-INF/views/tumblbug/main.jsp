@@ -1,7 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
-
+		<a href="/tumblbug/manage.do?pro_cd=PRO1">/tumblbug/manage.do?pro_cd=pro1</a><br>
+						<a href="/tumblbug/view.do?pro_cd=PRO1">/tumblbug/view.do?pro_cd=pro1</a><br>
+						<a href="/tumblbug/manager.do?pro_status=writing">/tumblbug/manager?pro_status=writing</a> <br>
 			<div class="FrontPage__HomeWrapper-sc-1ev69zc-11 bIWUDq">
 				<div class="FrontPage__StyledMainTopSection-sc-1ev69zc-8 dBLJpo">
 					<div
@@ -314,7 +316,7 @@
 												<dl>
 													<dd class="project-sub-info">
 														<!--  세부 카테고리 링크 -->
-														<span> <a>${projectCard.detailCategory.dtl_ctg_name}</a></span>
+														<span> <a class="detailInPop">${projectCard.detailCategory.dtl_ctg_name}</a></span>
 														<!-- 창작자 이름  -->
 														<span> <a>${projectCard.member.m_name}</a></span>
 													</dd>
@@ -374,7 +376,34 @@
 			
 <script>
 //프로젝트 카드 > 세부 카테고리 이동
+function pageGoPost(d) {
+		var insdoc = "";
+	
+		for (var i = 0; i < d.vals.length; i++) {
+			insdoc += "<input type='hidden' name='"+ d.vals[i][0] +"' value='"+ d.vals[i][1] +"'>";
+		}
+	
+		var goform = $("<form>", {
+			method : "post",
+			action : d.url,
+			target : d.target,
+			html : insdoc
+		}).appendTo("body");
+	
+		goform.submit();
+	} // pageGoPost
+	
 $(".DtLcTg").on("click", function(event) {
+	//      location.href = "/tumblbug/listProject.do?searchCondition=1&searchWord="+ $(this).text();
+	pageGoPost({
+		url : "/tumblbug/search.do", //이동할 페이지
+		target : "_self",
+		vals : [ //전달할 인수들
+		[ "searchCondition", 2 ], [ "searchWord", $(this).text() ] ]
+	}); // pageGoPost
+}); // click
+
+$(".detailInPop").on("click", function(event) {
 	//      location.href = "/tumblbug/listProject.do?searchCondition=1&searchWord="+ $(this).text();
 	pageGoPost({
 		url : "/tumblbug/search.do", //이동할 페이지
@@ -410,6 +439,5 @@ $(".gylNpn").on("click", function(event) {
 	}else{
 		$(this).removeClass("isLiked");
 	}	
-});
 });
 </script>

@@ -291,7 +291,7 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 		<div class="Header-ou4e17-0 gdGoWS">
 			<div
 				class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ LogoHeader__StyledContainer-sc-11h9w3h-0 gmJKbC">
-				<a href="/"><div
+				<a href="/tumblbug/main.do"><div
 						class="TumblbugLogo-sc-5rx33z-0 hakSMQ LogoHeader__StyledTumblbugLogo-sc-11h9w3h-1 dzHnZY">
 						<svg id="tumblbug_logo" viewBox="0 0 107.89 28.39">
 							<title>TumblbugLogo</title><path

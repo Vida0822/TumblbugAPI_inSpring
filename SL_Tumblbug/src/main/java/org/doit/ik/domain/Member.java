@@ -1,5 +1,7 @@
 package org.doit.ik.domain;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,5 +28,10 @@ public class Member {
     private String m_liked; 
     private String m_follow; 
     private String m_mail;
+    
+    // 권한 확인용 필드 2개
+    private boolean enabled;
+	private List<AuthVO> authList;
+	
     
 }
