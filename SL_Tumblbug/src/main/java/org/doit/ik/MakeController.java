@@ -113,38 +113,24 @@ public class MakeController {
 		
 	} // managerPage
 	
-	/*
-		@GetMapping(value = "/deptEmp/{deptno}"
-			, produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<List<EmpDTO>> getEmpList(
-			@PathVariable("deptno") int deptno){
-		log.info("> getEmpList... " );
-		return new ResponseEntity<>( this.deptEmpMapper.selectEmp(deptno), HttpStatus.OK);		
-	}
-	
-	@PostMapping("/scott/dept/new")
-	public ResponseEntity<String> insertDept( @RequestBody DeptDTO dto){
-
-		log.info("> /scott/dept/now POST ...");
-		int insertResult =  this.memberMapper.insertDept(dto); // 1 , 0
-		return insertResult==1 ?  
-				new ResponseEntity<>("SUCCESS", HttpStatus.OK) 
-				:   new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-
-	}
-				
-*/ 
-	
-	
+/*
 	@PostMapping("editProject/default")
-	public void basic(
-			
-		
+	public ResponseEntity<ProjectCard> basicInfo(
+			Project project 
 			) {
 		
+		log.info("> /basic GET  pro_cd="+project.getPro_cd());
+		return new ResponseEntity<>( this.makeService.basicInfo(project), HttpStatus.OK);	
 		
 		
-	} // basic
+	} // basicInfo
+*/
+	@PostMapping("editProject/projectImages")
+	public void upload() {
+		
+	}
+		
+		
 	
 	@GetMapping("/editProject/funding")
 	public void funding(
