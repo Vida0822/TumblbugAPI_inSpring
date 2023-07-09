@@ -30,22 +30,23 @@
 		<div class="style__ProjectFormsHalf-sc-1mawbc1-9 gXezwb">
 			<p class="style__ProjectFormsTitle-sc-1mawbc1-10 fHMBHo">카테고리</p>
 			<div class="SelectWithSingle__Wrapper-sc-1eotg4s-1 fzVHyd">
-
 				<span
 					class="Input__InputWrapper-j7moqy-0 bXlLWE SelectWithSingle__Selected-sc-1eotg4s-3 eGAzEd"
-					readonly=""> <input readonly="" type="text" inputmode="text"
+					readonly=""> 
+					<input id="bigCategoryInput" readonly="" type="text" inputmode="text"
 					autocomplete="off" autocapitalize="off"
-					class="Input__InnerInput-j7moqy-1 bfmNPl" value="보드게임 · TRPG"
-					placeholder="">
+					class="Input__InnerInput-j7moqy-1 bfmNPl" placeholder="" 
+					name ="ctg_name" value="${projectCard.detailCategory.ctg_name}">
+					<input type="hidden" name="ctg_code" value="${projectCard.detailCategory.ctg_code}">
 				</span>
 				<div>
 					<div class="SelectWithSingle__Options-sc-1eotg4s-4 bPMnIA">
-							<ul>
+							<ul id="bigCategoryUl">
 								<c:forEach items="${ categoryList }" var="dto">
-										<li label="${dto.ctg_name}" value="${dto.ctg_code}"
-											class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI">
+										<li label="${dto.ctg_name}"
+											 class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI">
 											<button type="button" value="${dto.ctg_code}"
-												data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;parentCategory&quot;,&quot;disabled&quot;:false}">${dto.ctg_name}</button>
+														data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;parentCategory&quot;,&quot;disabled&quot;:false}">${dto.ctg_name}</button>
 										</li>
 								</c:forEach>
 							</ul>
@@ -55,31 +56,30 @@
 			<div type="p4" color="#e53c41"
 				class="Text-sc-1cqgvse-0 SelectWithSingle__ErrorMessage-sc-1eotg4s-0 jQwQu gpuBnE"></div>
 		</div>
-
 		<div class="style__ProjectFormsHalf-sc-1mawbc1-9 gXezwb">
 			<p class="style__ProjectFormsTitle-sc-1mawbc1-10 fHMBHo">세부 카테고리</p>
 			<div class="SelectWithSingle__Wrapper-sc-1eotg4s-1 fzVHyd">
 				<span
 					class="Input__InputWrapper-j7moqy-0 bXlLWE SelectWithSingle__Selected-sc-1eotg4s-3 eGAzEd"
-					readonly=""><input readonly="" type="text" inputmode="text"
+					readonly="">
+					<input id="smallCategoryInput" readonly="" type="text" inputmode="text"
 					autocomplete="off" autocapitalize="off"
 					class="Input__InnerInput-j7moqy-1 bfmNPl" value="${projectCard.detailCategory.dtl_ctg_name}"
 					placeholder="">
+					<input type="hidden" name="dtl_ctg_code" value="${projectCard.detailCategory.dtl_ctg_code}">
 				<div name="arrow2-down" class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
-						<svg viewBox="0 0 48 48">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M2 14.4065C2 13.1363 3.09843 12.0615 4.39657 12.0615C4.99571 12.0615 5.59485 12.257 6.09414 12.7455L23.9685 29.4526L41.843 12.6478C42.8415 11.7684 44.3394 11.7684 45.338 12.7455C46.2367 13.7226 46.2367 15.1882 45.2381 16.0676L23.9685 36L2.79886 16.0676C2.29957 15.6767 2 14.9928 2 14.4065Z"></path></svg>
-					</div></span>
+					</div>
+				</span>
 				<div>
 					<div class="SelectWithSingle__Options-sc-1eotg4s-4 bPMnIA">
-						<ul id="detailCategoryList">
+						<ul id="smallCategoryUl">
 							<c:forEach items="${ detailCategoryList }" var="dto">
-								<li label="${dto.ctg_name}" value="${dto.ctg_code}"
-											class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI">
-											<button type="button" value="${dto.ctg_code}"
+								<li label="${dto.ctg_name}"
+									 class="SelectWithSingle__CustomOptionItem-sc-1eotg4s-2 kxgSiI">
+									<button type="button" value="${dto.ctg_code}"
 												data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;parentCategory&quot;,&quot;disabled&quot;:false}">${dto.ctg_name}</button>
-										</li>
-								</c:forEach>
+								</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
@@ -91,12 +91,28 @@
 	
 	
 		<script>
+			$(document).ready(function(){
+				$("#bigCategoryUl").hide(); 
+				$("#smallCategoryUl").hide(); 
+			
+				$("#bigCategoryInput").click(function() {
+					$("#bigCategoryUl").toggle(); 
+				})
+			
+				$("#smallCategoryInput").click(function() {
+					$("#smallCategoryUl").toggle(); 
+				})
+			
+				
 			// ajax 스크립트 추가 		
-			$(".kxgSiI").on("click", function(event) {
+			$("#bigCategoryUl li.kxgSiI").on("click", function(event) {
 				// alert("click") ; 
+				$("#bigCategoryUl").hide(); 
+				$("#smallCategoryUl").hide(); 
+				
 				var ctg_code = $(this).find("button").val();
-				console.log("ctg_code="+ctg_code) ; 
-
+				$("#bigCategoryInput").val($(this).attr("label")) ; 
+				
 				$.ajax({
 					url : "/tumblbug/editProject/showDCG.do?ctg_code=" + ctg_code,
 					method : "GET",
@@ -104,7 +120,7 @@
 					cache : false,
 					success : function(data, status, xhr) {
 						console.log(data);
-						$("#detailCategoryList").empty(); 
+						$("#smallCategoryUl").empty(); 
 						
 						$(  data ).each( function (i, elem){
 							let dto = `<li label="\${elem.dtl_ctg_name}" value="\${elem.dtl_ctg_code}"
@@ -112,14 +128,25 @@
 										type="button" value="\${elem.dtl_ctg_code}"
 										data-props="{&quot;fadeDown&quot;:true,&quot;name&quot;:&quot;category&quot;,&quot;disabled&quot;:false}">
 										\${elem.dtl_ctg_name}</button></li>`           
-							$( dto ).appendTo("#detailCategoryList"); 	           
+							$( dto ).appendTo("#smallCategoryUl"); 	           
 					  } );
+						$("#smallCategoryInput").val("세부 카테고리를 선택해주세요") ; 
 					}, //success 										   
 					error : function(xhr, status, error) {
 						alert("서버가 불안정하니 잠시 후 다시 시도해주세요");
 					} // error
 				}); // ajax
 			});
+		}); 
+			
+			$("#smallCategoryUl li.kxgSiI").on("click", function(event) {
+				$("#smallCategoryUl").hide(); 
+				$("#smallCategoryInput").val($(this).attr("label")) ; 
+				
+				var dtl_ctg_code =  $(this).find("button").val();
+				$("input[name=dtl_ctg_code]").val(dtl_ctg_code) ; 
+				
+			}); 
 		</script>
 		
 </body>
