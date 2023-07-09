@@ -1547,13 +1547,13 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 					<div class="style__Plan1DepthWrap-sc-1y2waj3-6 cWslIP">
 						<ul class="style__TabItems-sc-1y2waj3-8 cBbdAT">
 							<li class="TabItem__Tab-vjb6ta-0 cqTslV"><a class=""
-								href="/project-editor/0090bd30-4eaf-4f80-8b1f-d1836adeaac9/management/service-plan">요금제
+								href="/tumblbug/editProject/payment.do?pro_cd=${projectCard.project.pro_cd}">요금제
 									선택</a></li>
 							<li class="TabItem__Tab-vjb6ta-0 krGOIO"><a class=""
-								href="/project-editor/0090bd30-4eaf-4f80-8b1f-d1836adeaac9/management/default">기본정보<span
+								href="/tumblbug/editProject/default.do?pro_cd=${projectCard.project.pro_cd}">기본정보<span
 									class="TabItem__TabStatus-vjb6ta-1 IXvYM">4</span></a></li>
 							<li class="TabItem__Tab-vjb6ta-0 cqTslV"><a class=""
-								href="/project-editor/0090bd30-4eaf-4f80-8b1f-d1836adeaac9/management/funding">펀딩
+								href="/tumblbug/editProject/funding.do?pro_cd=${projectCard.project.pro_cd}">펀딩
 									계획<span class="TabItem__TabError-vjb6ta-2 bVIwrD"><div
 											name="error-2" class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
 											<svg viewBox="0 0 48 48">
@@ -1562,19 +1562,19 @@ data-styled.g2831[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 										</div></span>
 							</a></li>
 							<li class="TabItem__Tab-vjb6ta-0 cqTslV"><a class=""
-								href="/project-editor/0090bd30-4eaf-4f80-8b1f-d1836adeaac9/management/reward">선물
+								href="/tumblbug/editProject/gift.do?pro_cd=${projectCard.project.pro_cd}">선물
 									구성<span class="TabItem__TabStatus-vjb6ta-1 IXvYM">1</span>
 							</a></li>
 							<li class="TabItem__Tab-vjb6ta-0 cqTslV"><a class=""
-								href="/project-editor/0090bd30-4eaf-4f80-8b1f-d1836adeaac9/management/story">프로젝트
+								href="/tumblbug/editProject/plan.do?pro_cd=${projectCard.project.pro_cd}">프로젝트
 									계획<span class="TabItem__TabStatus-vjb6ta-1 IXvYM">5</span>
 							</a></li>
 							<li class="TabItem__Tab-vjb6ta-0 cqTslV"><a class=""
-								href="/project-editor/0090bd30-4eaf-4f80-8b1f-d1836adeaac9/management/creator">창작자
+								href="/tumblbug/editProject/creator.do?pro_cd=${projectCard.project.pro_cd}">창작자
 									정보<span class="TabItem__TabStatus-vjb6ta-1 IXvYM">2</span>
 							</a></li>
 							<li class="TabItem__Tab-vjb6ta-0 cqTslV"><a class=""
-								href="/project-editor/0090bd30-4eaf-4f80-8b1f-d1836adeaac9/management/policy">신뢰와
+								href="/tumblbug/editProject/policy.do?pro_cd=${projectCard.project.pro_cd}">신뢰와
 									안전<span class="TabItem__TabStatus-vjb6ta-1 IXvYM">2</span>
 							</a></li>
 						</ul>
