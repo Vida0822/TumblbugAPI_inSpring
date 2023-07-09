@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -436,12 +438,14 @@ data-styled.g2832[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 								</button>
 								
 								<!-- 권한 기능 병합 후 수정  -->
+							<sec:authorize access="isAuthenticated()">
+								<sec:authentication property="principal" var="pinfo"/>
 								<div class="SiteHeader__LinkItemImage-q8dvod-12 frvqPY">
 									<span class="SiteHeader__ItemLabel-q8dvod-10 jaKwWf">탁인혁</span><span
 										class="SiteHeader__ProfileImageWrapper-q8dvod-13 gvTysc"><span
 										class="ProfileImg__StyledProfileImg-sc-1vio56c-0 RYLVL"></span></span>
 								</div>
-								
+							</sec:authorize>	
 								
 							</div>
 						</div>
