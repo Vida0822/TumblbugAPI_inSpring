@@ -146,7 +146,13 @@ public class MakeController {
 	@GetMapping("/editProject/funding")
 	public void funding(
 			@RequestParam("pro_cd") String pro_cd
+			, Model model 
 			) {
+		ProjectCard projectCard = this.makeService.manageForm(pro_cd) ; 
+		Project project = projectCard.getProject(); 		
+		
+		model.addAttribute("projectCard", this.makeService.manageForm(pro_cd)) ; 
+		
 		
 	} // funding
 	
@@ -160,8 +166,12 @@ public class MakeController {
 	@GetMapping("/editProject/gift")
 	public void gift(
 			@RequestParam("pro_cd") String pro_cd
+			, Model model 
 			) {
+		ProjectCard projectCard = this.makeService.manageForm(pro_cd) ; 
+		Project project = projectCard.getProject(); 		
 		
+		model.addAttribute("projectCard", this.makeService.manageForm(pro_cd)) ; 
 	} // gift
 	
 	@PostMapping("/editProject/gift")
@@ -174,8 +184,12 @@ public class MakeController {
 	@GetMapping("/editProject/plan")
 	public void plan(
 			@RequestParam("pro_cd") String pro_cd
+			, Model model 
 			) {
+		ProjectCard projectCard = this.makeService.manageForm(pro_cd) ; 
+		Project project = projectCard.getProject(); 		
 		
+		model.addAttribute("projectCard", this.makeService.manageForm(pro_cd)) ; 
 	} // plan
 	
 
@@ -189,8 +203,12 @@ public class MakeController {
 	@GetMapping("/editProject/creator")
 	public void creator(
 			@RequestParam("pro_cd") String pro_cd
+			, Model model
 			) {
+		ProjectCard projectCard = this.makeService.manageForm(pro_cd) ; 
+		Project project = projectCard.getProject(); 		
 		
+		model.addAttribute("projectCard", this.makeService.manageForm(pro_cd)) ; 
 	} // plan
 	
 	
@@ -204,8 +222,12 @@ public class MakeController {
 	@GetMapping("/editProject/policy")
 	public void policy(
 			@RequestParam("pro_cd") String pro_cd
+			, Model model 
 			) {
+		ProjectCard projectCard = this.makeService.manageForm(pro_cd) ; 
+		Project project = projectCard.getProject(); 		
 		
+		model.addAttribute("projectCard", this.makeService.manageForm(pro_cd)) ; 
 	} // plan
 	
 	
