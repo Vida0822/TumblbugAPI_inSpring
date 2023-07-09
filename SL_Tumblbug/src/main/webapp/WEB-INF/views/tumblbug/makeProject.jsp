@@ -434,11 +434,15 @@ data-styled.g2832[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 												d="M22.0886 38.8C12.7939 38.8 5.29813 31.3 5.29813 22.1C5.29813 12.8 12.7939 5.4 22.0886 5.4C31.3833 5.4 38.879 12.9 38.879 22.1C38.879 31.3 31.2834 38.8 22.0886 38.8ZM45.4753 43.1L37.28 35C40.3782 31.401 42.0772 26.8 42.0772 22C42.0772 10.9 33.1823 2 22.0886 2C10.9949 2 2 11 2 22C2 33 10.9949 42 22.0886 42C26.8859 42 31.4832 40.3 35.0812 37.3L43.2765 45.5C43.5764 45.8 43.9762 46 44.3759 46C44.7757 46 45.1755 45.8 45.4753 45.5C46.1749 44.901 46.1749 43.8 45.4753 43.1Z"></path></svg>
 									</div>
 								</button>
+								
+								<!-- 권한 기능 병합 후 수정  -->
 								<div class="SiteHeader__LinkItemImage-q8dvod-12 frvqPY">
 									<span class="SiteHeader__ItemLabel-q8dvod-10 jaKwWf">탁인혁</span><span
 										class="SiteHeader__ProfileImageWrapper-q8dvod-13 gvTysc"><span
 										class="ProfileImg__StyledProfileImg-sc-1vio56c-0 RYLVL"></span></span>
 								</div>
+								
+								
 							</div>
 						</div>
 					</div>
@@ -446,6 +450,9 @@ data-styled.g2832[id="sc-keyframes-iXFgaZ"]{content:"iXFgaZ,"}/*!sc*/
 			</div>
 		</div>
 		<!-- </header>  -->
+		
+		
+		
 		<div class="style__StartProject-yj7pk1-1 gYeWOo">
 			<div class="style__LeftCoverImage-yj7pk1-2 cbvvFo"></div>
 			<div class="rightContents">

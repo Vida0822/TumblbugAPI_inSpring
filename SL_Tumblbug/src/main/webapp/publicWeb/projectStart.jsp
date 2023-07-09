@@ -1902,7 +1902,7 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 							<button class="style__StartButton-sc-118sr7k-4 ZcEVY">지금 시작하기</button>
 							
 							<!-- projectForm 요청 url  -->
-							<a href="/tumblbug/makeProject.do" target="_blank" class="style__CreateGuideButton-sc-118sr7k-5 iYksVv">창작자 가이드</a>
+							<a href="https://creator.tumblbug.com" target="_blank" class="style__CreateGuideButton-sc-118sr7k-5 iYksVv">창작자 가이드</a>
 						</div>
 					</div>
 					<div class="style__Wrap-bt9re-0 gdxREq">

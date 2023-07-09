@@ -41,6 +41,7 @@
 			<span class="previewText">미리 보기</span>
 		</button>
 		<button
+			id="submit"
 			class="SolidButton__Button-sc-1gsinzz-0 iyLRbq ProjectSubmitButton__ProjectButton-m5pw9c-2 hQPdvE fnt-p1"
 			color="mainEditorP80">
 			<span>저장</span>
@@ -52,11 +53,12 @@
 			$("#preview").on("click", function() {
 				location.href="/tumblbug/view.do?pro_cd="+$(this).val() ; 
 			})
+			
+		$("#submit").on("click", function() {
+			
 		})
+
 	</script>
-	
-	
-	
 
 	<div class="ProjectItem__ProjectForms-sc-1vwy8z0-4 etypUj">
 		<div class="style__ProjectFormsHalf-sc-1mawbc1-9 gXezwb">
@@ -88,6 +90,7 @@
 			<div type="p4" color="#e53c41"
 				class="Text-sc-1cqgvse-0 SelectWithSingle__ErrorMessage-sc-1eotg4s-0 jQwQu gpuBnE"></div>
 		</div>
+		<form>
 		<div class="style__ProjectFormsHalf-sc-1mawbc1-9 gXezwb">
 			<p class="style__ProjectFormsTitle-sc-1mawbc1-10 fHMBHo">세부 카테고리</p>
 			<div class="SelectWithSingle__Wrapper-sc-1eotg4s-1 fzVHyd">
@@ -452,7 +455,7 @@
 	
 	
 	</script>
-	
+	</form>
 	
 
 </body>
