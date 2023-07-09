@@ -28,6 +28,8 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @AllArgsConstructor
 public class MakeController {
+
+	
 	
 	private MakeService makeService ; 
 	
@@ -237,6 +239,18 @@ public class MakeController {
 			) {
 	} // plan
 	
+	// 내가 만든 프로젝트 조회 
+		@GetMapping("/created.do")
+		public void created(
+				@RequestParam(value="pro_status") String pro_status
+				, Principal principal
+				) {
+			
+			principal.getName(); 
+			
+			//return "created.do" ; 
+		}
+		
 	
 	
 

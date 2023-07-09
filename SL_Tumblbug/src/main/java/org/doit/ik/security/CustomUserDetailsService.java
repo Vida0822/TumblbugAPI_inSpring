@@ -16,12 +16,14 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class CustomUserDetailsService implements UserDetailsService{
 
+	
 	@Setter(onMethod=@__({@Autowired}))
 	private MemberMapper memberMapper;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		log.warn("> Load User By UserName : " + username);
+		
 		// vo 객체에는   회원정보 + 권한정보(authList)
 		Member vo  = this.memberMapper.read(username);
 		log.warn("> Queiried by Member mapper : " + vo);

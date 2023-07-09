@@ -32,6 +32,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class ProjectController {
 	
+
 	@Autowired
 	private MemberService memberService;
 	
@@ -169,6 +170,9 @@ public class ProjectController {
 	public String paySuccess() {
 		return "/tumblbug/paySuccess";
 	}
+	
+	
+	
 	
 	
 }
