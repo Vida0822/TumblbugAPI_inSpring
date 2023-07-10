@@ -46,6 +46,8 @@ public interface MakeMapper {
 
 	DetailCategory getCategory(String pro_cd);
 
+	int examineRequest(String pro_cd);
+
 	
 
 }

@@ -29,5 +29,7 @@ public interface MakeService {
 	// 카테고리 별 세부카테고리 목록 가져오기 
 	List<DetailCategory> getCategoryList(String ctg_code);
 
+	String examineRequest(String pro_cd);
+
 
 } // MakeService

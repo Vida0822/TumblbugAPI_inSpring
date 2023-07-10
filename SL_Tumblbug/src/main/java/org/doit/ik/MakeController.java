@@ -245,13 +245,24 @@ public class MakeController {
 				@RequestParam(value="pro_status") String pro_status
 				, Principal principal
 				) {
-			
+			log.info("> MakeController -  /created GET pro_status="+pro_status);
 			principal.getName(); 
 			
 			//return "created.do" ; 
 		}
 		
-	
-	
+	// 심사 요청 클릭시 프로젝트 상태 '심사중'으로 바뀜 
+	@GetMapping("/examineRequest.do")
+	public String examineRequest(
+			@RequestParam("pro_cd") String pro_cd
+			, Model model 
+			) {
+		log.info("> MakeController -  /examineRequest GET pro_cd="+pro_cd);
+		
+		String updateResult = this.makeService.examineRequest(pro_cd) ; 		
+		return "redirect:/tumblbug/manage.do?pro_cd="+pro_cd ; 
+		
+	}
+		
 
 } // MakeController

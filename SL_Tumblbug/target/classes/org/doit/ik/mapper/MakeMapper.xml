@@ -55,6 +55,14 @@
 		FROM ATT_FILE 
 		WHERE pro_cd = #{pro_cd} AND af_rep = 1 
 	</select>
+	
+	<update id="examineRequest">
+		<![CDATA[
+			UPDATE project SET pro_status = '심사 중'
+			WHERE  pro_cd = #{pro_cd}   
+		]]>
+	</update>
+	
 
 
 </mapper>

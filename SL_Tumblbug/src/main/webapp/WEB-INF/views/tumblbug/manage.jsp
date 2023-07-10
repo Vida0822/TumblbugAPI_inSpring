@@ -998,15 +998,34 @@ img, svg {
 						
 						<div class="style__ProjectProgressButton-sc-1y2waj3-16 kKyRBj">
 							<button
+								id ="examineRequest"
+								value="${projectCard.project.pro_cd}"
 								class="SolidButton__Button-sc-1gsinzz-0 hgsFUp ProjectSubmitButton__ProjectButton-m5pw9c-2 hQPdvE fnt-p1"
 								color="white">
-								
-								<span>기획중</span>
+									<c:choose>
+									    <c:when test="${projectCard.project.pro_status == '작성 중'}">
+									        <span >심사 요청</span>								
+									    </c:when>
+									    <c:otherwise>
+									        <span>${projectCard.project.pro_status}</span>
+									    </c:otherwise>
+									</c:choose>
 							</button>
-						</div>
+						</div>					
+						<script>
+						$("#examineRequest").on("click", function(event) {
+							if(confirm("심사요청 하시겠습니까?")){
+								$("#examineRequest span").text("처리중...") ; 
+								  setTimeout(function() {
+										location.href="/tumblbug/examineRequest.do?pro_cd="+$("#examineRequest").val(); 													  
+								  }, 2000) ; 
+							}
+						}) ; 						
+						</script>
+						
 					</div>
 					<div class="style__ProjectContents-sc-1y2waj3-17 bPmWWL">
-
+				
 						<div class="style__ProjectThumbnail-sc-1y2waj3-18 iKCtLv"
 								style="background: url('${projectCard.file.af_path}') center center / 100% no-repeat rgb(252, 252, 252)"
 						>

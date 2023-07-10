@@ -16,6 +16,7 @@ import org.doit.ik.mapper.ProjectMapper;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.extern.log4j.Log4j;
 
 @Log4j
@@ -91,6 +92,20 @@ public class MakeServiceImpl implements MakeService {
 		return projectCard ; 
 			
 	}
+
+	@Override
+	public String examineRequest(String pro_cd) {
+		
+		log.info("> MakeServiceImpl.examineRequest()..."+pro_cd);
+		
+		int updateResult = makeMapper.examineRequest(pro_cd) ; 
+		
+		if(updateResult==1) {
+			return "success" ; 
+		}else {
+			return "fail" ; 
+		}
+	} // examineRequest
 
 
 	

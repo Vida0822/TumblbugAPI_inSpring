@@ -151,7 +151,7 @@
 				<div class="style__Header-sc-1dvdb02-0 gLzraa">
 					<div class="style__HeaderWrap-sc-1dvdb02-2 fzQQdl">
 						<a class="style__HeaderLeft-sc-1dvdb02-4 jJmDgg"
-							href="/tumblbug/main.do"><div
+							href="/tumblbug/manage.do?pro_cd=${projectCard.project.pro_cd}"><div
 								name="arrow3-left"
 								class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs style__icon-sc-1dvdb02-3 ggMYrs">
 								<svg viewBox="0 0 48 48">
