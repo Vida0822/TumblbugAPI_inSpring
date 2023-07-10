@@ -24,8 +24,8 @@ private static final long serialVersionUID = 8215844917794450806L;
 	//                            회원정보 + 권한정보(authList)
 	public CustomUser(Member vo) {
 		super(
-				  vo.getM_cd()
-				, vo.getM_cd()
+				  vo.getM_email()
+				, vo.getM_password()
 				 // List<AuthVO>  -> Collection<>
 				, vo.getAuthList().stream().map( auth->new SimpleGrantedAuthority( auth.getAuthority() ) ).collect( Collectors.toList() )
 			);

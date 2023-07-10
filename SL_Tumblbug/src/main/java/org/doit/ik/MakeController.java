@@ -289,6 +289,17 @@ public class MakeController {
 		return "redirect:/tumblbug/manage.do?pro_cd="+pro_cd ; 
 		
 	}
+	
+	@GetMapping("/deleteProject.do")
+	public String deleteProject(
+			@RequestParam("pro_cd") String pro_cd			
+			) {
+		log.info("> MakeController -  /deleteProject GET pro_cd="+pro_cd);
+		
+	//	this.makeService.deleteProject(pro_cd) ; 
+		return null ; 
+	}
+	
 		
 
 } // MakeController

@@ -2840,7 +2840,8 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 														관리
 														<input type="hidden" name="pro_cd" value="${projectCard.project.pro_cd}" />	
 													</a>
-													<a class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ remove">
+													<a  href="/tumblbug/deleteProject.do?pro_cd=${projectCard.project.pro_cd}" 
+													class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ remove">
 														삭제
 														<input type="hidden" name="pro_cd" value="${projectCard.project.pro_cd}" />		
 													</a>

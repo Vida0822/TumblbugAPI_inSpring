@@ -68,10 +68,11 @@
 	
 	
 	<security:authentication-manager> 
-		<security:authentication-provider> 
-		<security:jdbc-user-service data-source-ref="dataSource"
+		<security:authentication-provider user-service-ref="customUserDetailsService"> 
+	<!--  	<security:jdbc-user-service data-source-ref="dataSource"
 		users-by-username-query="SELECT m_email AS USERNAME, m_password AS PASSWORD, enabled FROM member WHERE m_email = ?" 
 	      authorities-by-username-query="SELECT username AS userid, authority AS auth FROM member_authorities WHERE username = ?  "/>
+			-->
 			<!-- <security:user-service>
 				<security:user name="jinyong@naver.com" authorities="ROLE_USER" password="{noop}qwe1234"/>
 				<security:user name="admin" authorities="ROLE_USER, ROLE_ADMIN, ROLE_MANAGER" password="{noop}1234"/>

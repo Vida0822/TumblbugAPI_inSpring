@@ -15,6 +15,7 @@
 	
 		<resultMap type="org.doit.ik.domain.Member" id="memberMap">
 	      <id property="m_email" column="m_email" />
+	     <result property="m_cd" column="m_cd" />
 	     <result property="m_email" column="m_email" />
 	     <result property="m_password" column="m_password" />
 	     <result property="m_name" column="m_name" />	     
@@ -30,7 +31,7 @@
        <select id="read"  resultMap="memberMap">
 	        SELECT m_cd, m_email, m_password, m_name, enabled,authority
 		    FROM member  m LEFT JOIN member_authorities auth ON m.m_email = auth.username
-	        WHERE email = #{m_email};
+	        WHERE m_email = #{m_email} 
       </select>
       
       <select id="getMember"  resultType="org.doit.ik.domain.Member">

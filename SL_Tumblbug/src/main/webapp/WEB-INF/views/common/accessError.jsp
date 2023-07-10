@@ -24,8 +24,8 @@
 	<br><br>
 	<br><br>
 	
-		<a href="/tumblbug/main.do" style="color:red">메인패이지로 돌아가기</a> <br>
-		<a href="/tumblbug/login.do"  style="color:pink">로그인페이지로 돌아가기</a><br>
+		<a href="/tumblbug/main.do" style="color:black">메인 페이지로 돌아가기</a> <br>
+		<a href="/tumblbug/login.do"  style="color:black">로그인 페이지로 돌아가기</a><br>
 		
 		
  </div>

@@ -116,10 +116,15 @@ public class ProjectController {
 	public String payForm( 
 			@RequestParam("pro_cd") String procd
 			, @RequestParam("gift_cd") String giftcd
-			, HttpServletRequest request ) {
+			, HttpServletRequest request
+			, Principal principal
+			) {
 		// session 생성
-		Member member = new Member();
-		member.setM_cd("MEM90");
+		
+		String m_email= principal.getName() ;
+		Member member = this.memberService.getSessionMember(m_email) ; 
+		
+		
 		
 		log.info("> /tumblbug/payForm GET...pro_cd="+procd+"gift_cd="+giftcd);
 		
