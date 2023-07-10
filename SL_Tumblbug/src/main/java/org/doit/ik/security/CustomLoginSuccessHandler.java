@@ -41,10 +41,10 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 		log.warn("> ROLE NAMES : " + roleNames );
 		
 		if ( roleNames.contains("ROLE_ADMIN")) {
-			response.sendRedirect("/tumblbug/manager.do?pro_status=writing");
+			response.sendRedirect("/tumblbug/manager.do?pro_status=test");
 			return;
 		} else if( roleNames.contains("ROLE_MANAGER")){
-			response.sendRedirect("/tumblbug/manager.do?pro_status=writing");
+			response.sendRedirect("/tumblbug/manager.do?pro_status=test");
 			return;
 		} 
 			else if( roleNames.contains("ROLE_USER")){

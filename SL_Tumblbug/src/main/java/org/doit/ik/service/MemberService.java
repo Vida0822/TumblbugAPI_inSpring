@@ -12,6 +12,7 @@ public interface MemberService {
 
 	Member getSessionMember(String m_email);
 	
+	void payMethodInsert() throws Exception;
 	
 	
 }

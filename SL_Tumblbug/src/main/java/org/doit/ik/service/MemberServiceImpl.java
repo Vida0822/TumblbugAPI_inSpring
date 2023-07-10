@@ -39,6 +39,13 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.getSessionMember(m_email) ; 
 			
 	}
+	
+	 @Override
+	   public void payMethodInsert() throws Exception {
+	      log.info("MemberServiceImpl > payMethodInsert");
+	      this.memberMapper.payMethodInsert();
+	   }
+	 
 
 
 }

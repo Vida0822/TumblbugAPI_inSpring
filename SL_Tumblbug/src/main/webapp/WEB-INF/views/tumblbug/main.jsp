@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 
-		<a href="/tumblbug/manager.do?pro_status=test">/tumblbug/manager?pro_status=writing</a> <br>
+	
 			<div class="FrontPage__HomeWrapper-sc-1ev69zc-11 bIWUDq">
 				<div class="FrontPage__StyledMainTopSection-sc-1ev69zc-8 dBLJpo">
 					<div
@@ -371,6 +371,7 @@
 					
 				</div>
 			</div>
+				<a href="/tumblbug/manager.do?pro_status=test">/tumblbug/manager?pro_status=writing</a> <br>
 			<!-- --------------------------------------------------------------- -->
 			
 <script>

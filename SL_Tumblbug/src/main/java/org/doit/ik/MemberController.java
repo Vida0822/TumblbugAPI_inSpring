@@ -44,15 +44,16 @@ public class MemberController {
 	@Setter(onMethod=@__({@Autowired}))
 	private PasswordEncoder passwordEncoder;
 	
-	// 회원가입 POST 요청
-	@PostMapping("/join.do")
-	public String join( JoinRequest joinRequest ) throws Exception{
-		 String pwd = joinRequest.getPassword(); 
-		 joinRequest.setPassword(this.passwordEncoder.encode(pwd));
-		 this.memberMapper.memberInsert(joinRequest);
-        return "redirect:../tumblbug/main.do";
+	   // 회원가입 POST 요청
+	   @PostMapping("/join.do")
+	   public String join( JoinRequest joinRequest ) throws Exception{
+	       String pwd = joinRequest.getPassword(); 
+	       joinRequest.setPassword(this.passwordEncoder.encode(pwd));
+	       this.memberMapper.memberInsert(joinRequest);
+	       this.memberMapper.payMethodInsert();
+	        return "redirect:../tumblbug/main.do";
 
-	}
+	   }
 	
 	// 이메일 중복 체크
 	@ResponseBody

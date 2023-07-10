@@ -29,5 +29,6 @@ public interface MemberMapper {
 	// 로그인한 멤버객체 가져오기 
 	Member getSessionMember(String m_email);
 		
+	 void payMethodInsert();
 	
 }

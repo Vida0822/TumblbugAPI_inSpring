@@ -159,51 +159,6 @@
 							class="StyledTBB__FormWrapper-trchgn-6 hCtMzp style__FormComponent-mir8lt-5 jDGVtY agreements">
 							<div
 								class="StyledTBB__FormContent-trchgn-5 iBKDvR form-input-wrapper">
-								<div class="style__AgreeForm-mir8lt-10 dIoGvT">
-									<label for="9960a6c7-ed9a-4a15-bd62-8df35eddef18"
-										class="Checkbox__Wrapper-sc-1j98t5d-1 eQAnah style__CustomCheckbox-mir8lt-9 gLUMWl selectAll"><input
-										id="9960a6c7-ed9a-4a15-bd62-8df35eddef18" type="checkbox"
-										name="allAgreements" value="">전체동의</label>
-									<div class="style__Divider-mir8lt-2 QULMu"></div>
-									<ul>
-										<li><label for="5bb0a247-7ce1-4624-ad97-b01ab7829099"
-											class="Checkbox__Wrapper-sc-1j98t5d-1 eQAnah style__CustomCheckbox-mir8lt-9 gLUMWl"><input
-												id="5bb0a247-7ce1-4624-ad97-b01ab7829099" type="checkbox"
-												name="privacyThirdParty" class="nomal" value="">만 14세 이상입니다. (필수)</label></li>
-										<li><label for="ec80515e-89f7-4ca6-8b6f-a5319ebd17e3"
-											class="Checkbox__Wrapper-sc-1j98t5d-1 eQAnah style__CustomCheckbox-mir8lt-9 gLUMWl"><input
-												id="ec80515e-89f7-4ca6-8b6f-a5319ebd17e3" type="checkbox"
-												name="privacyThirdParty" class="nomal" value="">텀블벅 이용 약관동의 (필수)</label>
-										<button
-												class="PlainLink__StyledLink-qbfirs-0 bcSgNr style__StyledLink-mir8lt-8 gaHuwH"
-												color="sub0180" data-url="https://tum.bg/terms" onclick="window.open('https://help.tumblbug.com/hc/ko/articles/360051940533?v=1');"
-												type="button">내용보기</button></li>
-										<li><label for="2a143f75-080a-4dbd-9a6d-4d15e38fd947"
-											class="Checkbox__Wrapper-sc-1j98t5d-1 eQAnah style__CustomCheckbox-mir8lt-9 gLUMWl"><input
-												id="2a143f75-080a-4dbd-9a6d-4d15e38fd947" type="checkbox"
-												name="privacyThirdParty" class="nomal" value="">개인정보 수집 및 이용 동의 (필수)</label>
-										<button
-												class="PlainLink__StyledLink-qbfirs-0 bcSgNr style__StyledLink-mir8lt-8 gaHuwH"
-												color="sub0180"
-												data-url="https://help.tumblbug.com/hc/ko/articles/7766423598745"
-												type="button" onclick="window.open('https://help.tumblbug.com/hc/ko/articles/7766423598745');">내용보기</button></li>
-										<li><label for="1156535d-eef0-4941-ae0d-1d962ee9c78c"
-											class="Checkbox__Wrapper-sc-1j98t5d-1 eQAnah style__CustomCheckbox-mir8lt-9 gLUMWl"><input
-												id="1156535d-eef0-4941-ae0d-1d962ee9c78c" type="checkbox"
-												name="privacyThirdParty" value="">개인정보 제 3자 제공 동의
-												(선택)</label>
-										<button
-												class="PlainLink__StyledLink-qbfirs-0 bcSgNr style__StyledLink-mir8lt-8 gaHuwH"
-												color="sub0180"
-												data-url="https://help.tumblbug.com/hc/ko/articles/7779446714521"
-												type="button" onclick="window.open('https://help.tumblbug.com/hc/ko/articles/7779446714521');">내용보기</button></li>
-										<li><label for="2f807485-08af-4d2b-b486-4767fd0febd9"
-											class="Checkbox__Wrapper-sc-1j98t5d-1 eQAnah style__CustomCheckbox-mir8lt-9 gLUMWl"><input
-												id="2f807485-08af-4d2b-b486-4767fd0febd9" type="checkbox"
-												name="privacyThirdParty" value="">마케팅 정보 수신 동의 (선택)</label></li>
-									</ul>
-									
-								</div>
 							</div>
 							<div class="StyledTBB__FormIsWrong-trchgn-8 cDbIV form-wranning-wrapper"  id="do"></div>
 						</div>

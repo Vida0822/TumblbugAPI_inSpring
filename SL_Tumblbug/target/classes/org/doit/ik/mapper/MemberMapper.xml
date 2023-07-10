@@ -79,6 +79,11 @@
        WHERE m_email = #{ email }
      </select>
      
+      <insert id="payMethodInsert">
+	      INSERT INTO pay_method
+	      VALUES ('PMC' || SEQ_PMETHOD.NEXTVAL, 1, 'MEM'||SEQ_MEMBER.CURRVAL, 'CRD116', null)
+   		</insert>
+   
 	
 
 </mapper>
