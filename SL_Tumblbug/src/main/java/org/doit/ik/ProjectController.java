@@ -57,7 +57,7 @@ public class ProjectController {
 		return "main.do";
 	}
 	*/
-	@GetMapping("/main")
+	@GetMapping("/main.do")
 	public String main(Model model) {
 		log.info("> /main GET");
 		List<ProjectCard> CardList = this.mainProjectService.getCardList();
@@ -65,13 +65,13 @@ public class ProjectController {
 		model.addAttribute("CardList", CardList);
 		model.addAttribute("popCardList", popCardList);
 		
-		return "main.do";
+		return "main.tiles";
 	}
 	
 	
 	// 검색하기 핸들러 
-	@PostMapping("/search")
-	public void search(@RequestParam("searchCondition") int searchCondition, @RequestParam("searchWord") String searchWord, Model model) {
+	@PostMapping("/search.do")
+	public String search(@RequestParam("searchCondition") int searchCondition, @RequestParam("searchWord") String searchWord, Model model) {
 		log.info("> /search POST");
 		List<ProjectCard> searchCardList = this.mainProjectService.getSearchCardList(searchCondition, searchWord);
 		int projectCount = searchCardList.size();
@@ -79,6 +79,7 @@ public class ProjectController {
 		model.addAttribute("projectCount", projectCount);
 		model.addAttribute("searchCondition", searchCondition);
 		
+		return "search.tiles";
 		
 	}
 	
@@ -107,7 +108,7 @@ public class ProjectController {
 		// 6. giftCards - ArrayList<GiftCard>
 		model.addAttribute("giftCards", this.viewProjectService.getGiftCard(project)) ; // 해당 선물리스트를 필요한 정보를 뽑은 선물 카드 리스트로 반환
 		
-		return "view.do";
+		return "view.tiles";
 		
 	} // view
 	
