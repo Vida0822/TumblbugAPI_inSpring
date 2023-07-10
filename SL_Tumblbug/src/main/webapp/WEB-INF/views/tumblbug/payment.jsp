@@ -1222,17 +1222,25 @@ input[type="radio"][name="pay_cd"] {
                <div class="Container-gci8y7-0 cXaiVs">
                   <div class="SiteHeader__SiteHeaderMenu-q8dvod-2 josvBw">
                      <div class="SiteHeader__LeftMenu-q8dvod-3 gsNgjy">
-                        <button class="SiteHeader__LinkButton-q8dvod-8 dkQgnv">
+                        <button class="SiteHeader__LinkButton-q8dvod-8 dkQgnv" 
+                        			id="manage"
+                        			value="${param.pro_cd}">
                            <i class="_3ZgG-OSv0XE3y-h3oPaDsl _1QY7TzdLHKX3-BKPDNNYKF"></i><span
-                              class="SiteHeader__ItemLabel-q8dvod-10 jaKwWf">프로젝트
-                              둘러보기</span>
+                              class="SiteHeader__ItemLabel-q8dvod-10 jaKwWf"> 뒤로 가기 </span>
                         </button>
+                        <script>
+                        $("#manage").on("click", function() {
+                        	location.href="/tumblbug/manage.do?pro_cd="+$(this).val(); 
+                        }) ; 
+                        
+                        </script>
+                        
                         <span class="SiteHeader__ForMobile-q8dvod-11 fhMIkK"><a
                            class="SiteHeader__LinkItem-q8dvod-9 ekCDOR" href="http://localhost/publicWeb/projectStart.jsp"><span
                            class="SiteHeader__ItemLabel-q8dvod-10 jaKwWf">프로젝트 올리기</span></a></span>
                      </div>
                      <div class="SiteHeader__CenterMenu-q8dvod-4 kZyRnh">
-                        <a href="/"><div class="TumblbugLogo-sc-5rx33z-0 hakSMQ">
+                        <a href="/tumblbug/main.do"><div class="TumblbugLogo-sc-5rx33z-0 hakSMQ">
                               <svg id="tumblbug_logo" viewBox="0 0 107.89 28.39">
                                  <title>TumblbugLogo</title><path
                                     d="M26.55,11.87H25c-.12,0-.23,0-.28.12l-2.27,5.5c-1.15,2.89-2.31,4.62-4.9,5a1.41,1.41,0,0,1-1.24-.32c-.27-.33-.26-.89.05-1.64l2.82-6.89,0-.07.58-1.43a.18.18,0,0,0,0-.21c-.06-.08-.15-.06-.25-.06H16c-.12,0-.24,0-.28.12l-.58,1.4a.35.35,0,0,0,0,.31.33.33,0,0,0,.25.16h1.46l-2.75,6.68a3.53,3.53,0,0,0,0,3h0a3.2,3.2,0,0,0,2.58,1.06A8.27,8.27,0,0,0,21,23.13l.08-.05,0,.09a2.27,2.27,0,0,0,1.37,1.29c.74.19,1.81.18,3.44-1.52a.31.31,0,0,0,0-.43l-.77-.76a.31.31,0,0,0-.45,0c-.47.6-.94.91-1.32.88a.39.39,0,0,1-.33-.26,3.77,3.77,0,0,1,.4-2,.31.31,0,0,0,0-.13l.22-.45,3.15-7.68a.18.18,0,0,0,0-.21C26.75,11.84,26.65,11.87,26.55,11.87Z"
@@ -1284,6 +1292,10 @@ input[type="radio"][name="pay_cd"] {
             </div>
          </div>
       </div>
+      <!-- /header  -->
+      
+      
+      <!--  contents -->
       <div class="style__ServicePlanBody-scsfrd-1 jPGQzK">
          <div class="style__TextContainer-scsfrd-2 cSPYEN">
             <h3 class="style__Title-scsfrd-3 dxyTyu">요금제를 선택해 주세요!</h3>

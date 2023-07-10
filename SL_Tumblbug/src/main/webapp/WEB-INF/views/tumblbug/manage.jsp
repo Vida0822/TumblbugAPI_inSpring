@@ -1260,7 +1260,7 @@ img, svg {
 
 
 					<div class="style__ProjectConfigWrap-sc-1mawbc1-37 hCGFPO">
-						<a href="/tumblbug/editProject/payment.do?pro_cd=${projectCard.project.pro_cd}"><div class="iconImage">
+						<a href="/tumblbug/payment.do?pro_cd=${projectCard.project.pro_cd}"><div class="iconImage">
 								<div name="percent-solid"
 									class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs">
 									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"

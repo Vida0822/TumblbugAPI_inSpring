@@ -277,7 +277,7 @@
 						<div class="FrontPage__IconWithTitle-sc-1ev69zc-0 cVoHRL">
 							<div class="FrontPage__ListTitle-sc-1ev69zc-4 gaOYfh">
 								<a href="/discover?projectSort=popular&amp;ongoing=onGoing">인기 프로젝트</a>
-								<span class="FrontPage__StyledTime-sc-1ev69zc-7 hfGRkH">23.06.12 15:30 기준</span><a title="전체보기"
+								<span class="FrontPage__StyledTime-sc-1ev69zc-7 hfGRkH">23.07.11 09:00 기준</span><a title="전체보기"
 									class="FrontPage__ViewTotalProjectsTopLink-sc-1ev69zc-2 bVJxne">전체보기</a>
 							</div>
 						</div>

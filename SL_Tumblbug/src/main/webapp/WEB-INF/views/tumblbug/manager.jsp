@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="https://d2om2e6rfn032x.cloudfront.net/wpa/app.d69b58d686469c0a1bc8.css">
-<style>
+<style>M
 .ccxeYs{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;}/*!sc*/
 .ccxeYs svg{width:1em;height:1em;}/*!sc*/
 .ccxeYs.baseline svg{top:0.125em;position:relative;}/*!sc*/
@@ -2764,7 +2765,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 				<div
 					class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ SubHeader-sc-1refh74-0 gEYrbQ">
 					<span> Manager  </span>
-					
+					<sec:authentication property="principal.member.m_name"/> 님 어서오십시오 
 						<a href="/tumblbug/main.do" style="color:black"	><h6 style="text-align: right;  ">  user page </h6></a>						
 						<a href="/tumblbug/logout.do"> <h6 style="text-align: right; color:red" > session 종료 </h6> </a>
 				</div>
