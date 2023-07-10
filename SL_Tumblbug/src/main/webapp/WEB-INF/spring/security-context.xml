@@ -43,10 +43,10 @@
 	    <!-- 사용자 정의 로그인 페이지 등록 속성 : login-page -->
 	   <security:form-login 
 	        login-page="/tumblbug/login.do"
-	        authentication-success-handler-ref="customLoginSuccessHandler"
-	        default-target-url="/tumblbug/main.do"
+	        authentication-success-handler-ref="customLoginSuccessHandler"	       
 	        authentication-failure-url="/tumblbug/login.do?error=true"
 	        />
+	   <!--  default-target-url="/tumblbug/main.do" -->
 	   
 	     <security:logout logout-url="/tumblbug/logout.do" 
 	  				 logout-success-url="/tumblbug/main.do"  invalidate-session="true" />

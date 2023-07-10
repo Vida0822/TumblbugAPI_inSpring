@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%
 String contextPath = request.getContextPath();
 %>
@@ -1362,8 +1363,9 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 		location.href = "http://localhost/publicWeb/projectStart.jsp";
 	});
 </script>
-						<u:isLogin>
+						<%-- <u:isLogin> --%>
 							<!--  로그인이 되어있다면 아래 코딩 실행 -->
+							<sec:authorize access="isAuthenticated()">
 							<div class="style__ButtonWrapper-zxsodr-6 hwZyFc">
 								<div class="style__IconWrapper-zxsodr-28 kuGxgw">
 									<svg class="style__LikeIcon-zxsodr-31 fwjlUM" width="48"
@@ -1442,18 +1444,36 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 											</div>
 										</div>
 										<div class="SNB__MenuItemDivider-wpjnaw-4 Tzsws"></div>
-										<div class="SNB__MenuItem-wpjnaw-3 fBfUv">내가 만든 프로젝트</div>
+										<div class="SNB__MenuItem-wpjnaw-3 fBfUv" id="created">내가 만든 프로젝트</div>
 										<div class="SNB__MenuItem-wpjnaw-3 fBfUv">설정</div>
 										<div class="SNB__MenuItemDivider-wpjnaw-4 Tzsws"></div>
-										<div class="SNB__MenuItem-wpjnaw-3 fBfUv">로그아웃</div>
+										<div class="SNB__MenuItem-wpjnaw-3 fBfUv" id="logoutgo">로그아웃</div>
 									</div>
 									<div class="SNB__DimmedLayer-wpjnaw-0 dwtNnY"></div>
 								</div>
 
 							</div>
-						</u:isLogin>
-						<u:notLogin>
+							</sec:authorize>
+							<script>
+
+							// 내가 만든 프로젝트 
+							$("#created").on("click", function() {
+								location.href = "http://localhost/tumblbug/created.do?pro_status=writing";
+							});
+							
+													
+							// 프로필바 메뉴 이동
+							$("#settinggo").on("click", function() {
+								location.href = "http://localhost/tumblbug/settings/profile.do";
+							});
+							$("#logoutgo").on("click", function() {
+								location.href = "http://localhost/tumblbug/logout.do";
+							});
+							</script>
+					<%-- 	</u:isLogin>
+						<u:notLogin> --%>
 							<!--  로그인이 안되어있다면 아래 코딩 실행 -->
+							<sec:authorize access="isAnonymous()">	
 							<div class="style__UserButtonWrapper-zxsodr-9 idLbRv">
 								<div class="style__UserButton-zxsodr-10 csOHNF" id="loginButton">
 									<div class="style__UserAvatar-zxsodr-8 bKpcjX" id="loginButton">
@@ -1471,7 +1491,8 @@ data-styled.g2833[id="sc-keyframes-kGcjWe"]{content:"kGcjWe,"}/*!sc*/
 									<div class="style__UserText-zxsodr-11 fXtfpK" id="loginButton">로그인/회원가입</div>
 								</div>
 							</div>
-						</u:notLogin>
+							</sec:authorize>
+						<%-- </u:notLogin> --%>
 						<script>
 								// 클릭 이벤트 핸들러
 								//a태그 시 양식이 다 깨져서 js.

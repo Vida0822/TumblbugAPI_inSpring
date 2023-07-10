@@ -48,6 +48,10 @@ public interface MakeMapper {
 
 	int examineRequest(String pro_cd);
 
+	List<Project> getMyProjects(
+			@Param("searchCondition") String searchCondition, 
+			@Param("m_cd") String m_cd);
+
 	
 
 }

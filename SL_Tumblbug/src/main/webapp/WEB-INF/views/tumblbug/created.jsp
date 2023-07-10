@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
@@ -2403,8 +2404,9 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 					</div>
 					<div class="style__StatusWrapper-zxsodr-4 bgpTeU">
 						<div class="style__ProjectEditorButton-zxsodr-5 cfcgIZ">프로젝트 올리기</div>
-						<u:isLogin>
+					<%-- 	<u:isLogin>--%>
 							<!--  로그인이 되어있다면 아래 코딩 실행  -->
+						<sec:authorize access="isAuthenticated()">
 							<div class="style__ButtonWrapper-zxsodr-6 hwZyFc">
 								<div class="style__IconWrapper-zxsodr-28 kuGxgw">
 									<svg class="style__LikeIcon-zxsodr-31 fwjlUM" width="48"
@@ -2491,8 +2493,8 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 									<div class="SNB__DimmedLayer-wpjnaw-0 dwtNnY"></div>
 								</div>
 							</div>
-						</u:isLogin>
-						<u:notLogin>
+						</sec:authorize>
+						<sec:authorize access="isAnonymous()">
 							<!--  로그인이 안되어있다면 아래 코딩 실행 -->
 							<div class="style__UserButtonWrapper-zxsodr-9 idLbRv">
 								<div class="style__UserButton-zxsodr-10 csOHNF" id="loginButton">
@@ -2511,7 +2513,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 									<div class="style__UserText-zxsodr-11 fXtfpK" id="loginButton">로그인/회원가입</div>
 								</div>
 							</div>
-						</u:notLogin>
+						</sec:authorize>
 					</div>
 				</div>
 				<div class="style__HeaderContentLayout-zxsodr-12 elXgTt">
@@ -2765,10 +2767,6 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 				<div
 					class="Container__ContainerComponent-sc-1ey2h1l-0 kUAclQ SubHeader-sc-1refh74-0 gEYrbQ">
 					<span> 내가 만든 프로젝트 </span>
-					
-						<a href="/tumblbug/main.do" style="color:black"	><h6 style="text-align: right;  ">  user page </h6></a>						
-						<a href="/tumblbug/logout.do"> <h6 style="text-align: right; color:red" > session 종료 </h6> </a>
-									
 				</div>
 					<div
 						class="style__Tabs-sc-3a505r-0 kTjmVr style__StyledTabs-sc-168arlx-12 kuVrMn"
@@ -2786,7 +2784,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 					$(document).ready(function() {
 					  $('.gygqOn').click(function() {
 					    var value = $(this).find('input').val(); // 클릭한 div의 자식 input의 값 가져오기
-						location.href="/tumblbug/manager.do?pro_status="+value ; 
+						location.href="/tumblbug/created.do?pro_status="+value ; 
 					  });
 					});
 				</script>
@@ -2838,62 +2836,15 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 													class="style__ProjectNotifyDesktop-sc-16sdzr6-8 style__ProjectNotifyMobile-sc-16sdzr6-9 humYWR iGiiYq"></div>
 												<div
 													class="style__ProjectButtonSection-sc-16sdzr6-25 kgHjVE">
-													<a href="" class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ">
-														승인
+													<a href="/tumblbug/manage.do?pro_cd=${projectCard.project.pro_cd}" class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ">
+														관리
 														<input type="hidden" name="pro_cd" value="${projectCard.project.pro_cd}" />	
 													</a>
 													<a class="style__ProjectManagementButton-sc-16sdzr6-26 itmomZ remove">
-														반려
+														삭제
 														<input type="hidden" name="pro_cd" value="${projectCard.project.pro_cd}" />		
 													</a>
 												</div>
-												
-												<script>
-													// ajax 스크립트 추가 		
-													 $(".itmomZ").on("click", function(event) {
-														  event.preventDefault();
-														  														
-														  var button = $(this);
-														  var buttonText = button.text().trim();
-		  
-													//	  if(confirm("정말"+buttonText+"하시겠습니까?")){ }
-														  
-														  if (buttonText === "승인") {
-															var approved = true;
-														  } else {
-															var approved = false;
-														  }
-														  var pro_cd = button.find('input').val();
-
-														  $.ajax({
-														    url: "/tumblbug/examine.do",
-														    method: "GET",
-														    data: {
-														      approved: approved,
-														      pro_cd: pro_cd
-														    },
-														    cache:false,
-														    success: function(examineResult, status, xhr) {
-														      //alert("성공적으로 처리되었습니다");
-													          button.text("처리중...")
-														      if (approved) {
-														    	  setTimeout(function() {
-																        button.css("background-color", "green"); // 버튼 요소에 접근하여 배경색 변경
-																        button.text("승인됨")
-														    	  }, 2000) ; 
-														      } else {
-														    	  setTimeout(function() {
-														        		button.css("background-color", "red"); // 버튼 요소에 접근하여 배경색 변경
-														        		button.text("반려됨")
-														    	  }, 2000) ; 
-														   	 }
-														    }, //success 										   
-														    error: function(xhr, status, error) {
-														      alert("서버가 불안정하니 잠시 후 다시 시도해주세요");
-														    } // error
-														  }); // ajax
-													});
-												</script>	
 											</div>
 											<div class="style__ProjectNotifyDesktop-sc-16sdzr6-8 humYWR"></div>
 										</div>

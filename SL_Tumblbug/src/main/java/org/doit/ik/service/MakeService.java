@@ -31,5 +31,7 @@ public interface MakeService {
 
 	String examineRequest(String pro_cd);
 
+	List<ProjectCard> getMyProjects(String searchCondition, String m_cd);
+
 
 } // MakeService

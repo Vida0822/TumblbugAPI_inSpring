@@ -538,6 +538,12 @@ data-styled.g2827[id="ScrollTop__ScrollTopBtn-j9uqn7-2"]{content:"ioLFRP,"}/*!sc
 	}) // function
 </script>
  
+<c:if test="${  param.error  }">
+	<script>
+		alert("로그인 실패했습니다. 다시 시도해주세요. ")
+	</script>
+</c:if>
+ 
 <c:if test="${  errors.idOrPwNotMatch  }">
 	<script>
 	$("#email2").text("아이디가 존재하지 않습니다.").css('color', 'red');

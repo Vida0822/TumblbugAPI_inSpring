@@ -2404,7 +2404,7 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 					</div>
 					<div class="style__StatusWrapper-zxsodr-4 bgpTeU">
 						<div class="style__ProjectEditorButton-zxsodr-5 cfcgIZ">프로젝트 올리기</div>
-						<u:isLogin>
+					
 							<!--  로그인이 되어있다면 아래 코딩 실행 
 							<div class="style__ButtonWrapper-zxsodr-6 hwZyFc">
 								<div class="style__IconWrapper-zxsodr-28 kuGxgw">
@@ -2492,8 +2492,6 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 									<div class="SNB__DimmedLayer-wpjnaw-0 dwtNnY"></div>
 								</div>
 							</div>
-						</u:isLogin>
-						<u:notLogin>
 							<!--  로그인이 안되어있다면 아래 코딩 실행
 							<div class="style__UserButtonWrapper-zxsodr-9 idLbRv">
 								<div class="style__UserButton-zxsodr-10 csOHNF" id="loginButton">
@@ -2512,7 +2510,6 @@ supports (-webkit-line-clamp:2) { .fkjoEB dl dt { max-height:initial;
 									<div class="style__UserText-zxsodr-11 fXtfpK" id="loginButton">로그인/회원가입</div>
 								</div>
 							</div>
-						</u:notLogin>
 					</div>
 				</div>
 				<div class="style__HeaderContentLayout-zxsodr-12 elXgTt">

@@ -66,6 +66,8 @@
 								</div>
 							</div>
 							<sec:authentication property="principal" var="pinfo"/>
+							
+							
 							<div class="style__UserButtonWrapper-zxsodr-9 idLbRv">
 								<div class="style__UserButton-zxsodr-10 csOHNF" id="memberMenu">
 									<!-- 프로필 이미지 -->

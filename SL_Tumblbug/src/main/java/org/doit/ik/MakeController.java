@@ -244,9 +244,35 @@ public class MakeController {
 		public void created(
 				@RequestParam(value="pro_status") String pro_status
 				, Principal principal
+				, Model model
 				) {
 			log.info("> MakeController -  /created GET pro_status="+pro_status);
-			principal.getName(); 
+			
+
+			Member member = this.memberService.getSessionMember(principal.getName()) ; 
+			
+			String searchCondition = null ; 
+			
+			if(pro_status.equals("writing")) {
+				searchCondition ="작성 중" ; 
+			}else if(pro_status.equals("test")) {
+				searchCondition ="심사 중" ; 
+			} else if(pro_status.equals("approved")) {
+				searchCondition ="승인됨" ; 
+			} else if(pro_status.equals("rejected")) {
+			searchCondition ="반려됨" ; 
+			} else if(pro_status.equals("soon")) {
+				searchCondition ="공개예정" ; 
+			} else if(pro_status.equals("running")) {
+				searchCondition ="진행중" ; 
+			} else if(pro_status.equals("closed")) {
+				searchCondition ="종료" ; 
+			}
+			
+			model.addAttribute("searchCondition", searchCondition);
+			model.addAttribute("cardList", this.makeService.getMyProjects(searchCondition,member.getM_cd() ));
+			
+			
 			
 			//return "created.do" ; 
 		}

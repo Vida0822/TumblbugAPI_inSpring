@@ -63,6 +63,14 @@
 		]]>
 	</update>
 	
+	<select id="getMyProjects" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT *
+			FROM project
+            WHERE PRO_STATUS = #{searchCondition} AND m_cd=#{m_cd}
+		]]>
+	</select>
+	
 
 
 </mapper>
