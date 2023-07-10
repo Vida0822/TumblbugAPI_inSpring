@@ -71,7 +71,7 @@ public class ProjectController {
 	
 	// 검색하기 핸들러 
 	@PostMapping("/search")
-	public String search(@RequestParam("searchCondition") int searchCondition, @RequestParam("searchWord") String searchWord, Model model) {
+	public void search(@RequestParam("searchCondition") int searchCondition, @RequestParam("searchWord") String searchWord, Model model) {
 		log.info("> /search POST");
 		List<ProjectCard> searchCardList = this.mainProjectService.getSearchCardList(searchCondition, searchWord);
 		int projectCount = searchCardList.size();
@@ -79,7 +79,6 @@ public class ProjectController {
 		model.addAttribute("projectCount", projectCount);
 		model.addAttribute("searchCondition", searchCondition);
 		
-		return "search.do";
 		
 	}
 	

@@ -5,6 +5,7 @@ import org.doit.ik.domain.Member;
 import org.doit.ik.mapper.MemberMapper;
 import org.doit.ik.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,6 +72,14 @@ public class MemberController {
 			model.addAttribute("logout", "Logout!!!");
 		}
 		return "/tumblbug/loginForm";
-	}
+	} // loginForm
+	
+	@GetMapping("/accessError.do")
+	public String accessDenied(Model model, Authentication auth) throws Exception{
+		log.info("> /common/accessEror.htm...Get") ; 
+		model.addAttribute("msg", "Access Denied"); 
+		return "/common/accessError" ;
+	} // accessDenied 
+	
 	
 }
