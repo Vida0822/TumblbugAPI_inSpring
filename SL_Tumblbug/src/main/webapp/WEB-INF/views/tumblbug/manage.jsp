@@ -928,7 +928,7 @@ img, svg {
 			<div class="style__Header-sc-1dvdb02-0 cJfGlQ">
 				<div class="style__HeaderWrap-sc-1dvdb02-2 fzQQdl">
 					<a class="style__HeaderLeft-sc-1dvdb02-4 jJmDgg"
-						href="/project-editor/9f7b0802-f4ac-4fe4-8c88-93c1a57e48e0/management"><div
+						href="/tumblbug/created.do?pro_status=writing"><div
 							name="arrow3-left"
 							class="Icon__SVGICON-sc-1xkf9cp-0 ccxeYs style__icon-sc-1dvdb02-3 ggMYrs">
 							<svg viewBox="0 0 48 48">

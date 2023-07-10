@@ -152,9 +152,16 @@ public class ProjectServiceImpl implements ProjectService {
 			int ach_rate =  (int)((float)paySum/project.getPro_price()*100); 
 			
 			// 남은기간
-			int pro_end = (int) project.getPro_end().getTime()/1000/60/60/24;
+			/*int pro_end = (int) (project.getPro_end().getTime())/1000/60/60/24;
+			System.out.println("project.getPro_end() = " +project.getPro_end());
+			System.out.println("pro_end = "+pro_end);
+						
 			int now = (int) new Date().getTime()/1000/60/60/24;
+			System.out.println("now = "+now);
+			
 			int left_days = pro_end - now;
+			System.out.println("left_days = "+left_days); */
+			int left_days = (int) ((project.getPro_end().getTime() - new Date().getTime())/1000/60/60/24)+1;
 			
 			ProjectCard projectCard = new ProjectCard(file,detailCategory,member,project, ach_rate, paySum, left_days) ; 
 			projectCardList.add(projectCard);

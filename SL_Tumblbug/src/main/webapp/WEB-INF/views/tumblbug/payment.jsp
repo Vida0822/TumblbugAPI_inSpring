@@ -1274,7 +1274,7 @@ input[type="radio"][name="pay_cd"] {
                            </div>
                         </button>
                         <div class="SiteHeader__LinkItemImage-q8dvod-12 frvqPY">
-                           <span class="SiteHeader__ItemLabel-q8dvod-10 jaKwWf">탁인혁</span><span
+                           <span class="SiteHeader__ItemLabel-q8dvod-10 jaKwWf"><sec:authentication property="principal.member.m_name"/></span><span
                               class="SiteHeader__ProfileImageWrapper-q8dvod-13 gvTysc"><span
                               class="ProfileImg__StyledProfileImg-sc-1vio56c-0 RYLVL"></span></span>
                         </div>

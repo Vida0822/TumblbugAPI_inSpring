@@ -71,6 +71,11 @@
 		]]>
 	</select>
 	
-
+	<delete id="deleteProject">
+		<![CDATA[
+			DELETE FROM project
+			WHERE pro_cd = #{pro_cd} 
+		]]>	
+	</delete>
 
 </mapper>

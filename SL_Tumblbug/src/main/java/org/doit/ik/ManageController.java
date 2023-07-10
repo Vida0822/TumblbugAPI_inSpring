@@ -23,7 +23,7 @@ public class ManageController {
 	
 	
 	// '작성 중' 상태인 프로젝트 목록 띄우기 
-	@GetMapping("/manager")
+	@GetMapping("/manager.do")
 //	@RequestParam(value="pro_status", required = false,defaultValue = "writing") String pro_status
 	public void managerPage(
 			@RequestParam(value="pro_status") String pro_status
@@ -58,7 +58,7 @@ public class ManageController {
 	
 	
 	// 상세보기 승인, 반려 선택시 '프로젝트 상태' 승인됨으로 변경 
-	@GetMapping("/examine")
+	@GetMapping("/examine.do")
 	public ResponseEntity<String> managerPage(
 			@RequestParam("pro_cd") String pro_cd, 
 			@RequestParam("approved") boolean approved			

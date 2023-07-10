@@ -110,7 +110,8 @@ public class MakeServiceImpl implements MakeService {
 
 	@Override
 	public List<ProjectCard> getMyProjects(String searchCondition, String m_cd) {
-log.info("> ManagerServiceImpl.getCardList()..."+searchCondition);
+
+		log.info("> MakeServiceImpl.getCardList()..."+searchCondition);
 		
 		// 2. 조건에 맞는 프로젝트 얻어오기 
 		List<Project> projectList = this.makeMapper.getMyProjects(searchCondition, m_cd);
@@ -135,6 +136,14 @@ log.info("> ManagerServiceImpl.getCardList()..."+searchCondition);
 		} 
 
 		return projectCardList;
+	}
+
+	@Override
+	public void deleteProject(String pro_cd) {
+		
+		log.info("> MakeServiceImpl.getCardList()..."+pro_cd);
+		makeMapper.deleteProject(pro_cd) ; 
+		
 	} // examineRequest
 
 

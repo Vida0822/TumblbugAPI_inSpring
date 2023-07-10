@@ -296,8 +296,8 @@ public class MakeController {
 			) {
 		log.info("> MakeController -  /deleteProject GET pro_cd="+pro_cd);
 		
-	//	this.makeService.deleteProject(pro_cd) ; 
-		return null ; 
+		this.makeService.deleteProject(pro_cd) ; 
+		return "redirect:/tumblbug/created.do?pro_status=writing" ; 
 	}
 	
 		

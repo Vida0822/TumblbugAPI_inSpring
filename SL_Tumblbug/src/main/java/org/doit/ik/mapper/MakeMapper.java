@@ -52,6 +52,8 @@ public interface MakeMapper {
 			@Param("searchCondition") String searchCondition, 
 			@Param("m_cd") String m_cd);
 
+	void deleteProject(String pro_cd);
+
 	
 
 }

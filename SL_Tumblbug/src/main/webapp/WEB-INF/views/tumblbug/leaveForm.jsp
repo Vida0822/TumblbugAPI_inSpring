@@ -1369,7 +1369,7 @@ a, div {
 										<span style="margin: 0; padding: 0"
 											class="ProfileImg__StyledProfileImg-sc-1vio56c-0 gXKtKb"></span>
 									</div>
-									<div class="style__UserText-zxsodr-11 fXtfpK">탁인혁</div>
+									<div class="style__UserText-zxsodr-11 fXtfpK"><sec:authentication property="principal.member.m_name"/> </div>
 								</div>
 								<!-- 회원메뉴 -->
 								<div class="SNB__Wrapper-wpjnaw-1 VIJCO">

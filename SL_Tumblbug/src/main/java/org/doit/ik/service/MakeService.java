@@ -33,5 +33,7 @@ public interface MakeService {
 
 	List<ProjectCard> getMyProjects(String searchCondition, String m_cd);
 
+	void deleteProject(String pro_cd);
+
 
 } // MakeService
