@@ -60,7 +60,7 @@ public class MakeController {
 		
 		String m_email= principal.getName() ;
 		Member member = this.memberService.getSessionMember(m_email) ; 
-		
+
 		Project project= this.makeService.createProject(pro_sm,ctg_code, member.getM_cd()) ; 
 		
 		return "redirect:/tumblbug/payment.do?pro_cd="+project.getPro_cd() ; // response.sendRedirect 

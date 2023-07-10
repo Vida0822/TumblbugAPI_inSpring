@@ -75,8 +75,8 @@
 											class="ProfileImg__StyledProfileImg-sc-1vio56c-0 gXKtKb"></span>
 									</div>
 									<!-- 회원이름 **** 수정해야함  -->
-								<div class="style__UserText-zxsodr-11 fXtfpK">탁인혁</div> 
-								<%-- <div class="style__UserText-zxsodr-11 fXtfpK">${pinfo.member.m_name} </div>  --%>
+							 		<div class="style__UserText-zxsodr-11 fXtfpK">탁인혁</div>
+								<%-- <div class="style__UserText-zxsodr-11 fXtfpK"> ${pinfo.member.m_name} </div> --%>
 								</div>
 								<!-- 회원메뉴 -->
 								<div class="SNB__Wrapper-wpjnaw-1 VIJCO">
