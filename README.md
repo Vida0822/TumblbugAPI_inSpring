@@ -387,7 +387,7 @@ public Page<Post> findAllByTagName(String tagName, Pageable pageable) {
     
 </br>
 
-## 7. 발표 영상
+## 7. 발표 및 시연 영상
 <br>
 
 ## 8. 회고 / 느낀점
