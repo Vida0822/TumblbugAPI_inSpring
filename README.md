@@ -1,5 +1,5 @@
 # :pushpin: Tumblbug Spring Project
->고퀄리티 개발 컨텐츠 공유 서비스  
+> 크라우드 펀딩 사이트 '텀블벅' - Spring을 활용한 모델 2방식(MVC) 웹사이트 구현
 >https://go-quality.dev  
 
 </br>
