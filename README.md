@@ -1,5 +1,5 @@
-# :pushpin: Tumblbug Spring Project
-> 크라우드 펀딩 사이트 '텀블벅' - Spring을 활용한 모델 2방식(MVC) 웹사이트 구현
+# :pushpin: Tumblbug Spring Security Project
+> 크라우드 펀딩 사이트 '텀블벅' - Spring Security를 활용한 모델 2방식 웹사이트 구현 (매니저 기능 추가) 
 >https://go-quality.dev  
 
 </br>
