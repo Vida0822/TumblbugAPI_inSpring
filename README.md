@@ -214,26 +214,26 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 
 
 
-#### 6.1. 프로젝트 조회 - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%A9%94%EC%9D%B8-Page)" >상세보기 - WIKI 이동</a>
+#### 6.1. 프로젝트 조회하기 - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A1%B0%ED%9A%8C)" >상세보기 - WIKI 이동</a>
 
 - 프로젝트 목록보기
 - 프로젝트 검색하기
 - 프로젝스 상세보기
 
-#### 6.2. 후원하기 - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%9B%84%EC%9B%90%ED%95%98%EA%B8%B0)" >상세보기 - WIKI 이동</a>
+#### 6.2. 후원하기 - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%9B%84%EC%9B%90%ED%95%98%EA%B8%B0)" >상세보기 - WIKI 이동</a>
 
 - YouTube API 연동
 - 메인 포스터(영화) 이미지 슬라이드(CSS)
 
-#### 6.3. 프로젝트 올리기  - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
+#### 6.3. 프로젝트 올리기  - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
 
 - 글 작성, 읽기, 수정, 삭제(CRUD)
 
-#### 6.4. 프로젝트 관리하기  - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
+#### 6.4. 프로젝트 관리하기  - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
 
 - 글 작성, 읽기, 수정, 삭제(CRUD) 
 
-#### 6.5. 심사하기   - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
+#### 6.5. 심사하기   - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EC%8B%AC%EC%82%AC%ED%95%98%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
 
 - 글 작성, 읽기, 수정, 삭제(CRUD)
 
@@ -248,7 +248,7 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 <div markdown="1">
 
-### 8.1. 회원가입 
+### 7.1. 회원가입 
 
 
 ### ✔️ 회원가입 
@@ -322,7 +322,7 @@ return "redirect:../tumblbug/main.do";
 </div>
 </details> 
 
-### 8.2. 로그인 
+### 7.2. 로그인 
 
 ### ✔️ 로그인 
 
@@ -572,7 +572,7 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 
 
 
-### 8.3. 로그아웃 
+### 7.3. 로그아웃 
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_controller.png)
 
@@ -584,7 +584,7 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
   
   
 
-### 8.4. 접근 권한 설정 
+### 7.4. 접근 권한 설정 
 
 *  css, js, image는 접근 제어 대상이 아니기에 이러한 페이지로의 요청은 보안필터 체인을 적용하지 않는다
 * 프로젝트 후원하기, 만들기는 로그인 해야한(회원 권한을 가져야만) 접속할 수 있도록 권한 설정 
