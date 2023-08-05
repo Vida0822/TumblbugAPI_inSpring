@@ -80,7 +80,7 @@
 
 
 
-### 📌 기존 프로젝트 요구분석 
+#### 📌 기존 프로젝트 요구분석 
 
 <details>
 <summary><b>User-Diagram 펼치기</b></summary>
@@ -93,7 +93,7 @@
 <br><br>
 
 
-### 📌 변동사항 : Spring security 적용 
+#### 📌 변동사항 : Spring security 적용 
 
 <details>
 <summary><b>변동사항 펼치기</b></summary>
@@ -128,7 +128,7 @@
 
 
 
-### 📌 기존 프로젝트 DB 설계**
+#### 📌 기존 프로젝트 DB 설계
 
 <details>
 <summary><b>erd 펼치기</b></summary>
@@ -139,7 +139,7 @@
 </details> 
 <br><br>
 
-### 📌 변동사항 : Spring security 적용 **
+#### 📌 변동사항 : Spring security 적용 
 
 <details>
 <summary><b>변동사항 펼치기</b></summary>
