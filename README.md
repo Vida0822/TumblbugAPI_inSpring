@@ -212,9 +212,48 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 
 3. 컨벌팅한 기능 코딩 
 
-(추후 기입 예정)
 
 
+#### 6.1. 메인 페이지 - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%A9%94%EC%9D%B8-Page)" >상세보기 - WIKI 이동</a>
+
+- 프로젝트 목록보기
+- ID 중복 체크
+
+#### 6.2. 검색 페이지 - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%A9%94%EC%9D%B8-Page)" >상세보기 - WIKI 이동</a>
+
+- 주소 API 연동
+- 회원정보 변경
+
+#### 6.3. 상세 페이지 - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EC%83%81%EC%84%B8-Page)" >상세보기 - WIKI 이동</a>
+
+- 프로젝트 상세보기 
+- 대표 이미지 슬라이드  
+- 네비게이션 바 
+- 선물 선택
+
+#### 6.4. 후원하기 - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%9B%84%EC%9B%90%ED%95%98%EA%B8%B0)" >상세보기 - WIKI 이동</a>
+
+- YouTube API 연동
+- 메인 포스터(영화) 이미지 슬라이드(CSS)
+
+#### 6.5. 프로젝트 올리기  - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
+
+- 글 작성, 읽기, 수정, 삭제(CRUD)
+
+#### 6.6. 프로젝트 올리기  - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
+
+- 글 작성, 읽기, 수정, 삭제(CRUD)
+
+#### 6.6. 프로젝트 관리하기  - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
+
+- 글 작성, 읽기, 수정, 삭제(CRUD)
+
+#### 6.6. 심사하기   - <a href="https://github.com/Vida0822/Tumblbug_JSP_Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
+
+- 글 작성, 읽기, 수정, 삭제(CRUD)
+
+
+</br></br>
 
 ## 7. Spring Security 적용
 
