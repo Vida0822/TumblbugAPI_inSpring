@@ -86,7 +86,7 @@
 <summary><b>User-Diagram 펼치기</b></summary>
 <div markdown="1">
 
-![use-diagram drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/ae1d5040-1f78-468b-aa45-c12e0ef5594c)
+![use-diagram drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/2bf19cd3-0cf3-4db3-b223-845ee11ddbe6)
 
 </div>
 </details> 
