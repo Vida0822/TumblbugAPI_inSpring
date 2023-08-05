@@ -100,7 +100,8 @@
 <div markdown="1">
 
 
-![요구분석](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/fac1ab8e-0850-4819-a7b7-2a242ef89451)
+![요구분석](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/a58c8df0-f81c-4afc-9858-6001e208a297)
+
 
 **✔회원가입 (수정)** 
 
