@@ -80,17 +80,17 @@
 
 
 
-**📌 기존 프로젝트 요구분석 **
+### 📌 기존 프로젝트 요구분석 
 
-  link : 3차 텀블벅 readme
-
-
+![use-diagram drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/ae1d5040-1f78-468b-aa45-c12e0ef5594c)
 
 
 
-**📌 변동사항 : Spring security 적용 **
 
-(user-diagram 이미지)
+
+### 📌 변동사항 : Spring security 적용 
+
+![sequence Diagram drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/f7144023-2347-4632-bded-928f24ba9258)
 
 **✔회원가입 (수정)** 
 
