@@ -134,7 +134,7 @@
 <summary><b>erd 펼치기</b></summary>
 <div markdown="1">
 
-![erd](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/961ef3cc-86a5-449f-a917-1a6564f10c9b)
+![erd](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/95469e2d-28b8-46c3-96a5-0ddd598e44e5)
 </div>
 </details> 
 <br><br>
