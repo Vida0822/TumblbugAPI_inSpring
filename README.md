@@ -90,10 +90,14 @@
 
 </div>
 </details> 
-
+<br><br>
 
 
 ### 📌 변동사항 : Spring security 적용 
+
+<details>
+<summary><b>변동사항 펼치기</b></summary>
+<div markdown="1">
 
 
 ![요구분석](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/fac1ab8e-0850-4819-a7b7-2a242ef89451)
@@ -113,6 +117,9 @@
 * (기능코딩 쓰면서 수정)
 * (기능코딩 쓰면서 수정)
 
+</div>
+</details> 
+<br><br>
 
 
 ## 5. DB 변동사항 
@@ -121,7 +128,7 @@
 
 
 
-**📌 기존 프로젝트 DB 설계**
+### 📌 기존 프로젝트 DB 설계**
 
 <details>
 <summary><b>erd 펼치기</b></summary>
@@ -130,10 +137,15 @@
 ![erd](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/961ef3cc-86a5-449f-a917-1a6564f10c9b)
 </div>
 </details> 
+<br><br>
 
-**📌 변동사항 : Spring security 적용 **
+### 📌 변동사항 : Spring security 적용 **
 
-**✔ 회원 테이블 **
+<details>
+<summary><b>변동사항 펼치기</b></summary>
+<div markdown="1">
+
+**✔ 회원 테이블**
 
 1. 패스워드 암호화 위해 m_password 의 데이터값 길이 변경 필요 :  넉넉하게 varchar2(100)으로 수정
 
@@ -185,7 +197,9 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 ```
 
 
-
+</div>
+</details> 
+<br><br>
 
 
 
