@@ -82,15 +82,21 @@
 
 ### 📌 기존 프로젝트 요구분석 
 
+<details>
+<summary><b>User-Diagram 펼치기</b></summary>
+<div markdown="1">
+
 ![use-diagram drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/ae1d5040-1f78-468b-aa45-c12e0ef5594c)
 
-
+</div>
+</details> 
 
 
 
 ### 📌 변동사항 : Spring security 적용 
 
-![sequence Diagram drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/f7144023-2347-4632-bded-928f24ba9258)
+
+![요구분석](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/fac1ab8e-0850-4819-a7b7-2a242ef89451)
 
 **✔회원가입 (수정)** 
 
@@ -117,9 +123,13 @@
 
 **📌 기존 프로젝트 DB 설계**
 
- jsp 프로젝트 링크 
+<details>
+<summary><b>erd 펼치기</b></summary>
+<div markdown="1">
 
-
+![erd](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/961ef3cc-86a5-449f-a917-1a6564f10c9b)
+</div>
+</details> 
 
 **📌 변동사항 : Spring security 적용 **
 
