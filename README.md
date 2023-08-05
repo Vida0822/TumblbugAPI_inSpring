@@ -11,7 +11,7 @@
 1. 제작기간 & 참여인원  <br>
 2. 사용 기술  <br>
 3. 프로젝트 개요<br>
-4. 요구분석 : 시퀀스 다이어그램   <br>
+4. 요구분석 : User-Diagram  <br>
 5. DB 변동사항 <br>
 6. 핵심 기능 코딩   <br>
 7. Spring Security 적용    <br>
@@ -966,6 +966,4 @@ public Page<Post> findAllByTagName(String tagName, Pageable pageable) {
 
 ## 11. 회고 / 느낀점
 
-> '좋은 팀'에 대한 고민 : https://vida0822.github.io/memory/MR_TennisMemory/		</br> 
-
-> 그래서, 그거 코딩할 수 있어? : https://vida0822.github.io/memory/MR_TennisMemory(2)/
+(기입 예정)
