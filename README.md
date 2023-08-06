@@ -36,13 +36,12 @@
 #### `Back-end`
   - Java 11
   - Spring Framework 2.3
-  - Maven
-  - Spring Data JPA
-  - QueryDSL
-  - H2
-  - MySQL 5.7
   - Spring Security
-  - Jsoup
+  - Maven
+  - Oracle
+  - Tomcat
+  - GitHub
+  - AWS
 #### `Front-end`
   - html/css
   - java script
