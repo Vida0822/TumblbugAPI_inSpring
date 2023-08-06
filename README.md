@@ -656,14 +656,14 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 
 </br>
 
-## 7. Spring Tiles 적용
-
-이 프로젝트의 핵심기능은 스프링 시큐리티를 적용한 기능들입니다.    
+## 8. Spring Tiles 적용
+  
+(기입 예정) 
 
 <details>
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 <div markdown="1">
-(기입 예정) 
+
 
 </div>
 </details>
@@ -674,8 +674,6 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 
  
 ## 9. 핵심 트러블 슈팅
-### 9.1. Spring Security 적용 문제 
-
 (기입 예정) 
 
 
