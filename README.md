@@ -220,15 +220,13 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 - 후원 요청
 - 후원 승인(성공)
 
-#### 6.3. 프로젝트 올리기  - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
+#### 6.3. 창작자  - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%AC%EB%A6%AC%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
 
-- 
+- 프로젝트 올리기
+- 프로젝트 관리하기 (편집하기)
+  
 
-#### 6.4. 프로젝트 관리하기  - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
-
-- 
-
-#### 6.5. 심사하기   - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EC%8B%AC%EC%82%AC%ED%95%98%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
+#### 6.4. 심사하기   - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EC%8B%AC%EC%82%AC%ED%95%98%EA%B8%B0)" >상세보기 - WIKI 이동</a> 
 
 - 
 
