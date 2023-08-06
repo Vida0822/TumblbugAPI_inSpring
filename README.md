@@ -39,12 +39,16 @@
   - Maven
   - Oracle
   - Tomcat
-  - GitHub
-  - AWS
+    
 #### `Front-end`
   - html/css
   - java script
-  - jquery 
+  - jquery
+    
+#### `배포 및 협업 툴`
+  - GitHub
+  - AWS
+
 
 </br>
 
