@@ -370,6 +370,10 @@ return "redirect:../tumblbug/main.do";
 </div>
 </details> 
 
+</br>
+
+
+
 ### 7.2. 로그인 
 
 ### ✔️ 로그인 
@@ -616,13 +620,13 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 
 
 
-
+</br>
 
 
 
 ### 7.3. 로그아웃 
 
-
+</br>
 
 
 ### 7.4. 접근 권한 설정 
@@ -771,7 +775,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 </div>
 </details>
 
-
+</br>
 
 
 ### 8.2. 그림 그리기: 페이지 작성 
@@ -801,7 +805,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 </div>
 </details>
 
-
+</br>
 
 
 ### 8.3. 그림 불러오기: 페이지 호출
