@@ -253,6 +253,46 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 이 프로젝트의 핵심은 스프링 시큐리티를 적용한 기능들입니다.    
 
 <details>
+<summary><b>의존 추가 - pom.xml </b></summary>
+<div markdown="1">
+
+```xml
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-web</artifactId>
+	<version>${org.springframework-version}</version>
+</dependency>
+
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-config</artifactId>
+	<version>${org.springframework-version}</version>
+</dependency>
+
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-core</artifactId>
+	<version>${org.springframework-version}</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-taglibs</artifactId>
+	<version>${org.springframework-version}</version>
+</dependency>
+```
+
+
+
+</div>
+</details> 
+
+
+
+
+
+<details>
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 <div markdown="1">
 
@@ -660,11 +700,134 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 
 ## 8. Spring Tiles 적용
 
-(기입 예정) 
+ Spring Tiles를 활용하여 주요 페이지(메인 페이지, 검색 페이지, 상세 페이지)의 header와 footer를 한 jsp 페이지에서 작업해 삽입했습니다.
 
 <details>
-<summary><b>핵심 기능 설명 펼치기</b></summary>
+<summary><b>의존 추가: pom.xml</b></summary>
 <div markdown="1">
+
+```xml
+<!-- Tiles -->
+<dependency>
+     <groupId>org.apache.tiles</groupId>
+     <artifactId>tiles-extras</artifactId>
+     <version>${org.apache.tiles-version}</version>
+</dependency>
+<dependency>
+     <groupId>org.apache.tiles</groupId>
+     <artifactId>tiles-core</artifactId>
+     <version>${org.apache.tiles-version}</version>
+</dependency>  
+<dependency>
+     <groupId>org.apache.tiles</groupId>
+     <artifactId>tiles-servlet</artifactId>
+     <version>${org.apache.tiles-version}</version>
+</dependency>
+<dependency>
+     <groupId>org.apache.tiles</groupId>
+     <artifactId>tiles-jsp</artifactId>
+     <version>${org.apache.tiles-version}</version>
+</dependency>
+```
+
+</div>
+</details>
+
+<details>
+<summary><b>적용 원리 설명 펼치기</b></summary>
+<div markdown="1">
+
+
+
+
+### 8.1. 재료 준비: 타일 정의 
+
+<details>
+<summary>tiles.xml </summary>
+<div markdown="1">
+
+```xml
+<!-- main.tiles -->
+<definition name="main.tiles" template="/WEB-INF/views/inc/layoutMain.jsp"> <!--도화지--> 
+   <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp"/> <!-- 물감 1 --> 
+   <put-attribute name="content" value="/WEB-INF/views/tumblbug/main.jsp"/><!-- 물감 2 --> 
+   <put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp"/> <!-- 물감 3 -->   
+</definition>
+     
+<!-- search.tiles -->
+<definition name="search.tiles" template="/WEB-INF/views/inc/layoutSearch.jsp">
+    <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp"/>
+    <put-attribute name="content" value="/WEB-INF/views/tumblbug/search.jsp"/>
+    <put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp"/>     
+</definition>
+
+<!-- view.tiles -->
+<definition name="view.tiles" template="/WEB-INF/views/inc/layoutView.jsp">
+   <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp"/>
+   <put-attribute name="content" value="/WEB-INF/views/tumblbug/view.jsp"/>
+</definition>   
+```
+
+</div>
+</details>
+
+
+
+
+### 8.2. 그림 그리기: 페이지 작성 
+
+<details>
+<summary>layoutMain.jsp (main.tiles)</summary>
+<div markdown="1">
+
+```xml
+<body>
+	<div id="react-view" class="tbb-only-ff">
+	
+    	<!-- header 위치 지정 -->
+		<tiles:insertAttribute name="header"/>	 <!-- 그림 그리기 1 --> 
+    
+		<div class="style__Container-sc-7of8vt-0 gmYOwM">
+		<!-- content 위치 지정 --> 
+			<tiles:insertAttribute name="content"/> <!-- 그림 그리기 2 --> 
+		
+		<!-- footer 위치 지정 -->
+			<tiles:insertAttribute name="footer"/> <!-- 그림 그리기 3 --> 		
+		</div>
+	</div>	
+</body>
+```
+
+</div>
+</details>
+
+
+
+
+### 8.3. 그림 불러오기: 페이지 호출
+
+<details>
+<summary>ProjectController.java</summary>
+<div markdown="1">
+
+```java
+@GetMapping("/main.do")
+public String main(Model model) {
+	log.info("> /main GET");
+	List<ProjectCard> CardList = this.mainProjectService.getCardList();
+	List<ProjectCard> popCardList = this.mainProjectService.getPopCardList();
+	model.addAttribute("CardList", CardList);
+	model.addAttribute("popCardList", popCardList);
+		
+	return "main.tiles"; // layoutMain.jsp 호출
+}
+```
+
+</div>
+</details>
+
+</br>
+
 
 
 </div>
@@ -679,12 +842,8 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 ## 10. 그 외 트러블 슈팅
 (기입 예정)
 
-
-
 ## 11. 시연 영상
 <br>
-
-
 
 ## 12. 회고 / 느낀점
 
