@@ -250,7 +250,7 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 
 ## 7. Spring Security 적용
 
-이 프로젝트의 핵심기능은 스프링 시큐리티를 적용한 기능들입니다.    
+이 프로젝트의 핵심은 스프링 시큐리티를 적용한 기능들입니다.    
 
 <details>
 <summary><b>핵심 기능 설명 펼치기</b></summary>
