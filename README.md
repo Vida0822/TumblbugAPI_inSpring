@@ -932,7 +932,6 @@ Spring은 편리한 프레임워크지만 이 편리함은 문제가 발생했�
 
 </br>
 
-<hr>
 
 <details>
 <summary><b> 9.2. Premature end of file 에러   </b></summary>
@@ -1074,25 +1073,26 @@ MyBatisSystemException: nested exception is org.apache.ibatis.type.TypeException
 
 1. 컨트롤러 (핸들러함수) : 컨트롤러의 핸들러 함수까진 무사히 들어옴
 
-![image-20230704142145504](D:\Programming\images\README\image-20230704142145504.png)
+![image-20230704142145504](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/388f7685-9c23-4ff8-a5c9-90e61af31f25)
 
 2. 서비스 : f5 버튼으로 함수 안으로 들어옴 => pro_cd값 잘 전달되는거 확인
 
-![image-20230704142635411](D:\Programming\images\README\image-20230704142635411.png)
+![image-20230704142635411](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/cc5b1460-690c-4c11-8634-8e14881ccdbe)
 
 * 문제 :  여기서 this는 projectController.view() 를 나타내기 때문에 밖에 선언되어있는 viewProjectService를 호출 할 수 없음
 
 ▶ this.viewProjectService를 viewProjectService로 수정
 
-![image-20230704143911959](D:\Programming\images\README\image-20230704143911959.png)
 
 
 
 3. 매퍼
 
-![image-20230704144410518](D:\Programming\images\README\image-20230704144410518.png)
+![image-20230704143911959](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/22beeccb-cceb-4936-8b02-aa8e4bb57806)
 
 여기서 f5누르니까 내가 따로 만들어준적 없는 invoke 란 함수로 들어감
+![image-20230704144330610](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/0d6d9162-7673-47d4-a401-feccbb80623f)
+
 
 ▶  즉 projectMapper 인터페이스 안까진 정상적으로 들어갔으니 남은건 Mapper.xml 문제
 
@@ -1100,13 +1100,12 @@ MyBatisSystemException: nested exception is org.apache.ibatis.type.TypeException
 
 - 디버깅의 의의 : 문제가 이후 과정의  mapper.xml 파일인걸 알 수 있었음
 
-![image-20230704144330610](D:\Programming\images\README\image-20230704144330610.png)
 
 
 
 * 원인 발견
 
-![image-20230704145908094](D:\Programming\images\README\image-20230704145908094.png)
+![image-20230704145908094](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/4d5729ec-1abc-4dcf-8fe8-a2973845f084)
 
 mapper.xml 파일에 pro_cd가 매개변수로 들어와야하는데
 
