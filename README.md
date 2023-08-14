@@ -213,7 +213,7 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 ## 6. 핵심 기능 코딩 
 
 
-![spring프로젝트 구조설명 drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/43a9ff43-da46-4dc5-becb-3746551017fb)
+![스프링프로젝트 구조설명 drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/8e99bd4e-e546-4874-a4cd-5ca807b00d00)
 
 <details>
 <summary><b>기존 프로젝트 흐름도</b></summary>
