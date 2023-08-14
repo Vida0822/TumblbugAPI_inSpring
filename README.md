@@ -3,7 +3,7 @@
 
 ### 💻 이전 프로젝트 
 
-[jsp 프로젝트](https://github.com/Vida0822/Tumblbug_JSP_Project)
+[Tumblbug JSP Project](https://github.com/Vida0822/Tumblbug_JSP_Project)
 
 <br>
 
