@@ -176,10 +176,10 @@ ADD ( enabled char(1) default '1' );
 ALTER TABLE member ADD CONSTRAINT unique_email UNIQUE(m_email);
 ```
 
-
+<br>
 
 **✔권한 테이블**
-
+<br>
 1. member_authorities 테이블 생성
 
 ```sql
@@ -215,7 +215,7 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 <details>
 <summary><b>기존 프로젝트 흐름도</b></summary>
 <div markdown="1">
-<br>
+</br>
 ![전체흐름](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/e6262c5b-821c-4f29-af34-01cd582a8dfd)
 </div>
 </details> 
@@ -224,7 +224,7 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 <details>
 <summary><b>스프링 프로젝트 흐름도</b></summary>
 <div markdown="1"
-<br>	
+</br>	
 ![스프링프로젝트 구조설명 drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/8e99bd4e-e546-4874-a4cd-5ca807b00d00)
 
 </div>
