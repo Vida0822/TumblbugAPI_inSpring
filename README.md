@@ -865,295 +865,398 @@ public String main(Model model) {
 </br>
 
 
+
+
+
 ## 9. 핵심 트러블 슈팅 
-### 9.1. 컨텐츠 필터와 페이징 처리 문제
-- 저는 이 서비스가 페이스북이나 인스타그램 처럼 가볍게, 자주 사용되길 바라는 마음으로 개발했습니다.  
-때문에 페이징 처리도 무한 스크롤을 적용했습니다.
 
-- 하지만 [무한스크롤, 페이징 혹은 “더보기” 버튼? 어떤 걸 써야할까](https://cyberx.tistory.com/82) 라는 글을 읽고 무한 스크롤의 단점들을 알게 되었고,  
-다양한 기준(카테고리, 사용자, 등록일, 인기도)의 게시물 필터 기능을 넣어서 이를 보완하고자 했습니다.
+### 9.1.  회원정보 출력문제
 
-- 그런데 게시물이 필터링 된 상태에서 무한 스크롤이 동작하면,  
-필터링 된 게시물들만 DB에 요청해야 하기 때문에 아래의 **기존 코드** 처럼 각 필터별로 다른 Query를 날려야 했습니다.
+#### 1. 문제 상황
 
-<details>
-<summary><b>기존 코드</b></summary>
-<div markdown="1">
+- User 객체로 회원정보를 조회해 Member 객체 생성, 이를 회원정보와 권한정보를 가진 CustomUser 객체로 변환해 세션에 등록하는 코드를 찾아 사용 
 
-~~~java
-/**
- * 게시물 Top10 (기준: 댓글 수 + 좋아요 수)
- * @return 인기순 상위 10개 게시물
- */
-public Page<PostResponseDto> listTopTen() {
+  * 자세한 코드 설명은 '7. Spring Security 적용'에 기술 
 
-    PageRequest pageRequest = PageRequest.of(0, 10, Sort.Direction.DESC, "rankPoint", "likeCnt");
-    return postRepository.findAll(pageRequest).map(PostResponseDto::new);
-}
+-  많은 파일을 수정해 단순 구글링으론 원인 파악 힘듬 
 
-/**
- * 게시물 필터 (Tag Name)
- * @param tagName 게시물 박스에서 클릭한 태그 이름
- * @param pageable 페이징 처리를 위한 객체
- * @return 해당 태그가 포함된 게시물 목록
- */
-public Page<PostResponseDto> listFilteredByTagName(String tagName, Pageable pageable) {
+  => 정확한 흐름 및 코드 동작 원리에 대한 이해를 바탕으로 원인을 찾아야 함
 
-    return postRepository.findAllByTagName(tagName, pageable).map(PostResponseDto::new);
-}
 
-// ... 게시물 필터 (Member) 생략 
 
-/**
- * 게시물 필터 (Date)
- * @param createdDate 게시물 박스에서 클릭한 날짜
- * @return 해당 날짜에 등록된 게시물 목록
- */
-public List<PostResponseDto> listFilteredByDate(String createdDate) {
+#### 2. 원인 
 
-    // 등록일 00시부터 24시까지
-    LocalDateTime start = LocalDateTime.of(LocalDate.parse(createdDate), LocalTime.MIN);
-    LocalDateTime end = LocalDateTime.of(LocalDate.parse(createdDate), LocalTime.MAX);
+: 잘못된 객체 참조
 
-    return postRepository
-                    .findAllByCreatedAtBetween(start, end)
-                    .stream()
-                    .map(PostResponseDto::new)
-                    .collect(Collectors.toList());
-    }
+* 테스트를 통해 정상적으로 로그인은 되었으나 출력부분에 문제가 있어 회원 정보가 출력되지 않음 확인 
+
+- var 속성이 CustomUser가 아닌 Authentication 객체를 가르켰고, 해당 객체엔 Member 프로퍼티가 없어 오류 발생
+
+
+
+* ##### 기존 코드
+
+
+~~~jsp
+<sec:authentication property="principal" var="pinfo"/>  ${pinfo.member.m_name} 
 ~~~
 
-</div>
-</details>
 
-- 이 때 카테고리(tag)로 게시물을 필터링 하는 경우,  
-각 게시물은 최대 3개까지의 카테고리(tag)를 가질 수 있어 해당 카테고리를 포함하는 모든 게시물을 질의해야 했기 때문에  
-- 아래 **개선된 코드**와 같이 QueryDSL을 사용하여 다소 복잡한 Query를 작성하면서도 페이징 처리를 할 수 있었습니다.
 
-<details>
-<summary><b>개선된 코드</b></summary>
-<div markdown="1">
+#### 3. 해결 
 
-~~~java
-/**
- * 게시물 필터 (Tag Name)
- */
-@Override
-public Page<Post> findAllByTagName(String tagName, Pageable pageable) {
+- sec 태그 밖이 안인 태그 내에서 세션을 직접 참조하도록 수정
 
-    QueryResults<Post> results = queryFactory
-            .selectFrom(post)
-            .innerJoin(postTag)
-                .on(post.idx.eq(postTag.post.idx))
-            .innerJoin(tag)
-                .on(tag.idx.eq(postTag.tag.idx))
-            .where(tag.name.eq(tagName))
-            .orderBy(post.idx.desc())
-                .limit(pageable.getPageSize())
-                .offset(pageable.getOffset())
-            .fetchResults();
 
-    return new PageImpl<>(results.getResults(), pageable, results.getTotal());
-}
+
+* ##### 개선된 코드
+
+
+~~~jsp
+<sec:authentication property="principal.member.m_name"/>
 ~~~
 
-</div>
-</details>
 
-</br>
+
+#### 4. Learned…
+
+Spring은 편리한 프레임워크지만 이 편리함은 문제가 발생했을 때 개발자가 어떻게 대처해야 할지 모르게 만듬 
+
+▶ 에러메세지 구글링만으로는 프레임워크를 제대로 활용할 수 없으며, 이해를 바탕으로 적절한 해결 방법을 도출해야함 
+
+
+
+<hr>
+
+### 9.2. Premature end of file 에러   
+
+##### 문제 상황
+
+Spring Project 진행 중 WEB-INF 폴더 밖에 있는 jsp 파일을 실행해도 404 에러로 페이지가 실행되지 않음
+
+
+
+#### 1. console 확인해보니 다음과 같은 에러 발생
+
+```xml
+Cause by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 39; Premature end of file
+```
+
+##### ✔ point 
+
+* AXParseException 
+* remature end of file
+
+
+
+#### 2. 에러 종류
+
+XML을 파싱하는 방식 중 하나로 XML문서를 순차적으로 읽어 들이면서 오류를 발생시키는 방식,
+
+xml 파일을 읽어들이는 과정에서 문제가 있으면 발생하는 오류이다. 쉽게 말하면 xml 문법 오류!
+
+📌 서버를 갔다오지 않은 publicWeb 실행시점에서 오류가 나는 이유 
+
+
+
+* **자주하는 실수**
+
+1. 선언부에 공백이 있거나
+2. 잘못된 위치에 주석이 있거나
+3. 부등호를 <> 로 인식했거나 => 해결책 : CDATA!!! :  데이터 자체를 그냥 문자 그대로 받아들이는 것
+4. xml 구성요소의 순서 및 위치가 잘못되었거나
+
+​	등 정말 다양한 이유로 발생하는 에러
+
+
+
+#### 3. 원인 규명
+
+: 해당 xml 파일에
+
+```xml
+<xml version="1.0" encoding="UTF-8"?>
+```
+
+만 작성되있어 <!DOCTYPE> 가 없어  어떤 문서타입인지? 몰라서 생기는 문제인지
+
+매핑이 안되서 생기는 문제인지 정확히 파악은 안됨
+
+
+
+#### 4. 해결
+
+```xml
+<xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="org.doit.ik.mapper.MemberMapper">
+    
+</mapper>
+```
+
+로 수정해 각 매퍼파일들 매핑 시켜주니 정상적으로 실행됨
+
+
+
+#### 5. test
+
+- MemberMapper 를 ProjectMapper 로 바꾸니 또다시 404 에러
+- Mapper 파일 중 하나 지워도 정상적으로 실행
+
+
+
+#### 6. Learned…
+
+이렇게 정말 사소한, 다양한 원인으로 발생할 수 있는 문제는 구글링으로 명확한 원인을 파악하기 어려움
+
+→ 코딩이 얼마되지 않은 시점에선 정상적으로 실행되는 시점부터 하나씩 진행해나가면서 실행
+
+→ 안되는 부분 캐치해 문제 해결
+
+→ 애초에 코딩할 때 부터 계속 테스트 -> 코딩 -> 테스트 -> 코딩을 반복 (중간중간 계속 테스트)
+
+→ 만약 코딩이 많이 진행된 상태라면.... ?
+
+
+
+### 9.3. 부적합한 열 유형 : 1111 에러   
+
+##### 문제 상황
+
+Spring Project 진행 중 특정 프로젝트의 상세조회 요청 중 에러 발생 
+
+
+
+#### 1. console 확인해보니 다음과 같은 에러 발생
+
+```bash
+MyBatisSystemException: nested exception is org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property=’pro_cd’, mode=IN, javaType=class java.lang.Object, jdbcType=null, numericScale=null, resultMapId=’null’, jdbcTypeName=’null’, expression=’null’}. Cause: org.apache.ibatis.type.TypeException: Error setting null for parameter #1 with JdbcType OTHER . Try setting a different JdbcType for this parameter or a different jdbcTypeForNull configuration property. Cause: java.sql.SQLException: 부적합한 열 유형: 1111]을(를) 발생시켰습니다.
+```
+
+
+
+#### 2. 에러 종류
+
+- mybatis 오류 , 즉 mapper.xml 에 매개변수로 들어와야할 ‘pro_cd’가 들어오지 않아 발생하는 문제
+
+  ▶ parameter로 들어와야 할 값이 안들어와서 오류가 발생
+
+  
+
+📌 **그렇다면 어느 시점부터 들어오지 않는걸까?** 
+
+
+
+
+
+#### 3. 원인 규명
+
+1. 컨트롤러 (핸들러함수) : 컨트롤러의 핸들러 함수까진 무사히 들어옴
+
+![image-20230704142145504](D:\Programming\images\README\image-20230704142145504.png)
+
+2. 서비스 : f5 버튼으로 함수 안으로 들어옴 => pro_cd값 잘 전달되는거 확인
+
+![image-20230704142635411](D:\Programming\images\README\image-20230704142635411.png)
+
+* 문제 :  여기서 this는 projectController.view() 를 나타내기 때문에 밖에 선언되어있는 viewProjectService를 호출 할 수 없음
+
+▶ this.viewProjectService를 viewProjectService로 수정
+
+![image-20230704143911959](D:\Programming\images\README\image-20230704143911959.png)
+
+
+
+3. 매퍼
+
+![image-20230704144410518](D:\Programming\images\README\image-20230704144410518.png)
+
+여기서 f5누르니까 내가 따로 만들어준적 없는 invoke 란 함수로 들어감
+
+▶  즉 projectMapper 인터페이스 안까진 정상적으로 들어갔으니 남은건 Mapper.xml 문제
+
+▶  디버깅은 자바코드까지만 할 수 있으므로 이후의 xml 파일은 로그의 에러메세지 보면서 수정해야함
+
+- 디버깅의 의의 : 문제가 이후 과정의  mapper.xml 파일인걸 알 수 있었음
+
+![image-20230704144330610](D:\Programming\images\README\image-20230704144330610.png)
+
+
+
+* 원인 발견
+
+![image-20230704145908094](D:\Programming\images\README\image-20230704145908094.png)
+
+mapper.xml 파일에 pro_cd가 매개변수로 들어와야하는데
+
+그 함수 안으로 pro_cd를 설정해주지 않아서 (+넘겨주지 않아서) 발생하는 문제 !
+
+
+
+#### 4. 해결
+
+```java
+return this.projectMapper.getProject(String pro_cd) ; 
+```
+
+프로젝트 코드를 매개변수로 넣도록 해당 매퍼 함수 수정  
+
+=> 호출부인 viewServiceImpl.java 에서 매개변수 전달 
+
+
+
+#### 5. Learned.... 
+
+* 코드가 복잡해질 수록 '디버깅' 기능을 잘 다루는게 중요해짐 
+* 많은 연습 필요 
+
+
 
 ## 10. 그 외 트러블 슈팅
+
 <details>
-<summary>npm run dev 실행 오류</summary>
+<summary>이미지 슬라이드 이미지 개수 조회 못함 </summary>
 <div markdown="1">
 
-- Webpack-dev-server 버전을 3.0.0으로 다운그레이드로 해결
-- `$ npm install —save-dev webpack-dev-server@3.0.0`
+```jsp
+<script>
+var size = ${imageFiles}.size()
+showSlides(0);
+</script>                              
+```
+
+
+- 원인 : 자바 스크립트에선 el 인식 불가 
+- 해결: 스크립트 릿으로 넘어온 객체 참조  -  <%= ( (ArrayList)request.getAttribute("imageFiles") ).size()%>
 
 </div>
 </details>
 
 <details>
-<summary>vue-devtools 크롬익스텐션 인식 오류 문제</summary>
+<summary>프로젝트 검색 오류</summary>
 <div markdown="1">
-  
-  - main.js 파일에 `Vue.config.devtools = true` 추가로 해결
-  - [https://github.com/vuejs/vue-devtools/issues/190](https://github.com/vuejs/vue-devtools/issues/190)
-  
+
+
+  - 심사가 완료되지 않은 프로젝트들도 목록으로 함께 출력됨 
+  - 해결: DB 조회시 프로젝트 상태가 '진행 중'인 프로젝트만 목록으로 조회 
+
+```xml
+<select id="selProject" resultType="org.doit.ik.domain.Project">
+    <![CDATA[
+            SELECT *
+            FROM project
+            WHERE PRO_STATUS = '진행중'
+            ORDER BY TO_NUMBER(SUBSTR(pro_cd,4)) ASC
+        ]]>
+</select>
+```
+
 </div>
 </details>
 
 <details>
-<summary>ElementUI input 박스에서 `v-on:keyup.enter="메소드명"`이 정상 작동 안하는 문제</summary>
+<summary>동일한 자료형의 매개변수 인식불가 </summary>
 <div markdown="1">
-  
-  - `v-on:keyup.enter.native=""` 와 같이 .native 추가로 해결
-  
+
+
+  - Mapper 파일에서 동일한 자료형의 매개변수를 받으면 오류 발생 
+  - @Param을 사용해 각 매개변수 지정 
+
+```java
+int examine(String pro_cd, String searchCondition);
+int examine(@Param("pro_cd") String pro_cd, @Param("searchCondition") String searchCondition);
+```
+
 </div>
 </details>
 
 <details>
-<summary> Post 목록 출력시에 Member 객체 출력 에러 </summary>
+<summary> security:intercept-url 의 url 설정 문제 </summary>
 <div markdown="1">
-  
-  - 에러 메세지(500에러)
-    - No serializer found for class org.hibernate.proxy.pojo.javassist.JavassistLazyInitializer and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationConfig.SerializationFeature.FAIL_ON_EMPTY_BEANS)
-  - 해결
-    - Post 엔티티에 @ManyToOne 연관관계 매핑을 LAZY 옵션에서 기본(EAGER)옵션으로 수정
-  
+
+
+  - 문제 : intercept-url은 매개변수를 함께 지정시 인식하지 못함 
+
+```xml
+ <security:intercept-url pattern="/manager.do?pro_status=writing" access="hasRole('ROLE_ADMIN')"/>
+```
+
+
+  - 해결 : 매개변수 삭제  
+
+```xml
+<security:intercept-url pattern="/tumblbug/manager.do" access="hasRole('ROLE_MANAGER')"/>
+```
+
 </div>
 </details>
     
-<details>
-<summary> 프로젝트를 git init으로 생성 후 발생하는 npm run dev/build 오류 문제 </summary>
-<div markdown="1">
-  
-  ```jsx
-    $ npm run dev
-    npm ERR! path C:\Users\integer\IdeaProjects\pilot\package.json
-    npm ERR! code ENOENT
-    npm ERR! errno -4058
-    npm ERR! syscall open
-    npm ERR! enoent ENOENT: no such file or directory, open 'C:\Users\integer\IdeaProjects\pilot\package.json'
-    npm ERR! enoent This is related to npm not being able to find a file.
-    npm ERR! enoent
 
-    npm ERR! A complete log of this run can be found in:
-    npm ERR!     C:\Users\integer\AppData\Roaming\npm-cache\_logs\2019-02-25T01_23_19_131Z-debug.log
+<details>
+<summary> AccessDeniedHandler 호출 불가 </summary>
+<div markdown="1">
+
+
+  ```java
+    @GetMapping("/accessError.do")
+    public String accessDenied(Model model, Authentication auth) throws Exception{
+        log.info("> /common/accessEror.htm...Get") ; 
+        model.addAttribute("msg", "Access Denied"); 
+        return "/common/accessError" ;
+    } // accessDenied 
   ```
-  
-  - 단순히 npm run dev/build 명령을 입력한 경로가 문제였다.
-   
+
+  - 단순히 해당 핸들러를 호출하는 컨트롤러 코딩이 없어 문제 발생 
+
 </div>
 </details>    
 
 <details>
-<summary> 태그 선택후 등록하기 누를 때 `object references an unsaved transient instance - save the transient instance before flushing` 오류</summary>
+<summary> u 태그 인식 불가 </summary>
 <div markdown="1">
-  
-  - Post 엔티티의 @ManyToMany에 영속성 전이(cascade=CascadeType.ALL) 추가
-    - JPA에서 Entity를 저장할 때 연관된 모든 Entity는 영속상태여야 한다.
-    - CascadeType.PERSIST 옵션으로 부모와 자식 Enitity를 한 번에 영속화할 수 있다.
-    - 참고
-        - [https://stackoverflow.com/questions/2302802/object-references-an-unsaved-transient-instance-save-the-transient-instance-be/10680218](https://stackoverflow.com/questions/2302802/object-references-an-unsaved-transient-instance-save-the-transient-instance-be/10680218)
-   
+
+
+  - 기존 jsp 프로젝트에서 사용한 u 태그 스프링 프로젝트에선 sec 태그로 수정
+
 </div>
 </details>    
 
 <details>
-<summary> JSON: Infinite recursion (StackOverflowError)</summary>
+<summary> contextPath 경로 오류 </summary>
 <div markdown="1">
-  
-  - @JsonIgnoreProperties 사용으로 해결
-    - 참고
-        - [http://springquay.blogspot.com/2016/01/new-approach-to-solve-json-recursive.html](http://springquay.blogspot.com/2016/01/new-approach-to-solve-json-recursive.html)
-        - [https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue](https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue)
-        
+
+
+  - 기존 코드의 이미지 및 요청 url엔 contextPath 가 자동 부여되 /tumblbug이 앞에 붙음 
+  - 해결 : 파일들을 tumblbug 폴더 안으로 이동시켜 요청 경로 맞춰줌  
+
 </div>
 </details>  
-    
-<details>
-<summary> H2 접속문제</summary>
-<div markdown="1">
-  
-  - H2의 JDBC URL이 jdbc:h2:~/test 으로 되어있으면 jdbc:h2:mem:testdb 으로 변경해서 접속해야 한다.
-        
-</div>
-</details> 
-    
-<details>
-<summary> 컨텐츠수정 모달창에서 태그 셀렉트박스 드랍다운이 뒤쪽에 보이는 문제</summary>
-<div markdown="1">
-  
-   - ElementUI의 Global Config에 옵션 추가하면 해결
-     - main.js 파일에 `Vue.us(ElementUI, { zIndex: 9999 });` 옵션 추가(9999 이하면 안됌)
-   - 참고
-     - [https://element.eleme.io/#/en-US/component/quickstart#global-config](https://element.eleme.io/#/en-US/component/quickstart#global-config)
-        
-</div>
-</details> 
+
 
 <details>
 <summary> HTTP delete Request시 개발자도구의 XHR(XMLHttpRequest )에서 delete요청이 2번씩 찍히는 이유</summary>
 <div markdown="1">
-  
+
+
   - When you try to send a XMLHttpRequest to a different domain than the page is hosted, you are violating the same-origin policy. However, this situation became somewhat common, many technics are introduced. CORS is one of them.
 
-        In short, server that you are sending the DELETE request allows cross domain requests. In the process, there should be a **preflight** call and that is the **HTTP OPTION** call.
+      In short, server that you are sending the DELETE request allows cross domain requests. In the process, there should be a **preflight** call and that is the **HTTP OPTION** call.
 
-        So, you are having two responses for the **OPTION** and **DELETE** call.
+      So, you are having two responses for the **OPTION** and **DELETE** call.
 
-        see [MDN page for CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS).
+      see [MDN page for CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS).
 
     - 출처 : [https://stackoverflow.com/questions/35808655/why-do-i-get-back-2-responses-of-200-and-204-when-using-an-ajax-call-to-delete-o](https://stackoverflow.com/questions/35808655/why-do-i-get-back-2-responses-of-200-and-204-when-using-an-ajax-call-to-delete-o)
-        
+
 </div>
 </details> 
 
-<details>
-<summary> 이미지 파싱 시 og:image 경로가 달라서 제대로 파싱이 안되는 경우</summary>
-<div markdown="1">
-  
-  - UserAgent 설정으로 해결
-        - [https://www.javacodeexamples.com/jsoup-set-user-agent-example/760](https://www.javacodeexamples.com/jsoup-set-user-agent-example/760)
-        - [http://www.useragentstring.com/](http://www.useragentstring.com/)
-        
-</div>
-</details> 
-    
-<details>
-<summary> 구글 로그인으로 로그인한 사용자의 정보를 가져오는 방법이 스프링 2.0대 버전에서 달라진 것</summary>
-<div markdown="1">
-  
-  - 1.5대 버전에서는 Controller의 인자로 Principal을 넘기면 principal.getName(0에서 바로 꺼내서 쓸 수 있었는데, 2.0대 버전에서는 principal.getName()의 경우 principal 객체.toString()을 반환한다.
-    - 1.5대 버전에서 principal을 사용하는 경우
-    - 아래와 같이 사용했다면,
 
-    ```jsx
-    @RequestMapping("/sso/user")
-    @SuppressWarnings("unchecked")
-    public Map<String, String> user(Principal principal) {
-        if (principal != null) {
-            OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) principal;
-            Authentication authentication = oAuth2Authentication.getUserAuthentication();
-            Map<String, String> details = new LinkedHashMap<>();
-            details = (Map<String, String>) authentication.getDetails();
-            logger.info("details = " + details);  // id, email, name, link etc.
-            Map<String, String> map = new LinkedHashMap<>();
-            map.put("email", details.get("email"));
-            return map;
-        }
-        return null;
-    }
-    ```
-
-    - 2.0대 버전에서는
-    - 아래와 같이 principal 객체의 내용을 꺼내 쓸 수 있다.
-
-    ```jsx
-    UsernamePasswordAuthenticationToken token =
-                    (UsernamePasswordAuthenticationToken) SecurityContextHolder
-                            .getContext().getAuthentication();
-            Map<String, Object> map = (Map<String, Object>) token.getPrincipal();
-
-            String email = String.valueOf(map.get("email"));
-            post.setMember(memberRepository.findByEmail(email));
-    ```
-        
-</div>
-</details> 
-    
-<details>
-<summary> 랭킹 동점자 처리 문제</summary>
-<div markdown="1">
-  
-  - PageRequest의 Sort부분에서 properties를 "rankPoint"를 주고 "likeCnt"를 줘서 댓글수보다 좋아요수가 우선순위 갖도록 설정.
-  - 좋아요 수도 똑같다면..........
-        
-</div>
-</details> 
-    
 </br>
+
 ## 11. 시연 영상
 <br>
 
