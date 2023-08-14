@@ -217,7 +217,6 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 <div markdown="1">
 <br>
 ![전체흐름](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/e6262c5b-821c-4f29-af34-01cd582a8dfd)
-
 </div>
 </details> 
 <br>
