@@ -870,7 +870,9 @@ public String main(Model model) {
 
 ## 9. 핵심 트러블 슈팅 
 
-### 9.1.  회원정보 출력문제
+<details>
+<summary><b>  9.1.  회원정보 출력문제  </b></summary>
+<div markdown="1">
 
 #### 1. 문제 상황
 
@@ -925,10 +927,16 @@ Spring은 편리한 프레임워크지만 이 편리함은 문제가 발생했�
 ▶ 에러메세지 구글링만으로는 프레임워크를 제대로 활용할 수 없으며, 이해를 바탕으로 적절한 해결 방법을 도출해야함 
 
 
+</div>
+</details>
+
+</br>
 
 <hr>
 
-### 9.2. Premature end of file 에러   
+<details>
+<summary><b> 9.2. Premature end of file 에러   </b></summary>
+<div markdown="1">
 
 ##### 문제 상황
 
@@ -1020,9 +1028,19 @@ xml 파일을 읽어들이는 과정에서 문제가 있으면 발생하는 오�
 
 → 만약 코딩이 많이 진행된 상태라면.... ?
 
+</div>
+</details>
+
+</br>
 
 
-### 9.3. 부적합한 열 유형 : 1111 에러   
+
+
+<details>
+<summary><b>  9.3. 부적합한 열 유형 : 1111 에러  </b></summary>
+<div markdown="1">
+	
+ 
 
 ##### 문제 상황
 
@@ -1112,6 +1130,12 @@ return this.projectMapper.getProject(String pro_cd) ;
 
 * 코드가 복잡해질 수록 '디버깅' 기능을 잘 다루는게 중요해짐 
 * 많은 연습 필요 
+
+</div>
+</details>
+
+</br>
+
 
 
 
