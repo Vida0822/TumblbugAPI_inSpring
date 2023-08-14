@@ -1282,9 +1282,11 @@ int examine(@Param("pro_cd") String pro_cd, @Param("searchCondition") String sea
 
 ## 11. 시연 영상
 <br>
+<img width="700" alt="검색하기" src="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/aa8c9f54-b0d2-4ce0-b325-2bbfb50f42df">
 <div style="position:relative;width:fit-content;height:fit-content;">
 <a style="position:absolute;top:20px;right:1rem;opacity:0.8;" href="https://clipchamp.com/watch/sT9uy08ILJa?utm_source=embed&utm_medium=embed&utm_campaign=watch">
-<img width="700" alt="검색하기" src="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/aa8c9f54-b0d2-4ce0-b325-2bbfb50f42df">
+영상보기<br>
+  👆
 </a>
 
 </div>
