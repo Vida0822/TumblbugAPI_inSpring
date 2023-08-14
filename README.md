@@ -212,9 +212,6 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 
 ## 6. 핵심 기능 코딩 
 
-
-![스프링프로젝트 구조설명 drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/8e99bd4e-e546-4874-a4cd-5ca807b00d00)
-
 <details>
 <summary><b>기존 프로젝트 흐름도</b></summary>
 <div markdown="1">
@@ -224,6 +221,18 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 </div>
 </details> 
 <br>
+
+<details>
+<summary><b>스프링 프로젝트 흐름도</b></summary>
+<div markdown="1"
+	
+![스프링프로젝트 구조설명 drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/8e99bd4e-e546-4874-a4cd-5ca807b00d00)
+
+</div>
+</details> 
+<br>
+
+
 
 #### 6.1. 프로젝트 조회하기 - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A1%B0%ED%9A%8C)" >상세보기 - WIKI 이동</a>
 
