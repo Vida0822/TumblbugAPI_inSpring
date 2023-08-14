@@ -212,7 +212,18 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 
 ## 6. 핵심 기능 코딩 
 
-+) 추가 예정: 스프링 프레임워크 동작 원리 비교 : 이전 jsp 프로젝트랑 ( 프로젝트 흐름도 ) 
+
+![spring프로젝트 구조설명 drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/43a9ff43-da46-4dc5-becb-3746551017fb)
+
+<details>
+<summary><b>기존 프로젝트 흐름도</b></summary>
+<div markdown="1">
+
+![전체흐름](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/e6262c5b-821c-4f29-af34-01cd582a8dfd)
+
+</div>
+</details> 
+<br>
 
 #### 6.1. 프로젝트 조회하기 - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A1%B0%ED%9A%8C)" >상세보기 - WIKI 이동</a>
 
