@@ -1279,4 +1279,6 @@ int examine(@Param("pro_cd") String pro_cd, @Param("searchCondition") String sea
 	
 ## 12. 회고 / 느낀점
 
-(기입 예정)
+> [극복, 그리고 성장](https://vida0822.github.io/memory/MR_Tumblbug_SpringProject/)
+
+> [쌍용에서의 잊지못할 6개월- 아직 헛헛하지만 잘지내볼게](https://blog.naver.com/sinhimin11/223174316267)
