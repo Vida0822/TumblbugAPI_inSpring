@@ -10,7 +10,7 @@
 
 ### 목차
 
-*7~12번은 제가 직접 구현한 부분만 작성하였습니다
+*기능코딩은 직접 구현한 부분만 작성
 
 1. [제작기간 & 참여인원](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#1-%EC%A0%9C%EC%9E%91-%EA%B8%B0%EA%B0%84--%EC%B0%B8%EC%97%AC-%EC%9D%B8%EC%9B%90)  <br>
 2. [사용 기술](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#2-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%88%A0)  <br>
