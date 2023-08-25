@@ -25,6 +25,9 @@
 11. [시연 영상](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#11-%EC%8B%9C%EC%97%B0-%EC%98%81%EC%83%81) <br>
 12. [프로젝트 회고](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#12-%ED%9A%8C%EA%B3%A0--%EB%8A%90%EB%82%80%EC%A0%90) <br>
 
+
+*기능코딩은 직접 구현한 부분만 작성
+
 </br></br>
 
 
