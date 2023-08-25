@@ -203,6 +203,9 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 
 ## 6. 핵심 기능 코딩 
 
+*직접 구현한 부분만 작성* 
+<br>
+
 <details>
 <summary><b>기존 프로젝트 흐름도</b></summary>
 <div markdown="1">
@@ -224,7 +227,7 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 </details> 
 <br>
 
-*직접 구현한 부분만 작성*
+
 
 #### 6.1. 프로젝트 조회하기 - <a href="https://github.com/Vida0822/Tumblbug_Spring-Security-Project/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A1%B0%ED%9A%8C)" >상세보기 - WIKI 이동</a>
 
@@ -266,9 +269,11 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 
 ## 7. Spring Security 적용
 
+*직접 구현한 부분만 작성* 
+<br>
+
 이 프로젝트의 핵심은 스프링 시큐리티를 적용한 기능들입니다.  
 
-*직접 구현한 부분만 작성*
 
 <details>
 <summary><b>의존 추가 - pom.xml </b></summary>
@@ -722,9 +727,10 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 
 ## 8. Spring Tiles 적용
 
- Spring Tiles를 활용하여 주요 페이지(메인 페이지, 검색 페이지, 상세 페이지)의 header와 footer를 한 jsp 페이지에서 작업해 삽입했습니다.
+*직접 구현한 부분만 작성* 
+<br>
 
- *직접 구현한 부분만 작성*
+ Spring Tiles를 활용하여 주요 페이지(메인 페이지, 검색 페이지, 상세 페이지)의 header와 footer를 한 jsp 페이지에서 작업해 삽입했습니다.
 
 <details>
 <summary><b>의존 추가: pom.xml</b></summary>
@@ -866,6 +872,7 @@ public String main(Model model) {
 ## 9. 핵심 트러블 슈팅 
 
 *직접 구현한 부분만 작성*
+<br>
 
 <details>
 <summary><b>  9.1.  회원정보 출력문제  </b></summary>
@@ -1138,6 +1145,8 @@ return this.projectMapper.getProject(String pro_cd) ;
 ## 10. 그 외 트러블 슈팅
 
 *직접 구현한 부분만 작성*
+<br>
+
 
 <details>
 <summary>이미지 슬라이드 이미지 개수 조회 못함 </summary>
