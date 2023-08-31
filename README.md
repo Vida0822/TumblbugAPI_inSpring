@@ -16,7 +16,7 @@
 3. [프로젝트 개요](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#3-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9A%94)<br>
 4. [요구분석 : User-Diagram](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#4-%EC%9A%94%EA%B5%AC%EB%B6%84%EC%84%9D--uml-diagram)  <br>
 5. [DB 변동사항](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#5-db-%EB%B3%80%EB%8F%99%EC%82%AC%ED%95%AD) <br>
-6. [핵심 기능 코딩](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#6-%ED%95%B5%EC%8B%AC-%EA%B8%B0%EB%8A%A5-%EC%BD%94%EB%94%A9)   <br>
+6. [핵심 기능 코딩](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#6-%ED%95%B5%EC%8B%AC-%EA%B8%B0%EB%8A%A5-%EC%BD%94%EB%94%A9) (*본인 담당 기능만 작성)  <br>
 7. [Spring Security 적용](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#7-spring-security-%EC%A0%81%EC%9A%A9)    <br>
 8. [Spring Tiles 적용](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#8-spring-tiles-%EC%A0%81%EC%9A%A9)  <br>
 9. [핵심 트러블 슈팅](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#9-%ED%95%B5%EC%8B%AC-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85)  <br>
