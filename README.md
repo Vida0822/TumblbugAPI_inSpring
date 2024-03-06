@@ -728,7 +728,6 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 
 ## 8. Spring Tiles 적용
 
-*직접 구현한 부분만 작성* 
 <br><br>
 
  Spring Tiles를 활용하여 주요 페이지(메인 페이지, 검색 페이지, 상세 페이지)의 header와 footer를 한 jsp 페이지에서 작업해 삽입했습니다.
@@ -872,7 +871,6 @@ public String main(Model model) {
 
 ## 9. 핵심 트러블 슈팅 
 
-*직접 구현한 부분만 작성*
 <br><br>
 
 <details>
@@ -1145,7 +1143,6 @@ return this.projectMapper.getProject(String pro_cd) ;
 
 ## 10. 그 외 트러블 슈팅
 
-*직접 구현한 부분만 작성*
 <br><br>
 
 
