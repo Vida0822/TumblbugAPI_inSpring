@@ -206,8 +206,6 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 
 
 ## 6. 핵심 기능 코딩 
-
-*직접 구현한 부분만 작성* 
 <br><br>
 
 <details>
@@ -273,7 +271,6 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 
 ## 7. Spring Security 적용
 
-*직접 구현한 부분만 작성* 
 <br><br>
 
 이 프로젝트의 핵심은 스프링 시큐리티를 적용한 기능들입니다.  
