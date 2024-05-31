@@ -222,7 +222,7 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 <div markdown="1">
 <br>
 	
-![그림1](https://github.com/Vida0822/TumblbugAPI_inSpring/assets/132312673/67cbcc5e-a495-427f-96e6-077e36bdc5d3)
+![image](https://github.com/Vida0822/TumblbugAPI_inSpring/assets/132312673/a6af0f85-e7a2-4068-ac1b-1d6332f32d09)
 
 </div>
 </details> 
