@@ -147,7 +147,8 @@
 
 **✔ 회원 테이블**
 
-1. 패스워드 암호화 위해 m_password 의 데이터값 길이 변경 필요 :  넉넉하게 varchar2(100)으로 수정
+1. 패스워드 암호화 위해 m_password 의 데이터값 길이 변경 필요
+:  넉넉하게 varchar2(100)으로 수정
 
 ```sql
 ALTER TABLE member MODIFY m_password VARCHAR2(100);
