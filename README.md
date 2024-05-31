@@ -222,7 +222,7 @@ INSERT INTO member_authorities VALUES ( 'hong@naver.com' , 'ROLE_ADMIN' );
 <div markdown="1">
 <br>
 	
-![스프링프로젝트 구조설명 drawio](https://github.com/Vida0822/Tumblbug_Spring-Security-Project/assets/132312673/8e99bd4e-e546-4874-a4cd-5ca807b00d00)
+![그림1](https://github.com/Vida0822/TumblbugAPI_inSpring/assets/132312673/67cbcc5e-a495-427f-96e6-077e36bdc5d3)
 
 </div>
 </details> 
