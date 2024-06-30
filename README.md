@@ -7,7 +7,6 @@
 
 <br>
 
-
 ### 목차
 
 1. [제작기간 & 참여인원](https://github.com/Vida0822/Tumblbug_Spring-Security-Project#1-%EC%A0%9C%EC%9E%91-%EA%B8%B0%EA%B0%84--%EC%B0%B8%EC%97%AC-%EC%9D%B8%EC%9B%90)  <br>
